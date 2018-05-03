@@ -10,7 +10,7 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>awe首页1111</title>
+  <title>awe首页</title>
   <meta name="keywords" content="awe"/>
   <meta name="description" content="awe"/>
   <meta name="viewport" content="width=device-width"/>
