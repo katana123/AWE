@@ -971,7 +971,6 @@ a.ui-button-sblue {
 }
 .ui-poptip-shadow {
 	background-color: rgba(229,169,107,.15);
-FILTER:progid:DXImageTransform.Microsoft.Gradient(startColorstr=#26e5a96b, endColorstr=#26e5a96b);
 	border-radius: 2px;
 	padding: 2px;
 	zoom: 1;
@@ -1122,7 +1121,6 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFE5CA', endCo
 }
 .ui-poptip-blue .ui-poptip-shadow {
 	background-color: rgba(0,0,0,.05);
-FILTER:progid:DXImageTransform.Microsoft.Gradient(startColorstr=#0c000000, endColorstr=#0c000000)
 }
 .ui-poptip-blue .ui-poptip-container {
 	background-color: #F8FCFF;
@@ -1157,7 +1155,6 @@ FILTER:progid:DXImageTransform.Microsoft.Gradient(startColorstr=#0c000000, endCo
 }
 .ui-poptip-white .ui-poptip-shadow {
 	background-color: rgba(0,0,0,.05);
-FILTER:progid:DXImageTransform.Microsoft.Gradient(startColorstr=#0c000000, endColorstr=#0c000000)
 }
 .ui-poptip-white .ui-poptip-container {
 	background-color: #fff;
@@ -1767,7 +1764,6 @@ body .fn-pa {
 	overflow: hidden;
 	vertical-align: top
 }
-}
 .ui-select-hover {
 	background-color: #f2f2f2
 }
@@ -1794,7 +1790,7 @@ body .fn-pa {
 	background-color: #f2f2f2
 }
 .ui-form-item-focus #J-pop-queryPwd, .ui-form-item-focus #J-pop-payPwd {
-y background-image:none;
+ 	background-image:none;
 	padding: 4px 10px
 }
 .pwdStrengthWrap {

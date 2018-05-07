@@ -5,6 +5,7 @@ import com.awe.Repositry.register.ccusersRepositry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 
@@ -13,8 +14,33 @@ public class CcusersService {
     @Autowired
     private ccusersRepositry ccusersRepositry;
 
+    @Transactional
+    public void updateEmailByCuid(String cemail,  Long cuid){
+        ccusersRepositry.updateEmailByCuid(cemail,cuid);
+    }
+
+    @Transactional(readOnly = true)
+    public CCusers findOne(Long cuid){
+        return ccusersRepositry.getByCuid(cuid);
+    }
+
+    @Transactional(readOnly = true)
+    public CCusers getByCusername(String cuserName){
+        return ccusersRepositry.getByCusername(cuserName);
+    }
+
     //注册
+    @Transactional
     public void register(CCusers cCusers){
+
+        if(cCusers.getCuid() == 0){
+            cCusers.setCemail("0");
+            cCusers.setCidc("0");
+            cCusers.setCright("0");
+        }else{
+            cCusers.setCidc("0");
+            cCusers.setCright("0");
+        }
         ccusersRepositry.saveAndFlush(cCusers);
     }
 }

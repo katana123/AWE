@@ -1,10 +1,13 @@
 package com.awe.Service.common;
 
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class MailService {
+@Component
+public class MailConfig {
     private static final String PROPERTIES_DEFAULT = "mailConfig.properties";
     public static String host;
     public static Integer port;
@@ -24,7 +27,7 @@ public class MailService {
     private static void init() {
         properties = new Properties();
         try{
-            InputStream inputStream = MailService.class.getClassLoader().getResourceAsStream(PROPERTIES_DEFAULT);
+            InputStream inputStream = MailConfig.class.getClassLoader().getResourceAsStream(PROPERTIES_DEFAULT);
             properties.load(inputStream);
             inputStream.close();
             host = properties.getProperty("mailHost");

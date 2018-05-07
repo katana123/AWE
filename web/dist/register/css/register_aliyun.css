@@ -34,7 +34,7 @@ a{
     left: 5px;
     width: 180px;
     height: 60px;
-    background: url(logo.png) no-repeat;
+    background: url(../img/logo.png) no-repeat;
 }
 	a {
     outline: none;

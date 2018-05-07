@@ -13,6 +13,14 @@
         <maven.complier.target>1.8</maven.complier.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.5.6</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <resources>
             <!--表示把java目录下的有关xml文件,properties文件编译/打包的时候放在resource目录下-->

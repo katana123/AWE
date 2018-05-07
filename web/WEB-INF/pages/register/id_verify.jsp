@@ -74,35 +74,7 @@
     color: #444446;">
                     <label style="margin-right: 16px">手机验证码验证</label>
                     账户 ${ccuser.cusername} 为确认是你本人操作，请完成以下验证
-
                 </div>
-
-                <style>
-                    .ui-input-checkcode-over{
-                        width:120px
-                    }
-
-                    .checkcode-warp .ui-button-over{
-                        left: 160px;
-                        background: #ffffff;
-                        border: 1px solid #199ed8;
-                        height: 100%;
-                        white-space: nowrap;
-                        padding: 0 5px;
-                        min-width: 168px;
-                        color: #199ed8;
-                        border-radius: 3px;
-                        top: 0px;
-                    }
-
-                    .checkcode-warp .ft-orange {
-                        color: #199ed8;
-                    }
-
-                    .checkcode-warp .ft-gray {
-                        color: #9a9a9a;
-                    }
-                </style>
                 <div class="ui-form-item">
                     <label class="ui-label">手机号码：</label>
                     <input  id="J_Phone" class="ui-input ui-input-checkcode-new ui-input-checkcode-over " type="text" maxlength="11" placeholder="手机号码" value="${ccuser.cupn}"/>
@@ -116,13 +88,9 @@
                     </div>
                     <div class="ui-form-explain"></div>
                 </div>
-                <style>
-                    .identityError{color:#FF5243;}
-                    .identityError .iconfont{color:#FF5243;}
-                </style>
                 <div class="ui-form-item">
                     <!--            <input type="submit" value=" 确定" class="ui-button ui-button-lorange">-->
-                    <a href="验证2.htm" class="ui-button ui-button-lorange">确定</a>
+                    <a href="${pageContext.request.contextPath }/modify_email/${ccuser.cuid}" class="ui-button ui-button-lorange">确定</a>
                 </div>
 
             </div>
