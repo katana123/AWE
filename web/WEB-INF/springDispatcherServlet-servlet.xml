@@ -14,7 +14,7 @@
     </context:component-scan>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/mainpage"></property>
+        <property name="prefix" value="/WEB-INF/pages"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
     <mvc:default-servlet-handler/>

@@ -17,6 +17,6 @@ public class RegisterHandler {
     @RequestMapping("/register")
     public String register(Map<String , Object> map){
         map.put("cCusers" , new CCusers());
-        return "/aaa";
+        return "/register/bbbb";
     }
 }
