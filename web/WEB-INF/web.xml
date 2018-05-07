@@ -11,7 +11,7 @@
     <!-- 配置spring的applicationContext.xml -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:applicationContext.xml</param-value>
+        <param-value>classpath*:applicationContext.xml</param-value>
     </context-param>
 
     <!-- 2. 配置字符编码过滤器，必须在所有的filter最前面 -->
