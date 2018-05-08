@@ -18,12 +18,12 @@
 <div class="header-fix">
     <div class="header">
         <div class="auto">
-            <div class="header-logo"> <a href="" class="logo"></a><span class="logo-title">修改安全邮箱</span> </div>
+            <div class="header-logo"><a href="" class="logo"></a><span class="logo-title">修改安全邮箱</span></div>
             <div class="header-nav">
                 <ul class="">
                     <li class="nav-1 header-nav-li"><a href="../学社首页/学社首页.htm">首&nbsp;&nbsp;页</a></li>
-                    <li class="nav-4 header-nav-li"><a href="">帮助中心</a> </li>
-                    <li class="nav-5 header-nav-li"><a href="">关于我们</a> </li>
+                    <li class="nav-4 header-nav-li"><a href="">帮助中心</a></li>
+                    <li class="nav-5 header-nav-li"><a href="">关于我们</a></li>
                 </ul>
             </div>
         </div>
@@ -31,7 +31,8 @@
 </div>
 <div class="content">
 
-    <div aria-hidden="false" class="next-dialog right next-overlay-inner animated zoomIn mobile-check-dialog" role="dialog" aria-labelledby="dialog-header-3" style="width: 880px;
+    <div aria-hidden="false" class="next-dialog right next-overlay-inner animated zoomIn mobile-check-dialog"
+         role="dialog" aria-labelledby="dialog-header-3" style="width: 880px;
     background-color: #efeff3; left: 160px; top: 139.5px;z-index: 10;    position: relative;">
         <div prefix="next-" id="dialog-header-3" class="next-dialog-header">恭喜绑定成功</div>
         <div prefix="next-" id="dialog-body-4" class="next-dialog-body">
@@ -39,7 +40,8 @@
                 <div class="next-form-item next-row" label="手机号:">
                     <label class="next-col-fixed-5 next-form-item-label tel"></label>
                     <div class="next-col-18 next-form-item-control">
-                        <p class="next-form-text-align">登录名：${ccuser.cusername}（您已成为AWE会员，欢迎进入AWE网站，你可以正常浏览网站及选择商品，谢谢！</p>
+                        <p class="next-form-text-align">
+                            登录名：${ccuser.cusername}（您已成为AWE会员，欢迎进入AWE网站，你可以正常浏览网站及选择商品，谢谢！</p>
 
 
                     </div>
@@ -87,7 +89,8 @@
                 <div class="next-form-item next-row" label="">
                     <label class="next-col-fixed-5 next-form-item-label"></label>
                     <div class="next-col-18 next-form-item-control">
-                        <a href="${pageContext.request.contextPath }/index.jsp" style="font-size:14px; font-weight:600;color: #5fbfd0"> >>返回AWE首页</a>
+                        <a href="${pageContext.request.contextPath }/index.jsp"
+                           style="font-size:14px; font-weight:600;color: #5fbfd0"> >>返回AWE首页</a>
                         <!--
                                   <a class="next-btn next-btn-primary next-btn-large">
                                   修改绑定邮箱

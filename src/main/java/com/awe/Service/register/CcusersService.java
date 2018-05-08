@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 
 public class CcusersService {
@@ -25,7 +27,7 @@ public class CcusersService {
     }
 
     @Transactional(readOnly = true)
-    public CCusers getByCusername(String cuserName){
+    public List<CCusers> getByCusername(String cuserName) {
         return ccusersRepositry.getByCusername(cuserName);
     }
 

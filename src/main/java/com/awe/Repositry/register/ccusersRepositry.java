@@ -7,12 +7,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 public interface ccusersRepositry extends JpaRepository<CCusers,Integer> {
 
     CCusers getByCuid(Long cuid);
 
-    CCusers getByCusername(String cuserName);
+    List<CCusers> getByCusername(String cuserName);
 
     @Transactional
     @Modifying(clearAutomatically = true)

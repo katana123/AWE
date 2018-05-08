@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -80,12 +81,12 @@ public class RegisterHandler {
     //验证用户名是否存在，存在返回1，不存在返回0
     @ResponseBody
     @RequestMapping(value = "/ajaxValidateCusername",method = RequestMethod.POST)
-    public String validateCusername(@RequestParam(value = "cuserName",required = true) String Cusername){
-        CCusers cCusers = ccusersService.getByCusername(Cusername);
-        if ( cCusers == null ) {
-            return "0";
+    public boolean validateCusername(@RequestParam(value = "nick", required = true) String Cusername) {
+        List<CCusers> cCusers = ccusersService.getByCusername(Cusername);
+        if (null == cCusers || cCusers.size() == 0) {
+            return true;
         } else {
-            return "1";
+            return false;
         }
     }
 
