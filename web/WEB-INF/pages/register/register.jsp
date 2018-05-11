@@ -28,7 +28,6 @@
     <script type="text/javascript">
 
         function validate_form(thisform) {
-            show_dialog();
             return false;
         }
 
@@ -58,6 +57,10 @@
         $(function () {
 
             $("#basic_info").validate({
+                submitHandler: function (form) {
+                    show_dialog();
+                    form.submit();
+                },
                 errorElement: 'div',
                 errorPlacement: function (error, element) {
                     error.addClass('tooltip tooltip-inner');
@@ -235,7 +238,8 @@
     </div>
 
 
-    <form class="form-list form-main-list" id="basic_info" onsubmit="return validate_form(this)" method="post">
+    <form class="form-list form-main-list" id="basic_info" action="" onsubmit="return validate_form(this)"
+          method="post">
 
         <div class="form-group account-set">
             <div class="form-item"><span class="form-label form-label-b form-label_title">账户设置</span> <span
@@ -291,7 +295,8 @@
 
             <div id="register_no_captcha" class="nc-container">
                 <div class="form-item form-item-short">
-                    <button type="submit" class="btn btn-large tsl" style="float: left;margin-left: 70px;">确认
+                    <button type="submit" class="btn btn-large tsl"
+                            style="float: left;margin-left: 70px;cursor: pointer;">确认
                     </button>
                 </div>
             </div>
