@@ -137,6 +137,7 @@
 .next-btn, .next-btn:active, .next-btn:focus {
     outline: 0;
 }
+
 .next-btn {
     position: relative;
     display: inline-block;
@@ -171,6 +172,14 @@ input {
     background-color: #3399ff;
     border-color: transparent;
 }
+
+.next-btn-primary:disabled {
+    border-style: solid;
+    background-color: #7f7f7f;
+    border-color: transparent;
+    cursor: not-allowed;
+}
+
 .mobile-check-dialog .next-form-item-explain .code-send-tip {
     font-size: 12px;
     color: #35b34a;

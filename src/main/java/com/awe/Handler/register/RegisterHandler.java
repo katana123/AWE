@@ -1,5 +1,6 @@
 package com.awe.Handler.register;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.awe.Entity.CCusers;
 import com.awe.Service.register.CcusersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +14,31 @@ import java.util.Map;
 import java.util.Random;
 
 import static com.awe.Util.common.MailUtil.sendMail;
+import static com.awe.Util.common.SmsUtil.sendMessage;
 
 @Controller
 public class RegisterHandler {
 
     @Autowired
     private CcusersService ccusersService;
+
+    //发送短信验证码
+    @ResponseBody
+    @RequestMapping(value = "/ajaxSendSmsVerify", method = RequestMethod.POST)
+    public String sendSmsVerify(@RequestParam(value = "phone", required = true) String phone) {
+        Random random = new Random();
+        String result = "";
+        for (int i = 0; i < 6; i++) {
+            result += random.nextInt(10);
+        }
+        try {
+            sendMessage(phone, result);
+            return result;
+        } catch (ClientException e) {
+            e.printStackTrace();
+            return "网络或程序错误！";
+        }
+    }
 
     @RequestMapping("/bound_success/{cuid}")
     public String boundSuccess(@PathVariable("cuid") Long cuid,Map<String, Object> map){
@@ -39,7 +59,7 @@ public class RegisterHandler {
     @RequestMapping(value = "/ajaxSendEmailVerify",method = RequestMethod.POST)
     public String sendEmailVerify(@RequestParam(value = "email",required = true) String email){
         Random random = new Random();
-        String result="";
+        String result = "您的邮箱验证码是：";
         for (int i=0;i<6;i++)
         {
             result+=random.nextInt(10);

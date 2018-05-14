@@ -27,8 +27,23 @@
 
     <script type="text/javascript">
 
-        function validate_form(thisform) {
-            return false;
+        var countdown = 5;
+
+        function settime(val) {
+            if (countdown == 0) {
+                val.removeAttribute("disabled");
+                val.innerHTML = "免费获取验证码";
+                countdown = 5;
+
+                return;
+            } else {
+                val.setAttribute("disabled", true);
+                val.innerHTML = "重新发送(" + countdown + ")";
+                countdown--;
+            }
+            setTimeout(function () {
+                settime(val)
+            }, 1000)
         }
 
         function show_dialog() {
@@ -56,10 +71,22 @@
 
         $(function () {
 
+            $("#sendmsg").click(function () {
+                settime(this);
+                var phone = $("#phone").val();
+                $.ajax({
+                    type: "POST",
+                    url: "${pageContext.request.contextPath }/ajaxSendSmsVerify",
+                    data: {phone: phone},
+                    success: function (result) {
+                        alert(result);
+                    }
+                })
+            });
+
             $("#basic_info").validate({
                 submitHandler: function (form) {
                     show_dialog();
-                    form.submit();
                 },
                 errorElement: 'div',
                 errorPlacement: function (error, element) {
@@ -178,7 +205,7 @@
 
 <div class="content"><span class="login-tip"> 如有帐号可直接登录， <a href="../登录/登录.html"> 立即登录 </a></span>
     <div class="next-dialog right next-overlay-inner animated zoomIn mobile-check-dialog"
-         style="width: 480px; left: 400px; top:180px;z-index: 100;      background-color: #fff;border:1px solid rgb(237, 233, 233); position: absolute; display:none;"
+         style="width: 480px; left: 400px; top:180px;z-index: 100;background-color: #fff;border:1px solid rgb(237, 233, 233); position: absolute; display:none;"
          id="dialog_up">
         <div prefix="next-" id="dialog-header-3" class="next-dialog-header">验证手机</div>
         <div prefix="next-" id="dialog-body-4" class="next-dialog-body">
@@ -214,8 +241,8 @@
                                 <div class="next-form-item next-row">
                                     <div class=" next-form-item-control">
                                         <button type="button" class="next-btn next-btn-primary next-btn-large"
-                                                disabled="">
-                                            重发(41 s)
+                                                id="sendmsg">
+                                            免费获取验证码
                                         </button>
                                         <div class=""></div>
                                     </div>
@@ -238,7 +265,7 @@
     </div>
 
 
-    <form class="form-list form-main-list" id="basic_info" action="" onsubmit="return validate_form(this)"
+    <form class="form-list form-main-list" id="basic_info" action=""
           method="post">
 
         <div class="form-group account-set">
