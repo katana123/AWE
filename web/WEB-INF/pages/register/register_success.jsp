@@ -12,11 +12,9 @@
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/register/css/register_aliyun.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/register/css/reg_check.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/register/css/drag.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/register/css/index.css">
 
     <script src="${pageContext.request.contextPath }/dist/register/js/jquery.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath }/dist/register/js/drag.js"></script>
 </head>
 <body>
 <div class="header-fix">

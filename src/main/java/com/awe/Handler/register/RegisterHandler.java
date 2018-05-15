@@ -1,5 +1,6 @@
 package com.awe.Handler.register;
 
+import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
 import com.aliyuncs.exceptions.ClientException;
 import com.awe.Entity.CCusers;
 import com.awe.Service.register.CcusersService;
@@ -15,6 +16,7 @@ import java.util.Random;
 
 import static com.awe.Util.common.MailUtil.sendMail;
 import static com.awe.Util.common.SmsUtil.sendMessage;
+import static com.awe.Util.common.SmsUtil.sendSms;
 
 @Controller
 public class RegisterHandler {
@@ -35,6 +37,9 @@ public class RegisterHandler {
             sendMessage(phone, result);
             return result;
         } catch (ClientException e) {
+            e.printStackTrace();
+            return "网络或程序错误！";
+        } catch (InterruptedException e) {
             e.printStackTrace();
             return "网络或程序错误！";
         }
@@ -59,14 +64,14 @@ public class RegisterHandler {
     @RequestMapping(value = "/ajaxSendEmailVerify",method = RequestMethod.POST)
     public String sendEmailVerify(@RequestParam(value = "email",required = true) String email){
         Random random = new Random();
-        String result = "您的邮箱验证码是：";
+        String result = "";
         for (int i=0;i<6;i++)
         {
             result+=random.nextInt(10);
         }
         String subject = "邮箱验证码";
         try {
-            sendMail(email,subject,result);
+            sendMail(email, subject, "您的邮箱验证码是：" + result);
             return result;
         } catch (MessagingException e) {
             e.printStackTrace();

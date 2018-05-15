@@ -27,13 +27,13 @@
 
     <script type="text/javascript">
 
-        var countdown = 5;
+        var countdown = 60;
 
         function settime(val) {
             if (countdown == 0) {
                 val.removeAttribute("disabled");
                 val.innerHTML = "免费获取验证码";
-                countdown = 5;
+                countdown = 60;
 
                 return;
             } else {
@@ -71,17 +71,56 @@
 
         $(function () {
 
+            $("#check_form").validate({
+                errorElement: 'div',
+                errorPlacement: function (error, element) {
+                    error.addClass('tooltip tooltip-inner');
+                    element.after(error);
+                    var pos = $.extend({}, element.offset(), {
+                            width: element.outerWidth()
+                            , height: element.outerHeight()
+                        }),
+                        actualWidth = error.outerWidth(),
+                        actualHeight = error.outerHeight();
+                    error.css({display: 'block', opacity: '0.8', top: -20});
+                },
+                highlight: function (element, errorClass) {
+                    //高亮显示
+                    $(element).addClass(errorClass);
+                    $(element).parents('li:first').children('label').addClass(errorClass);
+                },
+                unhighlight: function (element, errorClass) {
+                    $(element).removeClass(errorClass);
+                    $(element).parents('li:first').children('label').removeClass(errorClass);
+                },
+                excluded: [":disabled"],
+                ignore: [],
+                rules: {
+                    sms_code: {
+                        required: true,
+                        equalTo: "#checkcode"
+                    }
+                },
+                messages: {
+                    sms_code: {required: "请输入手机验证码", equalTo: "手机验证码有误"},
+                },
+                //提交表单后，（第一个）未通过验证的表单获得焦点
+                focusInvalid: true,
+                //当未通过验证的元素获得焦点时，移除错误提示
+                focusCleanup: false,
+            })
+
             $("#sendmsg").click(function () {
                 settime(this);
-                var phone = $("#phone").val();
+                var phone = $("#phone").text();
                 $.ajax({
                     type: "POST",
                     url: "${pageContext.request.contextPath }/ajaxSendSmsVerify",
                     data: {phone: phone},
                     success: function (result) {
-                        alert(result);
+                        $("#checkcode").val(result);
                     }
-                })
+                });
             });
 
             $("#basic_info").validate({
@@ -117,7 +156,7 @@
                         checkPwd: true,
                         remote: {                                          //验证用户名是否存在
                             type: "POST",
-                            url: "${pageContext.request.contextPath }/ajaxValidateCusername",             //servlet
+                            url: "${pageContext.request.contextPath }/ajaxValidateCusername",//servlet
                             data: {
                                 nick: function () {
                                     return $("#J_Nick").val();
@@ -141,7 +180,7 @@
                 //提交表单后，（第一个）未通过验证的表单获得焦点
                 focusInvalid: true,
                 //当未通过验证的元素获得焦点时，移除错误提示
-                focusCleanup: true,
+                focusCleanup: false,
             });
 
             $.validator.addMethod("checkPwd", function (value, element, params) {
@@ -209,7 +248,7 @@
          id="dialog_up">
         <div prefix="next-" id="dialog-header-3" class="next-dialog-header">验证手机</div>
         <div prefix="next-" id="dialog-body-4" class="next-dialog-body">
-            <form:form class="next-form next-form-left ver next-form-large"
+            <form:form class="next-form next-form-left ver next-form-large" id="check_form"
                        action="${pageContext.request.contextPath }/register_add" method="post" modelAttribute="ccuser">
                 <form:hidden path="cusername" id="cusername"/>
                 <form:hidden path="cpwd" id="cpwd"/>
@@ -229,7 +268,8 @@
                                 <div class="next-form-item next-row" style="margin-right: 10px;">
                                     <div class=" next-form-item-control"><span
                                             class="next-input next-input-single next-input-large" style="width: 160px;">
-                  <input type="text" data-meta="Field" id="code" placeholder="请输入校验码" value="" maxlength="6"
+                  <input type="text" name="sms_code" data-meta="Field" id="code" placeholder="请输入校验码" value=""
+                         maxlength="6"
                          height="100%">
                   </span>
                                         <div class="next-form-item-explain"><span
@@ -244,7 +284,7 @@
                                                 id="sendmsg">
                                             免费获取验证码
                                         </button>
-                                        <div class=""></div>
+                                        <input type="hidden" id="checkcode"/>
                                     </div>
                                 </div>
                             </div>

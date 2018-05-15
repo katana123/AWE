@@ -57,6 +57,13 @@ p {
     top: 0px;
 }
 
+.checkcode-warp .ui-button-over:disabled {
+    background: #7f7f7f !important;
+    cursor: not-allowed;
+    color: #ffffff;
+    border: none;
+}
+
 .checkcode-warp .ft-orange {
     color: #199ed8;
 }

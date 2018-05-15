@@ -15,6 +15,94 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/register/css/register_aliyun.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/register/css/reg_check.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/register/css/index.css">
+
+    <script type="text/javascript"
+            src="${pageContext.request.contextPath }/dist/common/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript"
+            src="${pageContext.request.contextPath }/dist/common/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/dist/common/js/messages_zh.min.js"></script>
+
+    <script type="text/javascript">
+
+        var countdown = 60;
+
+        function settime(val) {
+            if (countdown == 0) {
+                val.removeAttribute("disabled");
+                val.innerHTML = "免费获取验证码";
+                countdown = 60;
+
+                return;
+            } else {
+                val.setAttribute("disabled", true);
+                val.innerHTML = "重新发送(" + countdown + ")";
+                countdown--;
+            }
+            setTimeout(function () {
+                settime(val)
+            }, 1000)
+        }
+
+        $(function () {
+
+            $("#check_form").validate({
+                submitHandler: function (form) {
+                    window.location = "${pageContext.request.contextPath }/modify_email/${ccuser.cuid}";
+                },
+                errorElement: 'div',
+                errorPlacement: function (error, element) {
+                    error.addClass('tooltip tooltip-inner');
+                    element.after(error);
+                    var pos = $.extend({}, element.offset(), {
+                            width: element.outerWidth()
+                            , height: element.outerHeight()
+                        }),
+                        actualWidth = error.outerWidth(),
+                        actualHeight = error.outerHeight();
+                    error.css({display: 'block', opacity: '0.8', top: -20});
+                },
+                highlight: function (element, errorClass) {
+                    //高亮显示
+                    $(element).addClass(errorClass);
+                    $(element).parents('li:first').children('label').addClass(errorClass);
+                },
+                unhighlight: function (element, errorClass) {
+                    $(element).removeClass(errorClass);
+                    $(element).parents('li:first').children('label').removeClass(errorClass);
+                },
+                excluded: [":disabled"],
+                ignore: [],
+                rules: {
+                    J_Phone_Checkcode: {
+                        required: true,
+                        equalTo: "#checkcode"
+                    }
+                },
+                messages: {
+                    J_Phone_Checkcode: {required: "请输入手机验证码", equalTo: "手机验证码有误"},
+                },
+                //提交表单后，（第一个）未通过验证的表单获得焦点
+                focusInvalid: true,
+                //当未通过验证的元素获得焦点时，移除错误提示
+                focusCleanup: false,
+
+
+            })
+
+            $("#J_GetCode").click(function () {
+                settime(this);
+                var phone = $("#J_Phone").val();
+                $.ajax({
+                    type: "POST",
+                    url: "${pageContext.request.contextPath }/ajaxSendSmsVerify",
+                    data: {phone: phone},
+                    success: function (result) {
+                        $("#checkcode").val(result);
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body class="aliyun ">
@@ -70,7 +158,7 @@
                             class="ui-step-text">完成</span></div>
                 </li>
             </ol>
-            <div class="maincenter-box">
+            <form id="check_form" class="maincenter-box" action="" method="post">
                 <div style="width: 80%;margin:20px auto;font-size: 14px;    font-weight: bold;
     color: #444446;">
                     <label style="margin-right: 16px">手机验证码验证</label>
@@ -88,19 +176,18 @@
                         <input name="J_Phone_Checkcode" id="J_Phone_Checkcode"
                                class="ui-input ui-input-checkcode-new ui-input-checkcode-over " type="text"
                                maxlength="6" placeholder="6位数字" data-widget-cid="widget-1" data-explain="">
+                        <input type="hidden" id="checkcode"/>
                         <button id="J_GetCode" class="getcheckcode ui-button-over ft-orange" type="button"
-                                data-widget-cid="widget-2">获取短信校验码
+                        >获取短信校验码
                         </button>
                     </div>
                     <div class="ui-form-explain"></div>
                 </div>
                 <div class="ui-form-item">
-                    <!--            <input type="submit" value=" 确定" class="ui-button ui-button-lorange">-->
-                    <a href="${pageContext.request.contextPath }/modify_email/${ccuser.cuid}"
-                       class="ui-button ui-button-lorange">确定</a>
+                    <button type="submit" class="ui-button ui-button-lorange">确定</button>
                 </div>
 
-            </div>
+            </form>
             <div class="bottom-tips">
                 <div class="bottom-tips-title">没收到短信验证码？</div>
                 <ul class="ui-list ui-list-nosquare">

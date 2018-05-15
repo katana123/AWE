@@ -157,6 +157,14 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endCo
 	height: auto;
 	line-height: auto
 }
+
+.ui-button:disabled {
+	color: #ffffff;
+	border-style: solid;
+	background-color: #7f7f7f;
+	border-color: transparent;
+	cursor: not-allowed;
+}
 .ui-button:hover {
 	text-decoration: none;
 	background-image: none
@@ -2447,6 +2455,7 @@ a.ui-dialog-button-orange:hover, a.ui-dialog-button-white:hover {
 	border: 0;
 	cursor: pointer
 }
+
 .xiaomi {
 	position: fixed;
 	top: 30%;
