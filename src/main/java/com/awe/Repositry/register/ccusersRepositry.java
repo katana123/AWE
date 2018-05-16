@@ -20,4 +20,6 @@ public interface ccusersRepositry extends JpaRepository<CCusers,Integer> {
     @Modifying(clearAutomatically = true)
     @Query(value = "update c_cusers u set u.cemail =?1 where u.cuid = ?2",nativeQuery = true)
     int updateEmailByCuid( String cemail,  Long cuid);
+
+    List<CCusers> getByCusernameAndCpwd(String cuserName, String cPwd);
 }

@@ -16,6 +16,13 @@ public class CcusersService {
     @Autowired
     private ccusersRepositry ccusersRepositry;
 
+    @Transactional(readOnly = true)
+    public List<CCusers> getByCusernameAndCpwd(String cuserName, String cPwd) {
+        return ccusersRepositry.getByCusernameAndCpwd(cuserName, cPwd);
+    }
+
+    ;
+
     @Transactional
     public void updateEmailByCuid(String cemail,  Long cuid){
         ccusersRepositry.updateEmailByCuid(cemail,cuid);

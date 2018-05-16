@@ -85,7 +85,7 @@
       <div class="g-btn-search"><i class="fa fa-search"></i></div>
     </div>
     <ul class="g-login">
-      <li><a href=""> 登录</a>|</li>
+        <li><a href="login"> 登录</a>|</li>
       <li><a href="register"> 注册</a>|</li>
       <li><a href=""> 社区</a></li>
       <ul>
