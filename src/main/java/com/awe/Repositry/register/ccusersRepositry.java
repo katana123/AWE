@@ -22,4 +22,6 @@ public interface ccusersRepositry extends JpaRepository<CCusers,Integer> {
     int updateEmailByCuid( String cemail,  Long cuid);
 
     List<CCusers> getByCusernameAndCpwd(String cuserName, String cPwd);
+
+    CCusers getByCupn(String cupn);
 }

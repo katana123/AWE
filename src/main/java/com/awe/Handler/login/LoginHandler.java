@@ -1,5 +1,6 @@
 package com.awe.Handler.login;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.awe.Entity.CCusers;
 import com.awe.Service.register.CcusersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+
+import static com.awe.Util.common.SmsUtil.sendMessage;
 
 @Controller
 public class LoginHandler {
@@ -21,8 +25,32 @@ public class LoginHandler {
     @RequestMapping("/loginSccuess")
     public String loginSccuess(Map<String, Object> map) {
         map.put("ccuser", new CCusers());
-        System.out.println(111111);
         return "redirect:/index.jsp";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/ajaxValidatePhone", method = RequestMethod.POST)
+    public String validatePhone(@RequestParam(value = "phone", required = true) String Phone) {
+        CCusers cCusers = ccusersService.getByCupn(Phone);
+        if (null == cCusers) {
+            return "0";//用户不存在
+        } else {
+            Random random = new Random();
+            String result = "";
+            for (int i = 0; i < 6; i++) {
+                result += random.nextInt(10);
+            }
+            try {
+                sendMessage(Phone, result);
+                return result;
+            } catch (ClientException e) {
+                e.printStackTrace();
+                return "-1";//网络或程序错误
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return "-1";//网络或程序错误
+            }
+        }
     }
 
     @ResponseBody

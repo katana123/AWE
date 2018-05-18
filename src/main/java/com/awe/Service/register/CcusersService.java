@@ -16,6 +16,10 @@ public class CcusersService {
     @Autowired
     private ccusersRepositry ccusersRepositry;
 
+    public CCusers getByCupn(String cupn) {
+        return ccusersRepositry.getByCupn(cupn);
+    }
+
     @Transactional(readOnly = true)
     public List<CCusers> getByCusernameAndCpwd(String cuserName, String cPwd) {
         return ccusersRepositry.getByCusernameAndCpwd(cuserName, cPwd);
