@@ -24,6 +24,7 @@ public class LoginHandler {
 
     @RequestMapping("/loginSccuess")
     public String loginSccuess(Map<String, Object> map) {
+        System.out.println(22222);
         map.put("ccuser", new CCusers());
         return "redirect:/index.jsp";
     }

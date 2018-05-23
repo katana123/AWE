@@ -56,11 +56,12 @@
         $(function () {
             $("#uname_pwd_login").validate({
                 submitHandler: function (form) {
-                    var phone = $("#cusername").val();
+                    var cusername = $("#cusername").val();
+                    var cpwd = $("#cpwd").val();
                     $.ajax({
                         type: "POST",
                         url: "${pageContext.request.contextPath }/ajaxValidateUnamePwd",
-                        data: {phone: phone},
+                        data: {cusername: cusername, cpwd: cpwd},
                         async: false,
                         success: function (result) {
                             if (result == "0") {
@@ -71,6 +72,7 @@
                                 return false;
                             } else if (result == "2") {
                                 form.submit();
+                                alert(2);
                             }
                         }
                     });
