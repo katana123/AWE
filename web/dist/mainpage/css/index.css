@@ -140,7 +140,7 @@
 .m-corporation{
 	background-color: #5a5e69;
 	height: 120px;
-	line-height: 120px;
+    line-height: 60px;
 	text-align: center;
 	color:#fff;
 }

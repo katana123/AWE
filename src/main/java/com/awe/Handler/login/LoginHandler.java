@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -24,7 +26,7 @@ public class LoginHandler {
 
     @RequestMapping("/loginSccuess")
     public String loginSccuess(Map<String, Object> map) {
-        System.out.println(22222);
+
         map.put("ccuser", new CCusers());
         return "redirect:/index.jsp";
     }
@@ -57,7 +59,8 @@ public class LoginHandler {
     @ResponseBody
     @RequestMapping(value = "/ajaxValidateUnamePwd", method = RequestMethod.POST)
     public String validateUnamePwd(@RequestParam(value = "cusername", required = true) String Cusername,
-                                   @RequestParam(value = "cpwd", required = true) String Cpwd) {
+                                   @RequestParam(value = "cpwd", required = true) String Cpwd,
+                                   HttpServletResponse response) {
         List<CCusers> cCusers = ccusersService.getByCusername(Cusername);
         if (null == cCusers || cCusers.size() == 0) {
             return "0";//用户不存在
@@ -66,6 +69,9 @@ public class LoginHandler {
             if (null == cCusers2 || cCusers2.size() == 0) {
                 return "1";//密码错误
             } else {
+                Cookie cookie = new Cookie("userlogin", Cusername);//将登录信息加入cookie中
+                cookie.setMaxAge(60 * 60 * 24 * 3); //设置cookie最大失效时间<br> cookie1.setMaxAge(60*60*24*3);
+                response.addCookie(cookie);
                 return "2";//登录成功
             }
         }
