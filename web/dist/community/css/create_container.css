@@ -9,7 +9,7 @@ body {
     width: 100%;
 }
 .container{
-/*	min-height: 650px;*/
+    min-height: 650px;
 }
 .container-title {
     width: 100%;
@@ -36,7 +36,7 @@ body {
     margin: 0 auto;
 }
 .cont-l {
-    width: 800px;
+    width: 678px;
     float: left;
     display: inline;
 }
@@ -55,13 +55,10 @@ body {
 }
 .create_league .create-form .create-form-item {
     margin-left: 102px;
-	    margin-top: 20px;
-	
 }
 .create_league .create-form .create-form-item .name {
-    margin-left: -120px;
-	color: #47c8fb;
-    width: 120px;
+    margin-left: -102px;
+    width: 86px;
     padding: 0;
 }
 .create-form .create-form-item .name {
@@ -160,16 +157,14 @@ height: 26px;
     position: absolute;
     top: 0;
     left: 0;
-/*    z-index: -1;*/
-	    z-index: 1;
+    z-index: -1;
     width: 160px;
     height: 36px;
     line-height: 36px;
     text-align: center;
     border: 1px solid #e2e2e2;
-   border-radius: 20px;
-    color: #fff;
-    background: #47c8fb;
+    border-radius: 4px;
+    color: #169BD5;
     cursor: pointer;
 }
 .create-form .create-form-item .create-form-con .tag .tag-a{float:left;width:16.666666667%;}
@@ -211,7 +206,7 @@ a {
     text-decoration: none;
 }
 .btn-blue{
-    background-color: #47c8fb !important;
+    background-color: #169BD5 !important;
     color:#fff;
 }
 .btn{
@@ -244,126 +239,4 @@ a {
 .btn-blue:hover{
 color:#fff;
     background-color:#1093cc;
-}
-.ui-step {
-	padding: 0 60px;
-	margin: 0 auto;
-	font-size: 14px;
-	list-style: none;
-	zoom: 1;
-	position: relative;
-	color: #b7b7b7;
-	overflow: hidden
-}
-.ui-step:after {
-	clear: both;
-	content: " ";
-	display: block;
-	font-size: 0;
-	height: 0;
-	visibility: hidden
-}
-.ui-step li {
-	float: left;
-	height: 54px;
-	margin: 0;
-	width: 50%;
-	position: relative
-}
-.ui-step li .ui-step-icon {
-	height: 50px;
-	position: absolute;
-	top: 0;
-	width: 150px;
-	text-align: center;
-	left: -25px;
-	font-family: tahoma
-}
-.ui-step-icon .iconfont {
-	font-size: 30px;
-	margin: 0;
-	color: #b7b7b7;
-	color: rgba(0,0,0,.25);
-*color:#b7b7b7;
-	line-height: 30px;
-	background: #fff;
-	padding: 0 10px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	text-shadow: 1px 1px 2px #fff, 0 0 0 #ccc, 1px 1px 2px #fff
-}
-.ui-step-icon .ui-step-number {
-	line-height: 14px;
-	font-style: normal;
-	position: absolute;
-	top: 7px;
-	left: 0;
-	padding: 0 20px;
-	font-weight: 700;
-	color: #fff
-}
-.ui-step .ui-step-active i.ui-step-number {
-	color: #FFF
-}
-.ui-step-end .ui-step-number {
-	background: transparent;
-	font-size: 12px;
-	font-style: normal;
-	left: 17px;
-	line-height: 12px;
-	padding: 0;
-	text-shadow: none;
-	top: 9px
-}
-.ui-step-icon .ui-step-text {
-	height: 20px;
-	line-height: 20px;
-	position: relative;
-	text-shadow: 0 1px 0 #fff;
-	top: 34px;
-	left: -50px
-}
-.ui-step li .ui-step-line {
-	    height: 2px;
-    background: #ffffff;
-    border-bottom: 2px dashed #456;
-    display: block;
-    margin-top: 22px;
-    margin-left: 40px;
-	margin-right: 40px;
-    line-height: 1;
-    overflow: hidden;
-}
-.ui-step li.ui-step-end {
-	position: absolute;
-	top: 0;
-	right: -70px;
-	width: 150px;
-	zoom: 1;
-	_clear: both
-}
-.ui-step li.ui-step-end .ui-step-line {
-	display: none
-}
-.ui-step-2 li {
-	width: 100%
-}
-.ui-step-3 li {
-	width: 50%
-}
-.ui-step-4 li {
-	width: 33%
-}
-.ui-step .ui-step-active {
-	 color: #199ed8;
-}
-.ui-step .ui-step-active .iconfont {
-	color: #199ed8;
-}
-.ui-step .ui-step-done .iconfont {
-	color: #199ed8;
-}
-.ui-step .ui-step-done .ui-step-line {
-	color: #199ed8;
 }

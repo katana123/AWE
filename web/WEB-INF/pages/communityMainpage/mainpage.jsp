@@ -1,220 +1,136 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>AWE社区首页</title>
-    <meta name="keywords" content="AWE学社">
-    <meta name="description" content="AWE学社">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="${pageContext.request.contextPath }/dist/communityMainpage/images/favoriteIcon.png" type="imagex-icon"
-          rel="shortcut icon">
+<jsp:include page="comheader.jsp"></jsp:include>
+<style type="text/css">
+    .navigator-nav li.current a {
+        border: 1px solid #0099CC;
+        border-radius: 3px;
+        color: #0099CC;
+    }
 
-    <!--<script src="libs/jquery.min.js" type="text/javascript" charset="utf-8"></script>-->
+    .navigator-nav1 li a {
+        font-size: 16px;
+        font-weight: bold;
+    }
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityMainpage/files_com/base.min.css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath }/dist/communityMainpage/files_com/main_community.css"
-          type="text/css">
+    .navigator-nav1 li {
+        float: left;
+        width: 180px;
+        height: 30px;
+        line-height: 30px;
+    }
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityMainpage/css/reset.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityMainpage/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityMainpage/css/head.css"/>
-    <!--图片轮滑-->
-    <link href="${pageContext.request.contextPath }/dist/communityMainpage/css/poposlides.css" rel="stylesheet">
-    <script src="${pageContext.request.contextPath }/dist/communityMainpage/libs/jquery-1.8.3.min.js"></script>
-    <script src="${pageContext.request.contextPath }/dist/communityMainpage/libs/poposlides.js"></script>
+    .top-right-radius {
+        border-top-right-radius: 2em;
+    }
 
-    <!--图片轮滑-->
-    <style type="text/css">
-        .navigator-nav li.current a {
-            border: 1px solid #0099CC;
-            border-radius: 3px;
-            color: #0099CC;
-        }
+    .tab-header > ul {
+        padding: 10px 0px;
+        margin: 0;
+        list-style-type: none;
+    }
 
-        .navigator-nav1 li a {
-            font-size: 16px;
-            font-weight: bold;
-        }
+    .tab-header > ul > li {
+        float: left;
+        padding: 0px 10px;
+    }
 
-        .navigator-nav1 li {
-            float: left;
-            width: 180px;
-            height: 30px;
-            line-height: 30px;
-        }
+    .tab-header > ul > li.active > a {
+        background-color: #fff;
+    }
 
-        .top-right-radius {
-            border-top-right-radius: 2em;
-        }
+    .tab-header > ul > li > a {
+        display: block;
+        padding: 15px 62px;
+        color: #fff;
+        transition: all .3s ease;
+    }
 
-        .tab-header > ul {
-            padding: 10px 0px;
-            margin: 0;
-            list-style-type: none;
-        }
+    .tab-header_bg1 {
+        background-color: #4b4a5d
+    }
 
-        .tab-header > ul > li {
-            float: left;
-            padding: 0px 10px;
-        }
+    .tab-header_bg2 {
+        background-color: #615f79
+    }
 
-        .tab-header > ul > li.active > a {
-            background-color: #fff;
-        }
+    .tab-header_bg3 {
+        background-color: #7c799c
+    }
 
-        .tab-header > ul > li > a {
-            display: block;
-            padding: 15px 62px;
-            color: #fff;
-            transition: all .3s ease;
-        }
+    .tab-header_bg4 {
+        background-color: #89b7d2
+    }
 
-        .tab-header_bg1 {
-            background-color: #4b4a5d
-        }
+    .tab-header_bg5 {
+        background-color: #6d6b85
+    }
 
-        .tab-header_bg2 {
-            background-color: #615f79
-        }
+    .tab-header_bg6 {
+        background-color: #c1dee2
+    }
 
-        .tab-header_bg3 {
-            background-color: #7c799c
-        }
+    .tab-header_bg7 {
+        background-color: #adcee1
+    }
 
-        .tab-header_bg4 {
-            background-color: #89b7d2
-        }
+    .tab-header_bg8 {
+        background-color: #5b7fab
+    }
 
-        .tab-header_bg5 {
-            background-color: #6d6b85
-        }
+    .tab-header_bg9 {
+        background-color: #6d6b85
+    }
 
-        .tab-header_bg6 {
-            background-color: #c1dee2
-        }
+    .tab-header_bg10 {
+        background-color: #77b1d2
+    }
 
-        .tab-header_bg7 {
-            background-color: #adcee1
-        }
+    .tab-header_bg11 {
+        background-color: #759ccb
+    }
 
-        .tab-header_bg8 {
-            background-color: #5b7fab
-        }
+    .tab-header_bg12 {
+        background-color: #406087
+    }
 
-        .tab-header_bg9 {
-            background-color: #6d6b85
-        }
+    .hotmember-interview .clearfix {
+        padding-bottom: 30px;
+    }
 
-        .tab-header_bg10 {
-            background-color: #77b1d2
-        }
+    .show_div {
+        display: block;
+    }
 
-        .tab-header_bg11 {
-            background-color: #759ccb
-        }
+    .hidden_div {
+        display: none;
+    }
 
-        .tab-header_bg12 {
-            background-color: #406087
-        }
+    .container-title {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eaeaea;
+    }
 
-        .hotmember-interview .clearfix {
-            padding-bottom: 30px;
-        }
+    .section-title {
+        margin: 0 auto;
+        text-align: center;
+        font-size: 24px;
+        color: #4b4b4b;
+        font-weight: 400;
+    }
 
-        .show_div {
-            display: block;
-        }
+    .container-title p {
+        margin-top: 16px;
+        text-align: center;
+        width: 190px;
+        padding: 3px 0px;
+        margin: 0px auto;
+        font-size: 15px;
+        color: #999;
+    }
 
-        .hidden_div {
-            display: none;
-        }
-
-        .container-title {
-            width: 100%;
-            margin: 0 auto;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eaeaea;
-        }
-
-        .section-title {
-            margin: 0 auto;
-            text-align: center;
-            font-size: 24px;
-            color: #4b4b4b;
-            font-weight: 400;
-        }
-
-        .container-title p {
-            margin-top: 16px;
-            text-align: center;
-            width: 190px;
-            padding: 3px 0px;
-            margin: 0px auto;
-            font-size: 15px;
-            color: #999;
-        }
-
-    </style>
-</head>
-
-<body>
-<div class="g-head">
-    <div class="header_top">
-        <div class="g-search f-cb"><a class="g-logo" href="index" style="float:left;"><img
-                src="${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/logo.png"></a>
-
-            <ul class="g-login" style="float:right">
-                <li><a href="" class="nav1">首页</a></li>
-                <li class="g-act"><a href="login">登录</a></li>
-                <li>
-                    <select class="g-select" name="">
-                        <option value="">小李飞刀</option>
-                        <option value="">公司头条</option>
-                    </select>
-                </li>
-                <li><a href="#"> 退出</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div class="header_wrap">
-
-    <div class="header">
-        <ul class="main_nav hide_search_box" id="hideSearchBox">
-            <li class="home icons active"><a href="#" title="学社首页">
-                <!--            <i class="fa fa-home"></i>-->
-                <em>首页</em></a></li>
-            <li class="my_league icons "><a href="#" id="myleague" rel="nofollow" title="我的学社">
-                <!--            <i class="fa fa-user"></i>-->
-                <em>学社总汇</em></a></li>
-            <li class="league_nav icons"><a href="#" title="发现学社">
-                <!--            <i class="fa fa-eye"></i>-->
-                <em>共同学习</em></a></li>
-            <li class="article_mall icons "><a href="#" title="商城">
-                <!--            <i class="fa fa-shopping-bag"></i>-->
-                <em>学有所乐</em></a></li>
-            <li class="icons more_functions "><a href="#" title="一元购" rel="nofollow">
-                <!--            <i class="fa fa-bullseye"></i>-->
-                <em>商城</em></a></li>
-            <li class="search_league" style=" overflow: hidden;"></li>
-        </ul>
-    </div>
-</div>
-
-<!-- banner start-->
-
-<div class="slides-box">
-    <ul class="slides">
-        <li style="background: url('${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/banner.png') center"></li>
-        <li style="background: url('${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/banner.png') center"></li>
-        <li style="background: url('${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/banner.png') center"></li>
-    </ul>
-</div>
-
-<!-- banner end-->
+</style>
 
 <div id="pageContent" style="min-width:1140px;">
 
@@ -1105,7 +1021,7 @@
 
                     </div>
                     <div class="blue_border">课程数：15|好评度：98%|学生数：1.2万人</div>
-                    <div class="create_new_league"><a href="../AWE社区/01创建学社—1/创建学社.html" onClick="SendEvent(46,1166,{})"
+                    <div class="create_new_league"><a href="communityCreate" onClick="SendEvent(46,1166,{})"
                                                       class="btn btn-green">创建学社</a><span
                             class="create_desc">想拥有自己的学社？</span></div>
                     <script>
@@ -1234,30 +1150,4 @@
         </div>
     </div>
 </div>
-<link rel="stylesheet" type="text/css" href="./files_com/footer.css">
-<div class="footer ">
-    <div>
-        <!-- <a href="/rd/" style="color:#fff;position:absolute;width:60px;margin:33px 0 0 -34%;">开发团队</a> -->
-        <div id="footer-ft" class="hui-footer">
-            <div class="hui-footer-ft">
-
-                <p class="copyright"><span>Copyright © 2016 AWE All Rights Reserved.ICP认证：xxxxxxxxxxxxxx&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                </p>
-            </div>
-        </div>
-        <div class="footer_go_top">
-            <ul>
-                <li><a href="javascript:;" class="news_btn"></a> <span class="news_dotted"
-                                                                       style="display: none;"></span></li>
-                <li><a href="#pageContent" class="go_top" style="display: none;"><i></i><span class="hide_text">返回<br>
-          顶部</span></a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<script>
-    $(".slides").poposlides();
-</script>
-<script src="./files_com/fixedtop1.js" type="text/javascript"></script>
-</body>
-</html>
+<jsp:include page="comfooter.jsp"></jsp:include>

@@ -10,4 +10,9 @@ public class CommunityHandler {
     public String CommunityMainpage() {
         return "/communityMainpage/mainpage";
     }
+
+    @RequestMapping("/communityCreate")
+    public String CommunityCreate() {
+        return "/communityCreate/setup";
+    }
 }
