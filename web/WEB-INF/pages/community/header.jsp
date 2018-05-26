@@ -71,7 +71,8 @@
 <div class="g-head">
     <div class="header_top">
         <div class="g-search f-cb" >
-            <a class="g-logo" href="" style="float:left;"><img src="images/logo.png"></a>
+            <a class="g-logo" href="" style="float:left;"><img
+                    src="${pageContext.request.contextPath }/dist/community/images/logo.png"></a>
             <!-- 	<h1><a href="/" class="logo" onclick="">AWE社团</a></h1>
                 <div class="g-hd2" style="width:300px; float:left;">
                 <ul class="g-login">
