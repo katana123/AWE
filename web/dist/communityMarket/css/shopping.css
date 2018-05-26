@@ -1,0 +1,44 @@
+.xn-mid {
+    width: 1280px;
+    height: 360px;
+    background-image: -webkit-linear-gradient(to bottom, #e3e3e2, #f5f4f2);
+    background-image: linear-gradient(to bottom, #e3e3e2, #f5f4f2);
+    margin: 0 auto;
+
+}
+
+.good-list {
+    width: 1280px;
+}
+
+.good-xq {
+    width: 25%;
+    float: left;
+}
+
+.xn-bottom {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.xn-bottom .xn-title {
+    height: 50px;
+    background-image: -webkit-linear-gradient(to bottom, #aaa5a3, #f2f2f6);
+    background-image: linear-gradient(to bottom, #aaa5a3, #f2f2f6);
+}
+
+.xn-bottom .xn-title ul {
+    margin-left: 50px;
+}
+
+.xn-bottom .xn-title ul li {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.xn-bottom .xn-title ul li.active {
+    border-bottom: 3px solid #db8039;
+}

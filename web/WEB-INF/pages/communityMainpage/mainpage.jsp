@@ -1,136 +1,215 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="comheader.jsp"></jsp:include>
-<style type="text/css">
-    .navigator-nav li.current a {
-        border: 1px solid #0099CC;
-        border-radius: 3px;
-        color: #0099CC;
-    }
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>AWE社区首页</title>
+    <meta name="keywords" content="AWE学社">
+    <meta name="description" content="AWE学社">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="${pageContext.request.contextPath }/dist/communityMainpage/images/favoriteIcon.png" type="imagex-icon"
+          rel="shortcut icon">
 
-    .navigator-nav1 li a {
-        font-size: 16px;
-        font-weight: bold;
-    }
+    <!--<script src="libs/jquery.min.js" type="text/javascript" charset="utf-8"></script>-->
 
-    .navigator-nav1 li {
-        float: left;
-        width: 180px;
-        height: 30px;
-        line-height: 30px;
-    }
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityMainpage/files_com/base.min.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath }/dist/communityMainpage/files_com/main_community.css"
+          type="text/css">
 
-    .top-right-radius {
-        border-top-right-radius: 2em;
-    }
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityMainpage/css/reset.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityMainpage/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityMainpage/css/head.css"/>
+    <!--图片轮滑-->
+    <link href="${pageContext.request.contextPath }/dist/communityMainpage/css/poposlides.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath }/dist/communityMainpage/libs/jquery-1.8.3.min.js"></script>
+    <script src="${pageContext.request.contextPath }/dist/communityMainpage/libs/poposlides.js"></script>
 
-    .tab-header > ul {
-        padding: 10px 0px;
-        margin: 0;
-        list-style-type: none;
-    }
+    <!--图片轮滑-->
+    <style type="text/css">
+        .navigator-nav li.current a {
+            border: 1px solid #0099CC;
+            border-radius: 3px;
+            color: #0099CC;
+        }
 
-    .tab-header > ul > li {
-        float: left;
-        padding: 0px 10px;
-    }
+        .navigator-nav1 li a {
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-    .tab-header > ul > li.active > a {
-        background-color: #fff;
-    }
+        .navigator-nav1 li {
+            float: left;
+            width: 180px;
+            height: 30px;
+            line-height: 30px;
+        }
 
-    .tab-header > ul > li > a {
-        display: block;
-        padding: 15px 62px;
-        color: #fff;
-        transition: all .3s ease;
-    }
+        .top-right-radius {
+            border-top-right-radius: 2em;
+        }
 
-    .tab-header_bg1 {
-        background-color: #4b4a5d
-    }
+        .tab-header > ul {
+            padding: 10px 0px;
+            margin: 0;
+            list-style-type: none;
+        }
 
-    .tab-header_bg2 {
-        background-color: #615f79
-    }
+        .tab-header > ul > li {
+            float: left;
+            padding: 0px 10px;
+        }
 
-    .tab-header_bg3 {
-        background-color: #7c799c
-    }
+        .tab-header > ul > li.active > a {
+            background-color: #fff;
+        }
 
-    .tab-header_bg4 {
-        background-color: #89b7d2
-    }
+        .tab-header > ul > li > a {
+            display: block;
+            padding: 15px 62px;
+            color: #fff;
+            transition: all .3s ease;
+        }
 
-    .tab-header_bg5 {
-        background-color: #6d6b85
-    }
+        .tab-header_bg1 {
+            background-color: #4b4a5d
+        }
 
-    .tab-header_bg6 {
-        background-color: #c1dee2
-    }
+        .tab-header_bg2 {
+            background-color: #615f79
+        }
 
-    .tab-header_bg7 {
-        background-color: #adcee1
-    }
+        .tab-header_bg3 {
+            background-color: #7c799c
+        }
 
-    .tab-header_bg8 {
-        background-color: #5b7fab
-    }
+        .tab-header_bg4 {
+            background-color: #89b7d2
+        }
 
-    .tab-header_bg9 {
-        background-color: #6d6b85
-    }
+        .tab-header_bg5 {
+            background-color: #6d6b85
+        }
 
-    .tab-header_bg10 {
-        background-color: #77b1d2
-    }
+        .tab-header_bg6 {
+            background-color: #c1dee2
+        }
 
-    .tab-header_bg11 {
-        background-color: #759ccb
-    }
+        .tab-header_bg7 {
+            background-color: #adcee1
+        }
 
-    .tab-header_bg12 {
-        background-color: #406087
-    }
+        .tab-header_bg8 {
+            background-color: #5b7fab
+        }
 
-    .hotmember-interview .clearfix {
-        padding-bottom: 30px;
-    }
+        .tab-header_bg9 {
+            background-color: #6d6b85
+        }
 
-    .show_div {
-        display: block;
-    }
+        .tab-header_bg10 {
+            background-color: #77b1d2
+        }
 
-    .hidden_div {
-        display: none;
-    }
+        .tab-header_bg11 {
+            background-color: #759ccb
+        }
 
-    .container-title {
-        width: 100%;
-        margin: 0 auto;
-        margin-bottom: 20px;
-        border-bottom: 1px solid #eaeaea;
-    }
+        .tab-header_bg12 {
+            background-color: #406087
+        }
 
-    .section-title {
-        margin: 0 auto;
-        text-align: center;
-        font-size: 24px;
-        color: #4b4b4b;
-        font-weight: 400;
-    }
+        .hotmember-interview .clearfix {
+            padding-bottom: 30px;
+        }
 
-    .container-title p {
-        margin-top: 16px;
-        text-align: center;
-        width: 190px;
-        padding: 3px 0px;
-        margin: 0px auto;
-        font-size: 15px;
-        color: #999;
-    }
+        .show_div {
+            display: block;
+        }
 
-</style>
+        .hidden_div {
+            display: none;
+        }
+
+        .container-title {
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .section-title {
+            margin: 0 auto;
+            text-align: center;
+            font-size: 24px;
+            color: #4b4b4b;
+            font-weight: 400;
+        }
+
+        .container-title p {
+            margin-top: 16px;
+            text-align: center;
+            width: 190px;
+            padding: 3px 0px;
+            margin: 0px auto;
+            font-size: 15px;
+            color: #999;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="g-head">
+    <div class="header_top">
+        <div class="g-search f-cb"><a class="g-logo" href="index" style="float:left;"><img
+                src="${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/logo.png"></a>
+
+            <ul class="g-login" style="float:right">
+                <li><a href="" class="nav1">首页</a></li>
+                <li class="g-act"><a href="login">登录</a></li>
+                <li>
+                    <select class="g-select" name="">
+                        <option value="">小李飞刀</option>
+                        <option value="">公司头条</option>
+                    </select>
+                </li>
+                <li><a href="#"> 退出</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="header_wrap">
+
+    <div class="header">
+        <ul class="main_nav hide_search_box" id="hideSearchBox">
+            <li class="home icons active"><a href="#" title="首页">
+                <em>首页</em></a></li>
+            <li class="my_league icons "><a href="#" id="myleague" rel="nofollow" title="学社总汇">
+                <em>学社总汇</em></a></li>
+            <li class="league_nav icons"><a href="#" title="共同学习">
+                <em>共同学习</em></a></li>
+            <li class="article_mall icons "><a href="communityFunRoom" title="学有所乐">
+                <em>学有所乐</em></a></li>
+            <li class="icons more_functions "><a href="communityMarket" title="商城" rel="nofollow">
+                <em>商城</em></a></li>
+            <li class="search_league" style=" overflow: hidden;"></li>
+        </ul>
+    </div>
+</div>
+
+<!-- banner start-->
+
+<div class="slides-box">
+    <ul class="slides">
+        <li style="background: url('${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/banner.png') center"></li>
+        <li style="background: url('${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/banner.png') center"></li>
+        <li style="background: url('${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/banner.png') center"></li>
+    </ul>
+</div>
+
+<!-- banner end-->
 
 <div id="pageContent" style="min-width:1140px;">
 
@@ -387,7 +466,7 @@
                             <ul>
                                 <li class="clearfix"><a class="topic_icon" href="http://st.awe.com/supertxh/"
                                                         target="_blank" title="【AWE网校】超级校园"> <img class="topic_list_img"
-                                                                                                  src="./files_com/d6c5c1c0-7d59-4f52-b985-2af57bc825f3(1).jpg"
+                                                                                                  src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/d6c5c1c0-7d59-4f52-b985-2af57bc825f3(1).jpg"
                                                                                                   alt="【AWE网校】超级校园"></a>
                                     <div class="topic_content">
                                         <div class="topic_title clearfix"><span class="topic_times">5小时前</span> <a
@@ -407,7 +486,7 @@
                                 </li>
                                 <li class="clearfix"><a class="topic_icon" href="http://st.awe.com/mskt/"
                                                         target="_blank" title="栖霞网络名师课堂"> <img class="topic_list_img"
-                                                                                               src="./files_com/fe19257e-d5e5-4b5a-907d-6d94a08dde56.gif"
+                                                                                               src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/fe19257e-d5e5-4b5a-907d-6d94a08dde56.gif"
                                                                                                alt="栖霞网络名师课堂"></a>
                                     <div class="topic_content">
                                         <div class="topic_title clearfix"><span class="topic_times">20小时前</span> <a
@@ -427,7 +506,7 @@
                                 </li>
                                 <li class="clearfix"><a class="topic_icon" href="http://st.awe.com/djdejiushidiao/"
                                                         target="_blank" title="【网校】德语同学会"> <img class="topic_list_img"
-                                                                                                src="./files_com/30222d56-d93c-482b-851f-df8f87ee066d.jpg"
+                                                                                                src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/30222d56-d93c-482b-851f-df8f87ee066d.jpg"
                                                                                                 alt="【网校】德语同学会"></a>
                                     <div class="topic_content">
                                         <div class="topic_title clearfix"><span class="topic_times">3小时前</span> <a
@@ -449,7 +528,7 @@
                                 </li>
                                 <li class="clearfix"><a class="topic_icon" href="http://st.awe.com/mskt/"
                                                         target="_blank" title="栖霞网络名师课堂"> <img class="topic_list_img"
-                                                                                               src="./files_com/fe19257e-d5e5-4b5a-907d-6d94a08dde56.gif"
+                                                                                               src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/fe19257e-d5e5-4b5a-907d-6d94a08dde56.gif"
                                                                                                alt="栖霞网络名师课堂"></a>
                                     <div class="topic_content">
                                         <div class="topic_title clearfix"><span class="topic_times">20小时前</span> <a
@@ -470,7 +549,7 @@
                                 <li class="clearfix"><a class="topic_icon" rel="nofollow"
                                                         href="http://st.awe.com/yingshishe/" target="_blank"
                                                         userid="34216838" title="影视社"><img class="topic_list_img"
-                                                                                           src="./files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(1).jpg"><span
+                                                                                           src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(1).jpg"><span
                                         class="user_name"></span></a>
                                     <div class="topic_content">
                                         <div class="topic_title clearfix"><span class="topic_times">7小时前</span><a
@@ -490,7 +569,7 @@
                                 <li class="clearfix"><a class="topic_icon" rel="nofollow"
                                                         href="http://st.awe.com/cihui/" target="_blank"
                                                         userid="75532489" title="AWE词汇社"><img class="topic_list_img"
-                                                                                              src="./files_com/a2c79b17-0832-4ee0-affb-efcd2ba25861(1).png"><span
+                                                                                              src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/a2c79b17-0832-4ee0-affb-efcd2ba25861(1).png"><span
                                         class="user_name"></span></a>
                                     <div class="topic_content">
                                         <div class="topic_title clearfix"><span class="topic_times">2小时前</span><a
@@ -518,7 +597,7 @@
                                             <div class="row row-1">
                                                 <div class="col-4">
                                                     <div class="pic" align="center"><img class=""
-                                                                                         src="./files_com/2017-06-01-1496246655-322-3667.jpg"
+                                                                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
                                                                                          alt="AWE词汇社">
                                                         <!--                                    <img src="images/my_c3.png" alt="视听森林" title="视听森林">-->
                                                     </div>
@@ -544,7 +623,7 @@
                                             <div class="row row-1">
                                                 <div class="col-4">
                                                     <div class="pic" align="center"><img class=""
-                                                                                         src="./files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(1).jpg"
+                                                                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(1).jpg"
                                                                                          alt="AWE词汇社">
                                                         <!--                                    <img src="images/my_c3.png" alt="视听森林" title="视听森林">-->
                                                     </div>
@@ -572,7 +651,7 @@
                                             <div class="row row-1">
                                                 <div class="col-4">
                                                     <div class="pic" align="center"><img class=""
-                                                                                         src="./files_com/2017-06-01-1496246655-322-3667.jpg"
+                                                                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
                                                                                          alt="AWE词汇社">
                                                         <!--                                    <img src="images/my_c3.png" alt="视听森林" title="视听森林">-->
                                                     </div>
@@ -598,7 +677,7 @@
                                             <div class="row row-1">
                                                 <div class="col-4">
                                                     <div class="pic" align="center"><img class=""
-                                                                                         src="./files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(1).jpg"
+                                                                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(1).jpg"
                                                                                          alt="AWE词汇社">
                                                         <!--                                    <img src="images/my_c3.png" alt="视听森林" title="视听森林">-->
                                                     </div>
@@ -626,7 +705,7 @@
                                             <div class="row row-1">
                                                 <div class="col-4">
                                                     <div class="pic" align="center"><img class=""
-                                                                                         src="./files_com/2017-06-01-1496246655-322-3667.jpg"
+                                                                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
                                                                                          alt="AWE词汇社">
                                                         <!--                                    <img src="images/my_c3.png" alt="视听森林" title="视听森林">-->
                                                     </div>
@@ -652,7 +731,7 @@
                                             <div class="row row-1">
                                                 <div class="col-4">
                                                     <div class="pic" align="center"><img class=""
-                                                                                         src="./files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(1).jpg"
+                                                                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(1).jpg"
                                                                                          alt="AWE词汇社">
                                                         <!--                                    <img src="images/my_c3.png" alt="视听森林" title="视听森林">-->
                                                     </div>
@@ -680,7 +759,7 @@
                                             <div class="row row-1">
                                                 <div class="col-4">
                                                     <div class="pic" align="center"><img class=""
-                                                                                         src="./files_com/2017-06-01-1496246655-322-3667.jpg"
+                                                                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
                                                                                          alt="AWE词汇社">
                                                         <!--                                    <img src="images/my_c3.png" alt="视听森林" title="视听森林">-->
                                                     </div>
@@ -706,7 +785,7 @@
                                             <div class="row row-1">
                                                 <div class="col-4">
                                                     <div class="pic" align="center"><img class=""
-                                                                                         src="./files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(1).jpg"
+                                                                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(1).jpg"
                                                                                          alt="AWE词汇社">
                                                         <!--                                    <img src="images/my_c3.png" alt="视听森林" title="视听森林">-->
                                                     </div>
@@ -740,240 +819,284 @@
                         <div id="topic_list_league" class="hide" style="display: none;">
                             <ul class="topic_list_league clearfix">
                                 <li><a href="http://st.awe.com/cihui/" target="_blank"> <img
-                                        src="./files_com/a2c79b17-0832-4ee0-affb-efcd2ba25861(2).png" alt="AWE词汇社"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/a2c79b17-0832-4ee0-affb-efcd2ba25861(2).png"
+                                        alt="AWE词汇社"
                                         title="AWE词汇社"> </a> <span class="title"><a href="http://st.awe.com/cihui/"
                                                                                     target="_blank" title="AWE词汇社">AWE词汇社</a></span>
                                     <span class="grey">成员: 1655124</span></li>
                                 <li><a href="http://st.awe.com/1474731309/" target="_blank"> <img
-                                        src="./files_com/54ef4a47-8d45-4b4f-ad14-4ca1a1587ef6(1).jpg" alt="【AWE网校】新手后援会"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/54ef4a47-8d45-4b4f-ad14-4ca1a1587ef6(1).jpg"
+                                        alt="【AWE网校】新手后援会"
                                         title="【AWE网校】新手后援会"> </a> <span class="title"><a
                                         href="http://st.awe.com/1474731309/" target="_blank" title="【AWE网校】新手后援会">【AWE网校】新手后援会</a></span>
                                     <span class="grey">成员: 899888</span></li>
                                 <li><a href="http://st.awe.com/1444476955/" target="_blank"> <img
-                                        src="./files_com/e7f77576-0c94-4037-a936-808bd7929b7d.jpg" alt="AWE考试院"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/e7f77576-0c94-4037-a936-808bd7929b7d.jpg"
+                                        alt="AWE考试院"
                                         title="AWE考试院"> </a> <span class="title"><a href="http://st.awe.com/1444476955/"
                                                                                     target="_blank" title="AWE考试院">AWE考试院</a></span>
                                     <span class="grey">成员: 186902</span></li>
                                 <li><a href="http://st.awe.com/abcenglish/" target="_blank"> <img
-                                        src="./files_com/27368150-c991-4b8b-81ec-e10b04f3ee7f(1).jpg" alt="零基础英语从头学"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/27368150-c991-4b8b-81ec-e10b04f3ee7f(1).jpg"
+                                        alt="零基础英语从头学"
                                         title="零基础英语从头学"> </a> <span class="title"><a
                                         href="http://st.awe.com/abcenglish/" target="_blank"
                                         title="零基础英语从头学">零基础英语从头学</a></span> <span class="grey">成员: 129154</span></li>
                                 <li><a href="http://st.awe.com/yykb/" target="_blank"> <img
-                                        src="./files_com/ec6ed3ec-085a-41fd-94c9-d3171ed76bb9.gif" alt="英语酷吧"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/ec6ed3ec-085a-41fd-94c9-d3171ed76bb9.gif"
+                                        alt="英语酷吧"
                                         title="英语酷吧"> </a> <span class="title"><a href="http://st.awe.com/yykb/"
                                                                                   target="_blank" title="英语酷吧">英语酷吧</a></span>
                                     <span class="grey">成员: 117258</span></li>
                                 <li><a href="http://st.awe.com/riyuclass/" target="_blank"> <img
-                                        src="./files_com/14cf3302-c5cf-41f9-9d5d-5281df180a37(2).jpg"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/14cf3302-c5cf-41f9-9d5d-5281df180a37(2).jpg"
                                         alt="【网校】JLPT能力考同学会" title="【网校】JLPT能力考同学会"> </a> <span class="title"><a
                                         href="http://st.awe.com/riyuclass/" target="_blank" title="【网校】JLPT能力考同学会">【网校】JLPT能力考同学会</a></span>
                                     <span class="grey">成员: 99299</span></li>
                                 <li><a href="http://st.awe.com/nceparty/" target="_blank"> <img
-                                        src="./files_com/dcd27bcb-0b0c-4bef-b2f6-ed7da9afeb30(1).jpg" alt="【网校】新概念同学会"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/dcd27bcb-0b0c-4bef-b2f6-ed7da9afeb30(1).jpg"
+                                        alt="【网校】新概念同学会"
                                         title="【网校】新概念同学会"> </a> <span class="title"><a
                                         href="http://st.awe.com/nceparty/" target="_blank"
                                         title="【网校】新概念同学会">【网校】新概念同学会</a></span> <span class="grey">成员: 96126</span>
                                 </li>
                                 <li><a href="http://st.awe.com/xueriyu/" target="_blank"> <img
-                                        src="./files_com/88632471-6445-4471-8ac0-26526ba632e7.jpg" alt="从零开始学日语"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/88632471-6445-4471-8ac0-26526ba632e7.jpg"
+                                        alt="从零开始学日语"
                                         title="从零开始学日语"> </a> <span class="title"><a href="http://st.awe.com/xueriyu/"
                                                                                      target="_blank" title="从零开始学日语">从零开始学日语</a></span>
                                     <span class="grey">成员: 90459</span></li>
                                 <li><a href="http://st.awe.com/hanyu/" target="_blank"> <img
-                                        src="./files_com/e008fc1d-4edb-4cd2-b874-5e6b5b5aa04f(1).png" alt="【网校】韩语同学会"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/e008fc1d-4edb-4cd2-b874-5e6b5b5aa04f(1).png"
+                                        alt="【网校】韩语同学会"
                                         title="【网校】韩语同学会"> </a> <span class="title"><a href="http://st.awe.com/hanyu/"
                                                                                        target="_blank"
                                                                                        title="【网校】韩语同学会">【网校】韩语同学会</a></span>
                                     <span class="grey">成员: 76972</span></li>
                                 <li><a href="http://st.awe.com/supertxh/" target="_blank"> <img
-                                        src="./files_com/d6c5c1c0-7d59-4f52-b985-2af57bc825f3(2).jpg" alt="【AWE网校】超级校园"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/d6c5c1c0-7d59-4f52-b985-2af57bc825f3(2).jpg"
+                                        alt="【AWE网校】超级校园"
                                         title="【AWE网校】超级校园"> </a> <span class="title"><a
                                         href="http://st.awe.com/supertxh/" target="_blank" title="【AWE网校】超级校园">【AWE网校】超级校园</a></span>
                                     <span class="grey">成员: 76921</span></li>
                                 <li><a href="http://st.awe.com/riyuxinshou/" target="_blank"> <img
-                                        src="./files_com/ceabe982-92a8-4c25-a109-ce0dd0c8d83a(1).jpg" alt=" 【网校】日语小白启航社"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/ceabe982-92a8-4c25-a109-ce0dd0c8d83a(1).jpg"
+                                        alt=" 【网校】日语小白启航社"
                                         title=" 【网校】日语小白启航社"> </a> <span class="title"><a
                                         href="http://st.awe.com/riyuxinshou/" target="_blank" title=" 【网校】日语小白启航社"> 【网校】日语小白启航社</a></span>
                                     <span class="grey">成员: 70947</span></li>
                                 <li><a href="http://st.awe.com/1430731584/" target="_blank"> <img
-                                        src="./files_com/529dc0d5-3fc2-4bae-a5ad-698aefd04980.jpg" alt="【AWE网校】学神基地"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/529dc0d5-3fc2-4bae-a5ad-698aefd04980.jpg"
+                                        alt="【AWE网校】学神基地"
                                         title="【AWE网校】学神基地"> </a> <span class="title"><a
                                         href="http://st.awe.com/1430731584/" target="_blank" title="【AWE网校】学神基地">【AWE网校】学神基地</a></span>
                                     <span class="grey">成员: 69179</span></li>
                                 <li><a href="http://st.awe.com/zzd/" target="_blank"> <img
-                                        src="./files_com/9c477d30-4dba-424d-8227-7b315e9de098(2).jpg" alt="初声日语早早读"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/9c477d30-4dba-424d-8227-7b315e9de098(2).jpg"
+                                        alt="初声日语早早读"
                                         title="初声日语早早读"> </a> <span class="title"><a href="http://st.awe.com/zzd/"
                                                                                      target="_blank" title="初声日语早早读">初声日语早早读</a></span>
                                     <span class="grey">成员: 63632</span></li>
                                 <li><a href="http://st.awe.com/rykb/" target="_blank"> <img
-                                        src="./files_com/d5218aae-4a38-4252-913d-87382358731d.png" alt="日语酷吧"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/d5218aae-4a38-4252-913d-87382358731d.png"
+                                        alt="日语酷吧"
                                         title="日语酷吧"> </a> <span class="title"><a href="http://st.awe.com/rykb/"
                                                                                   target="_blank" title="日语酷吧">日语酷吧</a></span>
                                     <span class="grey">成员: 58415</span></li>
                                 <li><a href="http://st.awe.com/cet/" target="_blank"> <img
-                                        src="./files_com/a0c8eb19-8dfe-4cb8-8666-a4be362b2d17.jpg" alt="四六级火线联盟"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/a0c8eb19-8dfe-4cb8-8666-a4be362b2d17.jpg"
+                                        alt="四六级火线联盟"
                                         title="四六级火线联盟"> </a> <span class="title"><a href="http://st.awe.com/cet/"
                                                                                      target="_blank" title="四六级火线联盟">四六级火线联盟</a></span>
                                     <span class="grey">成员: 55978</span></li>
                                 <li><a href="http://st.awe.com/0jckorean/" target="_blank"> <img
-                                        src="./files_com/c51c9ff3-324f-4438-9a90-81d60128e84d.jpg" alt="零基础学韩语"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/c51c9ff3-324f-4438-9a90-81d60128e84d.jpg"
+                                        alt="零基础学韩语"
                                         title="零基础学韩语"> </a> <span class="title"><a href="http://st.awe.com/0jckorean/"
                                                                                     target="_blank" title="零基础学韩语">零基础学韩语</a></span>
                                     <span class="grey">成员: 52598</span></li>
                                 <li><a href="http://st.awe.com/hanyushe/" target="_blank"> <img
-                                        src="./files_com/5d597853-6fdc-4276-8af5-c9735d32fde0(1).jpg" alt="韩语社"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/5d597853-6fdc-4276-8af5-c9735d32fde0(1).jpg"
+                                        alt="韩语社"
                                         title="韩语社"> </a> <span class="title"><a href="http://st.awe.com/hanyushe/"
                                                                                  target="_blank"
                                                                                  title="韩语社">韩语社</a></span> <span
                                         class="grey">成员: 43670</span></li>
                                 <li><a href="http://st.awe.com/cctalk/" target="_blank"> <img
-                                        src="./files_com/d12567ce-4f8a-4dec-8b47-6d43e4497fc1.png" alt="CCtalk 官方学社"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/d12567ce-4f8a-4dec-8b47-6d43e4497fc1.png"
+                                        alt="CCtalk 官方学社"
                                         title="CCtalk 官方学社"> </a> <span class="title"><a
                                         href="http://st.awe.com/cctalk/" target="_blank"
                                         title="CCtalk 官方学社">CCtalk 官方学社</a></span> <span class="grey">成员: 32761</span>
                                 </li>
                                 <li><a href="http://st.awe.com/1436821891/" target="_blank"> <img
-                                        src="./files_com/44d13b6a-3538-40d8-b20b-4cd377354ce6.jpg" alt="AWE日语入门"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/44d13b6a-3538-40d8-b20b-4cd377354ce6.jpg"
+                                        alt="AWE日语入门"
                                         title="AWE日语入门"> </a> <span class="title"><a
                                         href="http://st.awe.com/1436821891/" target="_blank" title="AWE日语入门">AWE日语入门</a></span>
                                     <span class="grey">成员: 31652</span></li>
                                 <li><a href="http://st.awe.com/hftd/" target="_blank"> <img
-                                        src="./files_com/97c28c0d-c5d3-4ad6-84dd-d421bedafe90.png" alt="沪粉天地"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/97c28c0d-c5d3-4ad6-84dd-d421bedafe90.png"
+                                        alt="沪粉天地"
                                         title="沪粉天地"> </a> <span class="title"><a href="http://st.awe.com/hftd/"
                                                                                   target="_blank" title="沪粉天地">沪粉天地</a></span>
                                     <span class="grey">成员: 31210</span></li>
                                 <li><a href="http://st.awe.com/takara/" target="_blank"> <img
-                                        src="./files_com/159c1c33-1b55-4ea4-8d5a-5ca1f66749fb(1).jpg" alt="日语免费资源寻宝队"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/159c1c33-1b55-4ea4-8d5a-5ca1f66749fb(1).jpg"
+                                        alt="日语免费资源寻宝队"
                                         title="日语免费资源寻宝队"> </a> <span class="title"><a href="http://st.awe.com/takara/"
                                                                                        target="_blank"
                                                                                        title="日语免费资源寻宝队">日语免费资源寻宝队</a></span>
                                     <span class="grey">成员: 30000</span></li>
                                 <li><a href="http://st.awe.com/liuxueclub/" target="_blank"> <img
-                                        src="./files_com/a03561a2-3ba3-472e-b37d-8a9e6de6ae6a.gif" alt="AWE留学CLUB"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/a03561a2-3ba3-472e-b37d-8a9e6de6ae6a.gif"
+                                        alt="AWE留学CLUB"
                                         title="AWE留学CLUB"> </a> <span class="title"><a
                                         href="http://st.awe.com/liuxueclub/" target="_blank"
                                         title="AWE留学CLUB">AWE留学CLUB</a></span> <span class="grey">成员: 29907</span></li>
                                 <li><a href="http://st.awe.com/fayu/" target="_blank"> <img
-                                        src="./files_com/7181b128-4e46-48de-a43e-16231aae51af.jpg" alt="AWE法语社"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/7181b128-4e46-48de-a43e-16231aae51af.jpg"
+                                        alt="AWE法语社"
                                         title="AWE法语社"> </a> <span class="title"><a href="http://st.awe.com/fayu/"
                                                                                     target="_blank" title="AWE法语社">AWE法语社</a></span>
                                     <span class="grey">成员: 26509</span></li>
                                 <li><a href="http://st.awe.com/jlpt/" target="_blank"> <img
-                                        src="./files_com/ceaf273e-1f8b-4749-959d-08e40c83a1a2.jpg" alt="JLPT备考集训营"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/ceaf273e-1f8b-4749-959d-08e40c83a1a2.jpg"
+                                        alt="JLPT备考集训营"
                                         title="JLPT备考集训营"> </a> <span class="title"><a href="http://st.awe.com/jlpt/"
                                                                                        target="_blank"
                                                                                        title="JLPT备考集训营">JLPT备考集训营</a></span>
                                     <span class="grey">成员: 24904</span></li>
                                 <li><a href="http://st.awe.com/hjfy/" target="_blank"> <img
-                                        src="./files_com/b24354be-ec74-410b-8152-0834f122d2ed.png" alt="【网校】法语同学会"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/b24354be-ec74-410b-8152-0834f122d2ed.png"
+                                        alt="【网校】法语同学会"
                                         title="【网校】法语同学会"> </a> <span class="title"><a href="http://st.awe.com/hjfy/"
                                                                                        target="_blank"
                                                                                        title="【网校】法语同学会">【网校】法语同学会</a></span>
                                     <span class="grey">成员: 24700</span></li>
                                 <li><a href="http://st.awe.com/xiaoxueyingyu/" target="_blank"> <img
-                                        src="./files_com/3746fece-228c-4367-a7fd-c2a61933ce56.jpg" alt="小学生英语基地"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/3746fece-228c-4367-a7fd-c2a61933ce56.jpg"
+                                        alt="小学生英语基地"
                                         title="小学生英语基地"> </a> <span class="title"><a
                                         href="http://st.awe.com/xiaoxueyingyu/" target="_blank"
                                         title="小学生英语基地">小学生英语基地</a></span> <span class="grey">成员: 24347</span></li>
                                 <li><a href="http://st.awe.com/zhichang/" target="_blank"> <img
-                                        src="./files_com/82f2069d-4fde-40f5-846e-714ab1aad0f8.png" alt="【网校】职场兴趣同学会"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/82f2069d-4fde-40f5-846e-714ab1aad0f8.png"
+                                        alt="【网校】职场兴趣同学会"
                                         title="【网校】职场兴趣同学会"> </a> <span class="title"><a
                                         href="http://st.awe.com/zhichang/" target="_blank" title="【网校】职场兴趣同学会">【网校】职场兴趣同学会</a></span>
                                     <span class="grey">成员: 23883</span></li>
                                 <li><a href="http://st.awe.com/hjbiz/" target="_blank"> <img
-                                        src="./files_com/d04484f2-a0da-4a96-b70e-388bc73611b5.png" alt="【网校】商务英语同学会"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/d04484f2-a0da-4a96-b70e-388bc73611b5.png"
+                                        alt="【网校】商务英语同学会"
                                         title="【网校】商务英语同学会"> </a> <span class="title"><a href="http://st.awe.com/hjbiz/"
                                                                                          target="_blank"
                                                                                          title="【网校】商务英语同学会">【网校】商务英语同学会</a></span>
                                     <span class="grey">成员: 23648</span></li>
                                 <li><a href="http://st.awe.com/kaoshiguola/" target="_blank"> <img
-                                        src="./files_com/3952192e-5916-4c9f-bbd5-8d83709d1a11.png" alt="【网校】国内英语考试同学会"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/3952192e-5916-4c9f-bbd5-8d83709d1a11.png"
+                                        alt="【网校】国内英语考试同学会"
                                         title="【网校】国内英语考试同学会"> </a> <span class="title"><a
                                         href="http://st.awe.com/kaoshiguola/" target="_blank" title="【网校】国内英语考试同学会">【网校】国内英语考试同学会</a></span>
                                     <span class="grey">成员: 22820</span></li>
                                 <li><a href="http://st.awe.com/lcjhs/" target="_blank"> <img
-                                        src="./files_com/7b4318e9-9169-430e-89f8-7de5c6a4804e(1).jpg" alt="懒虫进化社"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/7b4318e9-9169-430e-89f8-7de5c6a4804e(1).jpg"
+                                        alt="懒虫进化社"
                                         title="懒虫进化社"> </a> <span class="title"><a href="http://st.awe.com/lcjhs/"
                                                                                    target="_blank"
                                                                                    title="懒虫进化社">懒虫进化社</a></span> <span
                                         class="grey">成员: 22768</span></li>
                                 <li><a href="http://st.awe.com/hjkr/" target="_blank"> <img
-                                        src="./files_com/5fde4763-501d-42e0-930c-a0bc434b7b51.jpg" alt="AWE韩语"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/5fde4763-501d-42e0-930c-a0bc434b7b51.jpg"
+                                        alt="AWE韩语"
                                         title="AWE韩语"> </a> <span class="title"><a href="http://st.awe.com/hjkr/"
                                                                                    target="_blank"
                                                                                    title="AWE韩语">AWE韩语</a></span> <span
                                         class="grey">成员: 21513</span></li>
                                 <li><a href="http://st.awe.com/1481451224/" target="_blank"> <img
-                                        src="./files_com/49f34974-870a-44fe-9599-acf476aba933(1).jpg" alt="开心词场大作战"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/49f34974-870a-44fe-9599-acf476aba933(1).jpg"
+                                        alt="开心词场大作战"
                                         title="开心词场大作战"> </a> <span class="title"><a
                                         href="http://st.awe.com/1481451224/" target="_blank" title="开心词场大作战">开心词场大作战</a></span>
                                     <span class="grey">成员: 20967</span></li>
                                 <li><a href="http://st.awe.com/dushuhui/" target="_blank"> <img
-                                        src="./files_com/0f1561c6-4b2f-4ddd-8fa5-021af9769f31(1).jpg" alt="读书会"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/0f1561c6-4b2f-4ddd-8fa5-021af9769f31(1).jpg"
+                                        alt="读书会"
                                         title="读书会"> </a> <span class="title"><a href="http://st.awe.com/dushuhui/"
                                                                                  target="_blank"
                                                                                  title="读书会">读书会</a></span> <span
                                         class="grey">成员: 19879</span></li>
                                 <li><a href="http://st.awe.com/youxiao/" target="_blank"> <img
-                                        src="./files_com/cd8adf75-a0a2-4563-b426-b2c69c81cc93.jpg" alt="【网校】幼小学习帮"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/cd8adf75-a0a2-4563-b426-b2c69c81cc93.jpg"
+                                        alt="【网校】幼小学习帮"
                                         title="【网校】幼小学习帮"> </a> <span class="title"><a href="http://st.awe.com/youxiao/"
                                                                                        target="_blank"
                                                                                        title="【网校】幼小学习帮">【网校】幼小学习帮</a></span>
                                     <span class="grey">成员: 19353</span></li>
                                 <li><a href="http://st.awe.com/yingshishe/" target="_blank"> <img
-                                        src="./files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(2).jpg" alt="影视社"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(2).jpg"
+                                        alt="影视社"
                                         title="影视社"> </a> <span class="title"><a href="http://st.awe.com/yingshishe/"
                                                                                  target="_blank"
                                                                                  title="影视社">影视社</a></span> <span
                                         class="grey">成员: 19101</span></li>
                                 <li><a href="http://st.awe.com/deyu/" target="_blank"> <img
-                                        src="./files_com/af693395-721c-43ed-9441-43befe65e029.jpg" alt="AWE德语社"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/af693395-721c-43ed-9441-43befe65e029.jpg"
+                                        alt="AWE德语社"
                                         title="AWE德语社"> </a> <span class="title"><a href="http://st.awe.com/deyu/"
                                                                                     target="_blank" title="AWE德语社">AWE德语社</a></span>
                                     <span class="grey">成员: 18926</span></li>
                                 <li><a href="http://st.awe.com/rykszl/" target="_blank"> <img
-                                        src="./files_com/589e913a-06c9-4270-b5db-71e6f8c75cf7.png" alt="日语考试资料"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/589e913a-06c9-4270-b5db-71e6f8c75cf7.png"
+                                        alt="日语考试资料"
                                         title="日语考试资料"> </a> <span class="title"><a href="http://st.awe.com/rykszl/"
                                                                                     target="_blank" title="日语考试资料">日语考试资料</a></span>
                                     <span class="grey">成员: 17603</span></li>
                                 <li><a href="http://st.awe.com/ifans/" target="_blank"> <img
-                                        src="./files_com/7bb401b0-822c-400d-ab43-06aa01c1d762.jpg" alt="爱翻不凡翻译社"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/7bb401b0-822c-400d-ab43-06aa01c1d762.jpg"
+                                        alt="爱翻不凡翻译社"
                                         title="爱翻不凡翻译社"> </a> <span class="title"><a href="http://st.awe.com/ifans/"
                                                                                      target="_blank" title="爱翻不凡翻译社">爱翻不凡翻译社</a></span>
                                     <span class="grey">成员: 16797</span></li>
                                 <li><a href="http://st.awe.com/djdejiushidiao/" target="_blank"> <img
-                                        src="./files_com/30222d56-d93c-482b-851f-df8f87ee066d(1).jpg" alt="【网校】德语同学会"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/30222d56-d93c-482b-851f-df8f87ee066d(1).jpg"
+                                        alt="【网校】德语同学会"
                                         title="【网校】德语同学会"> </a> <span class="title"><a
                                         href="http://st.awe.com/djdejiushidiao/" target="_blank" title="【网校】德语同学会">【网校】德语同学会</a></span>
                                     <span class="grey">成员: 16468</span></li>
                                 <li><a href="http://st.awe.com/hjapp/" target="_blank"> <img
-                                        src="./files_com/dcfc6edb-6ebb-4467-9b9d-72cafa394e4e.png" alt="AWE学习社"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/dcfc6edb-6ebb-4467-9b9d-72cafa394e4e.png"
+                                        alt="AWE学习社"
                                         title="AWE学习社"> </a> <span class="title"><a href="http://st.awe.com/hjapp/"
                                                                                     target="_blank" title="AWE学习社">AWE学习社</a></span>
                                     <span class="grey">成员: 15412</span></li>
                                 <li><a href="http://st.awe.com/xyjy/" target="_blank"> <img
-                                        src="./files_com/2dcb7ad7-05eb-464c-b3c7-5a26a03d6db2.jpg" alt="翔宇教育集团"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2dcb7ad7-05eb-464c-b3c7-5a26a03d6db2.jpg"
+                                        alt="翔宇教育集团"
                                         title="翔宇教育集团"> </a> <span class="title"><a href="http://st.awe.com/xyjy/"
                                                                                     target="_blank" title="翔宇教育集团">翔宇教育集团</a></span>
                                     <span class="grey">成员: 15172</span></li>
                                 <li><a href="http://st.awe.com/yytlxz/" target="_blank"> <img
-                                        src="./files_com/f6f450b5-db6d-43d6-a33d-33d1d835b4a6.jpg" alt="英语听力下载"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/f6f450b5-db6d-43d6-a33d-33d1d835b4a6.jpg"
+                                        alt="英语听力下载"
                                         title="英语听力下载"> </a> <span class="title"><a href="http://st.awe.com/yytlxz/"
                                                                                     target="_blank" title="英语听力下载">英语听力下载</a></span>
                                     <span class="grey">成员: 13909</span></li>
                                 <li><a href="http://st.awe.com/drm/" target="_blank"> <img
-                                        src="./files_com/073d194b-843f-472e-aad0-1ff0d066568d.png" alt="德瑞姆心理社"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/073d194b-843f-472e-aad0-1ff0d066568d.png"
+                                        alt="德瑞姆心理社"
                                         title="德瑞姆心理社"> </a> <span class="title"><a href="http://st.awe.com/drm/"
                                                                                     target="_blank" title="德瑞姆心理社">德瑞姆心理社</a></span>
                                     <span class="grey">成员: 13637</span></li>
                                 <li><a href="http://st.awe.com/bec/" target="_blank"> <img
-                                        src="./files_com/e2ec8deb-5504-4588-a21a-e84066b50b9e.gif" alt="BEC托业考神团"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/e2ec8deb-5504-4588-a21a-e84066b50b9e.gif"
+                                        alt="BEC托业考神团"
                                         title="BEC托业考神团"> </a> <span class="title"><a href="http://st.awe.com/bec/"
                                                                                       target="_blank" title="BEC托业考神团">BEC托业考神团</a></span>
                                     <span class="grey">成员: 13532</span></li>
                                 <li><a href="http://st.awe.com/1429684280/" target="_blank"> <img
-                                        src="./files_com/a9aa590c-5b7e-4b75-9246-0f020aea2425.png" alt="英语口语下载"
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/a9aa590c-5b7e-4b75-9246-0f020aea2425.png"
+                                        alt="英语口语下载"
                                         title="英语口语下载"> </a> <span class="title"><a href="http://st.awe.com/1429684280/"
                                                                                     target="_blank" title="英语口语下载">英语口语下载</a></span>
                                     <span class="grey">成员: 13459</span></li>
@@ -985,7 +1108,7 @@
                 </div>
             </div>
             <div class="main_sidebar"
-                 style="width: 360px;background: url(tmp/images/Layer7.png) center top;background-repeat: no-repeat;background-size: contain;">
+                 style="width: 360px;background: url(${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/Layer7.png) center top;background-repeat: no-repeat;background-size: contain;">
                 <!-- 触屏端打卡赚沪元(新)提示 start
                     <a href="http://st.awe.com/topic/163421021021/" target="_blank" class="league-mobile-checkin">
                         <img src="/images/league-mobile-checkin.jpg" alt="触屏端打卡赚沪元(新)">
@@ -999,7 +1122,9 @@
                                 <div style="width: 40%;float:left">
                                     <a href="/mag/1426841235/" target="_blank">
                                         <div class="book">
-                                            <img class="mag_img" src="tmp/images/depart_logo_right.jpg" width="101"
+                                            <img class="mag_img"
+                                                 src="${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/depart_logo_right.jpg"
+                                                 width="101"
                                                  height="101">
                                             <div class="book_root"></div>
                                         </div>
@@ -1011,8 +1136,9 @@
                                     </div>
                                     <div class="mag_desc" style="width: 100%;height:36px;    line-height: 36px;"><span
                                             class="orange_right">已认证</span></div>
-                                    <div class="mag_num" style="width: 100%;height:auto;"><img src="tmp/images/pay.png"
-                                                                                               width="30px"></div>
+                                    <div class="mag_num" style="width: 100%;height:auto;"><img
+                                            src="${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/pay.png"
+                                            width="30px"></div>
                                 </div>
                             </div>
 
@@ -1021,7 +1147,7 @@
 
                     </div>
                     <div class="blue_border">课程数：15|好评度：98%|学生数：1.2万人</div>
-                    <div class="create_new_league"><a href="communityCreate" onClick="SendEvent(46,1166,{})"
+                    <div class="create_new_league"><a href="communitySetup"
                                                       class="btn btn-green">创建学社</a><span
                             class="create_desc">想拥有自己的学社？</span></div>
                     <script>
@@ -1042,7 +1168,8 @@
                         <ul>
                             <li class="clearfix"><a href="http://st.awe.com/mag/133862085/"
                                                     onClick="SendEvent(46,1171,{position:1})" target="_blank">
-                                <div class="book"><img class="mag_img" src="tmp/images/msg1.jpg">
+                                <div class="book"><img class="mag_img"
+                                                       src="${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/msg1.jpg">
                                     <div class="book_root"></div>
                                 </div>
                             </a> <a href="http://st.awe.com/mag/133862085/" class="mag_name ellipsis_text"
@@ -1050,7 +1177,8 @@
                                 <span class="mag_num">公告主题</span> <span class="mag_num mag_num_right"> >>进入</span></li>
                             <li class="clearfix"><a href="http://st.awe.com/mag/165502741075/"
                                                     onClick="SendEvent(46,1171,{position:2})" target="_blank">
-                                <div class="book"><img class="mag_img" src="tmp/images/msg2.jpg">
+                                <div class="book"><img class="mag_img"
+                                                       src="${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/msg2.jpg">
                                     <div class="book_root"></div>
                                 </div>
                             </a> <a href="http://st.awe.com/mag/165502741075/" class="mag_name ellipsis_text"
@@ -1150,4 +1278,32 @@
         </div>
     </div>
 </div>
-<jsp:include page="comfooter.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css"
+      href="${pageContext.request.contextPath }/dist/communityMainpage/files_com/footer.css">
+<div class="footer ">
+    <div>
+        <!-- <a href="/rd/" style="color:#fff;position:absolute;width:60px;margin:33px 0 0 -34%;">开发团队</a> -->
+        <div id="footer-ft" class="hui-footer">
+            <div class="hui-footer-ft">
+
+                <p class="copyright"><span>Copyright © 2016 AWE All Rights Reserved.ICP认证：xxxxxxxxxxxxxx&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </p>
+            </div>
+        </div>
+        <div class="footer_go_top">
+            <ul>
+                <li><a href="javascript:;" class="news_btn"></a> <span class="news_dotted"
+                                                                       style="display: none;"></span></li>
+                <li><a href="#pageContent" class="go_top" style="display: none;"><i></i><span class="hide_text">返回<br>
+          顶部</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    $(".slides").poposlides();
+</script>
+<script src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/fixedtop1.js"
+        type="text/javascript"></script>
+</body>
+</html>
