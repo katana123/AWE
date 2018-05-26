@@ -4,6 +4,7 @@
     <div class="container">
         <div class="container-title">
             <div class="section-title">学社审核</div>
+
             <p style="border-bottom: 2px solid #28c2f5;">STUDY CENTER AUDITING</p>
         </div>
         <ol class="ui-step ui-step-3" style="overflow: visible">
