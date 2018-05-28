@@ -709,7 +709,8 @@
                     他，小雨，非常完美
                 </div>
                 <div class="m-btn f-cb" style="margin: 10px;">
-                    <a href="institutionData" class="m-btn-new" style="margin-left: -10px;">学社管理</a>
+                    <a href="${pageContext.request.contextPath }/institutionData/${community.ccid}" class="m-btn-new"
+                       style="margin-left: -10px;">学社管理</a>
                     <span style="font-size: 11px;
     vertical-align: bottom;
     display: flex;

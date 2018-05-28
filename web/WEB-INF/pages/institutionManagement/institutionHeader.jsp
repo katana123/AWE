@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -537,15 +538,16 @@
         <div class="g-search f-cb"><a class="g-logo" href="" style="float:left;"><img
                 src="${pageContext.request.contextPath }/dist/institutionManagement/images_common/logo.png"></a>
             <ul class="g-login" style="float:right">
-                <li><a href="index" class="nav1">首页</a></li>
-                <li class="g-act"><a href="login">登录</a></li>
-                <li>
-                    <select class="g-select" name="">
-                        <option value="">小李飞刀</option>
-                        <option value="">公司头条</option>
-                    </select>
-                </li>
-                <li><a href=""> 退出</a></li>
+                <c:choose>
+                    <c:when test="${cookie.userlogin.value == null || cookie.userlogin.value == '' }">
+                        <li><a href="login"> 登录</a></li>
+                        <li><a href="register"> 注册</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><span>${cookie.userlogin.value }&nbsp;</span></li>
+                        <li><a href="logout">退出登录</a>&nbsp;</li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
         </div>
     </div>
@@ -595,18 +597,21 @@
                     alt="XXX语言俱乐部学习社"> </a></div>
         </div>
         <div class="col-8">
-            <div class="title"><a href="/15101166271/"><span id="headLeagueName"
-                                                             class="title_text">XXX语言俱乐部学习社</span></a> <span class="fl">（总帖数2 |社员数3）</span>
+            <div class="title"><a
+                    href="${pageContext.request.contextPath }/communityUserMainpage/${community.ccid}"><span
+                    id="headLeagueName"
+                    class="title_text">${community.ccname}</span></a> <span class="fl">（总帖数2 |社员数3）</span>
                 <span class="fl ml10 unsigned-icon" data-id="10116"></span></div>
             <div class="info cf">
                 <div class="user_info_box fl">
-                    <p>方向：语言 |类型：公开 </p>
+                    <p>方向：${community.ccl} | 类型：${community.ccp} </p>
                     <p>社长：<a href="#" target="_blank" rel="nofollow">我是无敌虾米</a></p>
                     <p>管理员：小草 </p>
-                    <p>机构：AWE语言俱乐部 </p>
+                    <p>机构：${community.cccname} </p>
                     <div class="summary"></div>
                 </div>
-                <div class="fr"><a href="/15101166271/admin/" class="btn btn-l btn-green" id="btnManage">返回学社</a></div>
+                <div class="fr"><a href="${pageContext.request.contextPath }/communityUserMainpage/${community.ccid}"
+                                   class="btn btn-l btn-green" id="btnManage">返回学社</a></div>
             </div>
             <div class="hui_tooltip" style="display: none;">
                 <div class="hui_tooltip_pointer"></div>
@@ -640,7 +645,7 @@
             <li class="icons more_functions "><a href="../../../AWE社区/商城/商城-行为道具.html" title="一元购" rel="nofollow">
                 <!--            <i class="fa fa-bullseye"></i>-->
                 <em>商城</em></a></li>
-            <li class="search_league" style=" overflow: hidden;"></li>
+            <%--<li class="search_league" style=" overflow: hidden;"></li>--%>
         </ul>
     </div>
 </div>
@@ -653,23 +658,21 @@
             </div>
             <div class="header1 container-title">
                 <ul class="main_nav2 hide_search_box">
-                    <li class="home icons active "><a href="institutionData" title="机构资料">
+                    <li class="home icons active "><a href="${pageContext.request.contextPath }/institutionData/${ccid}"
+                                                      title="机构资料">
                         <em>机构资料</em></a></li>
-                    <li class="league_nav icons"><a href="institutionMembers" title="机构成员">
+                    <li class="league_nav icons"><a
+                            href="${pageContext.request.contextPath }/institutionMembers/${ccid}" title="机构成员">
                         <em>机构成员</em></a></li>
                     <li class="league_nav icons"><a href="authoritySetting" title="权限设置">
                         <em>权限设置</em></a></li>
-                    <li class="article_mall icons "><a href="../机构管理2/课教管理_资料管理.html" title="商城">
-                        <!--            <i class="fa fa-shopping-bag"></i>-->
+                    <li class="article_mall icons "><a href="../机构管理2/课教管理_资料管理.html" title="课教管理">
                         <em>课教管理</em></a></li>
-                    <li class="article_mall icons "><a href="../机构管理2/发布管理_发布课程.html" title="商城">
-                        <!--            <i class="fa fa-shopping-bag"></i>-->
+                    <li class="article_mall icons "><a href="../机构管理2/发布管理_发布课程.html" title="发布管理">
                         <em>发布管理</em></a></li>
-                    <li class="article_mall icons"><a href="#" title="商城">
-                        <!--            <i class="fa fa-shopping-bag"></i>-->
+                    <li class="article_mall icons"><a href="#" title="销财管理">
                         <em>销财管理</em></a></li>
-                    <li class="article_mall icons"><a href="../机构管理2/个人中心.html" title="商城">
-                        <!--            <i class="fa fa-shopping-bag"></i>-->
+                    <li class="article_mall icons"><a href="../机构管理2/个人中心.html" title="个人中心">
                         <em>个人中心</em></a></li>
                 </ul>
             </div>
