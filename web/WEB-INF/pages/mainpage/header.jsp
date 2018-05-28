@@ -96,8 +96,17 @@
             <div class="g-btn-search"><i class="fa fa-search"></i></div>
         </div>
         <ul class="g-login">
+            <c:choose>
+            <c:when test="${cookie.userlogin.value == null || cookie.userlogin.value == '' }">
             <li><a href="login"> 登录</a>|</li>
             <li><a href="register"> 注册</a>|</li>
+            </c:when>
+            <c:otherwise>
+            <li><span>${cookie.userlogin.value }&nbsp;</span>|</li>
+            <li><a href="logout">退出登录</a>&nbsp;|</li>
+            </c:otherwise>
+            </c:choose>
+
             <li><a href=""> 社区</a></li>
             <ul>
     </div>

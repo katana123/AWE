@@ -72,7 +72,6 @@
                                 return false;
                             } else if (result == "2") {
                                 form.submit();
-                                alert(2);
                             }
                         }
                     });
@@ -254,7 +253,7 @@
                 result = false;
             }
             else if (result == false) {
-                element.src = "${pageContext.request.contextPath }/dist/login/images/selector_default.png"
+                element.src = "${pageContext.request.contextPath }/dist/login/images/selector_default.png";
                 result = true;
             }
         }
@@ -294,9 +293,9 @@
             </div>
 
             <div class="login_mod_tab">
-                <div class="fl mod"><a class="lo_mod tab_on" lo-mod="normal" href="javascript:;" title="普通登入">普通登录</a>
+                <div class="fl mod"><a class="lo_mod tab_on" lo-mod="normal" href="javascript:" title="普通登入">普通登录</a>
                 </div>
-                <div class="fl mod"><a class="eb_mod" lo-mod="ebmod" href="javascript:;" title="手机免密码登入">手机无密码登录</a>
+                <div class="fl mod"><a class="eb_mod" lo-mod="ebmod" href="javascript:" title="手机免密码登入">手机无密码登录</a>
                 </div>
             </div>
 
@@ -356,7 +355,7 @@
                                 <div class="lg_item lg_getcode">
                                     <input type="text" maxlength="32" class="ui-input pwd_text width_180" name="telcode"
                                            data-type="phonecode" placeholder="动态密码">
-                                    <a href="javascript:;" class="get_tel_code" id="get_tel_code">获取动态密码</a></div>
+                                    <a href="javascript:" class="get_tel_code" id="get_tel_code">获取动态密码</a></div>
                             </div>
                             <p id="lg_chk_item"></p>
                             <div class="lg_login clearfix">
@@ -375,13 +374,13 @@
 
                     </div>
                     <div class="ot_login">
-                        <div class="ot_btn clearfix"><a class="ui-ot-btn mr-42" href="javascript:;" data-type="qq"><img
+                        <div class="ot_btn clearfix"><a class="ui-ot-btn mr-42" href="javascript:" data-type="qq"><img
                                 src="${pageContext.request.contextPath }/dist/login/files/qq.png"></a> <a
-                                class="ui-ot-btn mr-42" href="javascript:;" data-type="weixin"><img
+                                class="ui-ot-btn mr-42" href="javascript:" data-type="weixin"><img
                                 src="${pageContext.request.contextPath }/dist/login/files/wechat.png"></a> <a
-                                class="ui-ot-btn mr-42" href="javascript:;" data-type="sina"><img
+                                class="ui-ot-btn mr-42" href="javascript:" data-type="sina"><img
                                 src="${pageContext.request.contextPath }/dist/login/files/weibo.png"></a> <a
-                                class="ui-ot-btn" href="javascript:;" data-type="sina"><img
+                                class="ui-ot-btn" href="javascript:" data-type="sina"><img
                                 src="${pageContext.request.contextPath }/dist/login/files/phone.png"></a></div>
                     </div>
                     <div class="lg_reg"><a class="regist" href="/register">免费注册</a></div>

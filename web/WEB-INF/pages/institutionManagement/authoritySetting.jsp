@@ -1,0 +1,116 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2018/5/28
+  Time: 10:19
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:include page="institutionHeader.jsp" flush="true"/>
+<style>
+    .user_list .ellipsis_text {
+        width: 190px;
+        height: 50px;
+        line-height: 50px;
+        text-align: left
+    }
+
+    .user_list .month_post, .user_list .month_reply, .user_list .month_check, .user_list .level_no, .user_list .rank_num {
+        width: 400px
+    }
+
+    .user_list .no, .user_list .header_icon, .user_list .remarks {
+        width: 45px;
+    }
+
+    .user_list .last_post {
+        width: 200px;
+    }
+
+    .form-li .form-c {
+        width: 24% !important;
+    }
+
+    .form-li .form-c input[type="text"] {
+        border: 0;
+        width: 200px;
+    }
+</style>
+<div class="wrapper">
+    <div class="form-li">
+        <div class="action_btns"><a href="机构管理 - 权限设置-新建角色.html" class="btn-export btn ">新建角色</a>
+            <!--          <a id="blackListManageBTN" href="javascript:;" class="btn">管理黑名单</a>-->
+        </div>
+        <div style="float: left;font-size: 24px;">权限设置<span style="color:#667e87;font-size: 18px;padding-bottom: 9px; ">(管理机构所有成员，分配不同角色对应的权限功能) </span><a
+                style="color:#28c2f5;font-size: 16px;">《权限说明》</a></div>
+    </div>
+    <div class="user_list">
+        <ul>
+            <li class="menu"><span class="member_info">角色</span> <span class="month_reply" data-value="3">描述</span><span
+                    class="no">成员数</span> <span class="last_post" data-value="7">操作</span></li>
+            <li class="" data-userid="72310219" data-username="LOVEWUST"><span class="no"></span> <span
+                    class="ellipsis_text role">超级管理员</span> <span class="month_reply">机构创始人，拥有所有权限功能。</span><span
+                    class="no">01</span> <span class="last_post"><a href="" class="super_role"
+                                                                    onClick="void(0)">不可操作</a> </span></li>
+            <li class="odd" data-userid="75938834" data-username="格桑花的曲调"><span class="no"></span> <span
+                    class="ellipsis_text role">教育管理员 </span> <span
+                    class="month_reply">机构创始人所关联的成员中选出；拥有大部分权限。</span><span class="no">01</span><span class="last_post"><a
+                    href="">管理成员</a> </span></li>
+            <li class="" data-userid="72310219" data-username="LOVEWUST"><span class="no"></span> <span
+                    class="ellipsis_text role">老师</span> <span class="month_reply">主要负责招生，配合机构教育工作。</span><span
+                    class="no">01</span> <span class="last_post"><a href="">管理成员</a> </span></li>
+            <li class="odd" data-userid="75938834" data-username="格桑花的曲调"><span class="no"></span> <span
+                    class="ellipsis_text role">助教 </span> <span class="month_reply">主要协助老师收集课程教案，包括机构纪律管理。</span><span
+                    class="no">01</span><span class="last_post"><a href="">管理成员</a> </span></li>
+        </ul>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="form-li">
+        <div class="action_btns"><a href="javascript:" class="btn-export btn ">添加成员</a>
+            <!--          <a id="blackListManageBTN" href="javascript:;" class="btn">管理黑名单</a>-->
+        </div>
+        <div style="float: left;font-size: 24px;">管理成员<span style="color:#28c2f5;font-size: 18px;padding-bottom: 9px; ">(教育管理员)</span>
+        </div>
+        <div class="form-c mem-search">
+            <input type="text" placeholder="搜索成员" maxlength="20" value="" id="txt_key">
+            <input id="hid_LeagueID" type="hidden" value="10118">
+            <a href="javascript:" class="btn-search"><i></i>搜索</a></div>
+        <div class="fr grey"> 已添加成员30</div>
+    </div>
+    <div class="del_more_users hide">
+        <div class="container"><a href="javascript:" class="fr btn btn-default deleteMoreUser">删除成员</a></div>
+    </div>
+    <div class="user_list">
+        <ul>
+            <li class="menu"><span class="member_info">成员名称</span> <span class="month_reply" data-value="3">qq号码</span>
+                <span class="last_post" data-value="7">操作</span></li>
+            <li class="" data-userid="72310219" data-username="LOVEWUST"><span class="no">01</span> <span
+                    class="ellipsis_text">LOVEWUST</span> <span class="month_reply">123456</span> <span
+                    class="last_post"><a href="">编辑</a> <a href="">删除</a></span></li>
+            <li class="odd" data-userid="75938834" data-username="格桑花的曲调"><span class="no">02</span> <span
+                    class="ellipsis_text">格桑花的曲调</span> <span class="month_reply">123456</span><span
+                    class="last_post"><a href="">编辑</a> <a href="">删除</a></span></li>
+            <li class="" data-userid="72310219" data-username="LOVEWUST"><span class="no">03</span> <span
+                    class="ellipsis_text">LOVEWUST</span> <span class="month_reply">123456</span> <span
+                    class="last_post"><a href="">编辑</a> <a href="">删除</a></span></li>
+            <li class="odd" data-userid="75938834" data-username="格桑花的曲调"><span class="no">04</span> <span
+                    class="ellipsis_text">格桑花的曲调</span> <span class="month_reply">123456</span><span
+                    class="last_post"><a href="">编辑</a> <a href="">删除</a></span></li>
+            <li class="" data-userid="72310219" data-username="LOVEWUST"><span class="no">05</span> <span
+                    class="ellipsis_text">LOVEWUST</span> <span class="month_reply">123456</span> <span
+                    class="last_post"><a href="">编辑</a> <a href="">删除</a></span></li>
+            <li class="odd" data-userid="75938834" data-username="格桑花的曲调"><span class="no">06</span> <span
+                    class="ellipsis_text">格桑花的曲调</span> <span class="month_reply">123456</span><span
+                    class="last_post"><a href="">编辑</a> <a href="">删除</a></span></li>
+            <li class="" data-userid="72310219" data-username="LOVEWUST"><span class="no">07</span> <span
+                    class="ellipsis_text">LOVEWUST</span> <span class="month_reply">123456</span> <span
+                    class="last_post"><a href="">编辑</a> <a href="">删除</a></span></li>
+            <li class="odd" data-userid="75938834" data-username="格桑花的曲调"><span class="no">08</span> <span
+                    class="ellipsis_text">格桑花的曲调</span> <span class="month_reply">123456</span><span
+                    class="last_post"><a href="">编辑</a> <a href="">删除</a></span></li>
+        </ul>
+    </div>
+</div>
+</div>
+<jsp:include page="institutionFooter.jsp" flush="true"/>

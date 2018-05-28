@@ -349,9 +349,8 @@
         }
 
         .user_list .header_icon img {
-            height: 30px;
-            height: 30px;
-            margin-top: 10px
+            height: 40px;
+            margin-top: 5px
         }
 
         .user_list .to_manage, .user_list .to_normal {
@@ -482,6 +481,10 @@
             text-align: center;
             font-size: 28px;
             padding-top: 10%;
+        }
+
+        .title > span.fl {
+            font-size: 14px;
         }
 
         .div_center {
@@ -650,14 +653,11 @@
             </div>
             <div class="header1 container-title">
                 <ul class="main_nav2 hide_search_box">
-                    <li class="home icons active "><a href="机构管理 - 资料管理.html" title="社团首页">
-                        <!--            <i class="fa fa-home"></i>-->
+                    <li class="home icons active "><a href="institutionData" title="机构资料">
                         <em>机构资料</em></a></li>
-                    <li class="league_nav icons"><a href="机构管理 - 成员管理.html" title="发现社团">
-                        <!--            <i class="fa fa-eye"></i>-->
+                    <li class="league_nav icons"><a href="institutionMembers" title="机构成员">
                         <em>机构成员</em></a></li>
-                    <li class="league_nav icons"><a href="机构管理 - 权限设置.html" title="发现社团">
-                        <!--            <i class="fa fa-eye"></i>-->
+                    <li class="league_nav icons"><a href="authoritySetting" title="权限设置">
                         <em>权限设置</em></a></li>
                     <li class="article_mall icons "><a href="../机构管理2/课教管理_资料管理.html" title="商城">
                         <!--            <i class="fa fa-shopping-bag"></i>-->

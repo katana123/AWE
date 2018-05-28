@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="institutionHeader.jsp"/>
+<jsp:include page="institutionHeader.jsp" flush="true"/>
 <div class="wrapper" style="height: 899px;
         width: 735px;
         margin: 0px auto; margin-top: 40px; background-image:url(${pageContext.request.contextPath }/dist/institutionManagement/images/letter_bg.png)">
@@ -41,4 +41,4 @@
     </div>
 </div>
 </div>
-<jsp:include page="institutionFooter.jsp"/>
+<jsp:include page="institutionFooter.jsp" flush="true"/>
