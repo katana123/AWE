@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-
 public class CcusersService {
 
     @Autowired
@@ -24,8 +23,6 @@ public class CcusersService {
     public List<CCusers> getByCusernameAndCpwd(String cuserName, String cPwd) {
         return ccusersRepositry.getByCusernameAndCpwd(cuserName, cPwd);
     }
-
-    ;
 
     @Transactional
     public void updateEmailByCuid(String cemail,  Long cuid){

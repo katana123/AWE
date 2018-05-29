@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,27 @@ public class LoginHandler {
 
     @Autowired
     private CcusersService ccusersService;
+
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        Cookie[] cookies = request.getCookies();
+        if (null == cookies) {
+            System.out.println("没有cookie");
+        } else {
+            for (Cookie cookie : cookies) {
+                //如果找到同名cookie，就将value设置为null，将存活时间设置为0，再替换掉原cookie，这样就相当于删除了。
+
+                if (cookie.getName().equals("userlogin")) {
+                    Cookie cookie1 = new Cookie("userlogin", null);
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie1);
+                    break;
+                }
+            }
+        }
+
+        return "redirect:/index";
+    }
 
     @RequestMapping("/loginSccuess")
     public String loginSccuess(Map<String, Object> map) {

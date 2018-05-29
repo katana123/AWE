@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -167,15 +168,16 @@
                 src="${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/logo.png"></a>
 
             <ul class="g-login" style="float:right">
-                <li><a href="" class="nav1">首页</a></li>
-                <li class="g-act"><a href="login">登录</a></li>
-                <li>
-                    <select class="g-select" name="">
-                        <option value="">小李飞刀</option>
-                        <option value="">公司头条</option>
-                    </select>
-                </li>
-                <li><a href="#"> 退出</a></li>
+                <c:choose>
+                    <c:when test="${cookie.userlogin.value == null || cookie.userlogin.value == '' }">
+                        <li><a href="login"> 登录</a>|</li>
+                        <li><a href="register"> 注册</a>|</li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><span>${cookie.userlogin.value }&nbsp;</span></li>
+                        <li><a href="logout">退出登录</a>&nbsp;</li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
         </div>
     </div>
@@ -229,62 +231,21 @@
                                 <span>AWE官方学社</span>
                             </h3>
           -->
-                    <div class="clearfix"><a href="#" class="member-item" target="_parent">
-                        <div class="interview-img"><img
-                                src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
-                                alt="AWE官方学社" title="AWE官方学社"></div>
-                        <div class="interview-info">
-                            <p class="interview-title">官方学社</p>
-                            <p class="interview-des"> awe俱乐部，awe俱乐</p>
-                            <p class="interview-des"> 学友数：999</p>
-                        </div>
-                    </a> <a href="#" class="member-item" target="_parent">
-                        <div class="interview-img"><img
-                                src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
-                                alt="AWE官方学社" title="AWE官方学社"></div>
-                        <div class="interview-info">
-                            <p class="interview-title">活动社区</p>
-                            <p class="interview-des"> awe俱乐部，awe俱乐</p>
-                            <p class="interview-des"> 学友数：999</p>
-                        </div>
-                    </a> <a href="#" class="member-item" target="_parent">
-                        <div class="interview-img"><img
-                                src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
-                                alt="AWE官方学社" title="AWE官方学社"></div>
-                        <div class="interview-info">
-                            <p class="interview-title">商城专区</p>
-                            <p class="interview-des"> awe俱乐部，awe俱乐</p>
-                            <p class="interview-des"> 学友数：999</p>
-                        </div>
-                    </a></div>
-                    <div class="clearfix"><a href="#" class="member-item" target="_parent">
-                        <div class="interview-img"><img
-                                src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
-                                alt="AWE官方学社" title="AWE官方学社"></div>
-                        <div class="interview-info">
-                            <p class="interview-title">推荐专区</p>
-                            <p class="interview-des"> awe俱乐部，awe俱乐</p>
-                            <p class="interview-des"> 学友数：999</p>
-                        </div>
-                    </a> <a href="#" class="member-item" target="_parent">
-                        <div class="interview-img"><img
-                                src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
-                                alt="AWE官方学社" title="AWE官方学社"></div>
-                        <div class="interview-info">
-                            <p class="interview-title">最新发布</p>
-                            <p class="interview-des"> awe俱乐部，awe俱乐</p>
-                            <p class="interview-des"> 学友数：999</p>
-                        </div>
-                    </a> <a href="#" class="member-item" target="_parent">
-                        <div class="interview-img"><img
-                                src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
-                                alt="AWE官方学社" title="AWE官方学社"></div>
-                        <div class="interview-info">
-                            <p class="interview-title">问题反馈</p>
-                            <p class="interview-des"> awe俱乐部，awe俱乐</p>
-                            <p class="interview-des"> 学友数：999</p>
-                        </div>
-                    </a></div>
+                    <div class="clearfix">
+                        <c:forEach items="${authorityCommunities}" var="authorityCommunities">
+                            <a href="${pageContext.request.contextPath }/communityUserMainpage/${authorityCommunities.ccid}"
+                               class="member-item" target="_parent">
+                                <div class="interview-img"><img
+                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
+                                        alt="AWE官方学社" title="AWE官方学社"></div>
+                                <div class="interview-info">
+                                    <p class="interview-title">${authorityCommunities.ccname}</p>
+                                    <p class="interview-des">${authorityCommunities.ccinfo}</p>
+                                    <p class="interview-des"> 学友数：999</p>
+                                </div>
+                            </a>
+                        </c:forEach>
+                    </div>
 
 
                 </div>
@@ -317,7 +278,7 @@
                     </script>
                     <div id="tabCon">
                         <div class="show_div">
-                            <div class="clearfix"><a href="#" class="member-item" target="_blank">
+                            <div class="clearfix"><a href="communityUserMainpage" class="member-item" target="_blank">
                                 <div class="interview-img"><img
                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
                                         alt="AWE官方学社" title="AWE官方学社"></div>
@@ -326,7 +287,7 @@
                                     <p class="interview-des"> awe俱乐部，awe俱乐</p>
                                     <p class="interview-des"> 学友数：999</p>
                                 </div>
-                            </a> <a href="#" class="member-item" target="_blank">
+                            </a> <a href="communityUserMainpage" class="member-item" target="_blank">
                                 <div class="interview-img"><img
                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(1).jpg"
                                         alt="AWE官方学社" title="AWE官方学社"></div>
@@ -335,7 +296,7 @@
                                     <p class="interview-des"> awe俱乐部，awe俱乐</p>
                                     <p class="interview-des"> 学友数：999</p>
                                 </div>
-                            </a> <a href="#" class="member-item" target="_blank">
+                            </a> <a href="communityUserMainpage" class="member-item" target="_blank">
                                 <div class="interview-img"><img
                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/a2c79b17-0832-4ee0-affb-efcd2ba25861(1).png"
                                         alt="AWE官方学社" title="AWE官方学社"></div>
@@ -345,7 +306,7 @@
                                     <p class="interview-des"> 学友数：999</p>
                                 </div>
                             </a></div>
-                            <div class="clearfix"><a href="#" class="member-item" target="_blank">
+                            <div class="clearfix"><a href="communityUserMainpage" class="member-item" target="_blank">
                                 <div class="interview-img"><img
                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
                                         alt="AWE官方学社" title="AWE官方学社"></div>
@@ -354,7 +315,7 @@
                                     <p class="interview-des"> awe俱乐部，awe俱乐</p>
                                     <p class="interview-des"> 学友数：999</p>
                                 </div>
-                            </a> <a href="#" class="member-item" target="_blank">
+                            </a> <a href="communityUserMainpage" class="member-item" target="_blank">
                                 <div class="interview-img"><img
                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(1).jpg"
                                         alt="AWE官方学社" title="AWE官方学社"></div>
@@ -363,7 +324,7 @@
                                     <p class="interview-des"> awe俱乐部，awe俱乐</p>
                                     <p class="interview-des"> 学友数：999</p>
                                 </div>
-                            </a> <a href="#" class="member-item" target="_blank">
+                            </a> <a href="communityUserMainpage" class="member-item" target="_blank">
                                 <div class="interview-img"><img
                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/a2c79b17-0832-4ee0-affb-efcd2ba25861(1).png"
                                         alt="AWE官方学社" title="AWE官方学社"></div>
@@ -373,7 +334,7 @@
                                     <p class="interview-des"> 学友数：999</p>
                                 </div>
                             </a></div>
-                            <div class="clearfix"><a href="#" class="member-item" target="_blank">
+                            <div class="clearfix"><a href="communityUserMainpage" class="member-item" target="_blank">
                                 <div class="interview-img"><img
                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
                                         alt="AWE官方学社" title="AWE官方学社"></div>
@@ -382,7 +343,7 @@
                                     <p class="interview-des"> awe俱乐部，awe俱乐</p>
                                     <p class="interview-des"> 学友数：999</p>
                                 </div>
-                            </a> <a href="#" class="member-item" target="_blank">
+                            </a> <a href="communityUserMainpage" class="member-item" target="_blank">
                                 <div class="interview-img"><img
                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/c9ac691c-378b-47ed-9d1b-5581ea348ee0(1).jpg"
                                         alt="AWE官方学社" title="AWE官方学社"></div>
@@ -391,7 +352,7 @@
                                     <p class="interview-des"> awe俱乐部，awe俱乐</p>
                                     <p class="interview-des"> 学友数：999</p>
                                 </div>
-                            </a> <a href="#" class="member-item" target="_blank">
+                            </a> <a href="communityUserMainpage" class="member-item" target="_blank">
                                 <div class="interview-img"><img
                                         src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/a2c79b17-0832-4ee0-affb-efcd2ba25861(1).png"
                                         alt="AWE官方学社" title="AWE官方学社"></div>
@@ -436,7 +397,7 @@
                             <dt>最新回复</dt>
                             <dd style="display: none;">
                                 <input type="hidden" name="leagueType" id="leagueType" value="0">
-                                <a class="selected" val="0" href="javascript:;">最新回复</a><a val="1" href="javascript:;">最新发布</a>
+                                <a class="selected" val="0" href="javascript:">最新回复</a><a val="1" href="javascript:">最新发布</a>
                             </dd>
                         </dl>
                     </div>
@@ -1292,8 +1253,8 @@
         </div>
         <div class="footer_go_top">
             <ul>
-                <li><a href="javascript:;" class="news_btn"></a> <span class="news_dotted"
-                                                                       style="display: none;"></span></li>
+                <li><a href="javascript:" class="news_btn"></a> <span class="news_dotted"
+                                                                      style="display: none;"></span></li>
                 <li><a href="#pageContent" class="go_top" style="display: none;"><i></i><span class="hide_text">返回<br>
           顶部</span></a></li>
             </ul>
