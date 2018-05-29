@@ -6,12 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CommunityHandler {
 
-    /*-------------商城start-------------*/
-    @RequestMapping("/communityMarket")
-    public String CommunityMarket() {
-        return "/communityMarket/property";
-    }
-    /*--------------商城end--------------*/
+
     /*---------学有所乐start-------------*/
 
     //大型赛区

@@ -71,10 +71,10 @@
             <li class="league_nav icons"><a href="#" title="发现学社">
                 <!--            <i class="fa fa-eye"></i>-->
                 <em>共同学习</em></a></li>
-            <li class="article_mall icons "><a href="#" title="商城">
+            <li class="article_mall icons "><a href="MarketProperty" title="商城">
                 <!--            <i class="fa fa-shopping-bag"></i>-->
                 <em>学有所乐</em></a></li>
-            <li class="icons more_functions "><a href="#" title="一元购" rel="nofollow">
+            <li class="icons more_functions "><a href="MarketOnebuy" title="一元购" rel="nofollow">
                 <!--            <i class="fa fa-bullseye"></i>-->
                 <em>商城</em></a></li>
             <li class="search_league" style=" overflow: hidden;"></li>
