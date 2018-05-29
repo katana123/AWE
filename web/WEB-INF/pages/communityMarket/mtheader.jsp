@@ -287,31 +287,30 @@
     <div class="g-search g-w1200 f-cb">
         <a class="g-logo" href=""><img
                 src="${pageContext.request.contextPath }/dist/communityMarket/images/logo.jpg"></a>
-        <!--
-                <div class="g-sarch-input">
-                    <select class="g-select" name="" >
-                        <option value="">精品推荐</option>
-                        <option value="">公司头条</option>
-                    </select>
-                    <input type="text" name="search" id="search" value="" placeholder="请输入关键字">
-                    <div class="g-btn-search"><i class="fa fa-search"></i></div>
-                </div>
-        -->
-        <ul class="g-login" style="float: right">
-            <li><a href=""> 登录</a>|</li>
-            <li><a href=""> 注册</a>|</li>
-            <li><a href=""> 学社</a></li>
+        <ul class="g-login" style="float:right">
+            <c:choose>
+                <c:when test="${cookie.userlogin.value == null || cookie.userlogin.value == '' }">
+                    <li><a href="login"> 登录</a>|</li>
+                    <li><a href="register"> 注册</a>|</li>
+                </c:when>
+                <c:otherwise>
+                    <li><span>${cookie.userlogin.value }&nbsp;</span></li>
+                    <li><a href="logout">退出登录</a>&nbsp;</li>
+                </c:otherwise>
+            </c:choose>
         </ul>
     </div>
     <div class="g-hd">
         <ul class="m-nav f-cb g-w1200">
-            <li><a href="../../学社首页/学社首页.htm">首页</a></li>
 
-            <li><a href="../学社汇总2/全部学社.html">学社总汇</a></li>
-            <li><a href="../03共同学习/共同学习.html">共同学习</a></li>
-            <li><a href="../学有所乐/房间.html">学有所乐</a></li>
-            <li class="g-act"><a href="商城-行为道具.html">商城</a></li>
+            <li><a href="communityMainpage">首页</a></li>
+
+            <li><a href="communitySummary">学社总汇</a></li>
+            <li><a href="communityStudycom">共同学习</a></li>
+            <li><a href="communityFunRoom">学有所乐</a></li>
+            <li class="g-act"><a href="MarketProperty">商城</a></li>
         </ul>
+    </div>
     </div>
     <div class="g-banner">
         <div id="slideBox" class="slideBox">
@@ -338,17 +337,20 @@
             </div>
         </div>
     </div>
-    <li>&nbsp;</li>
-    <li
-            <c:if test="${markettype=='property'}">class="g-act_second_active"</c:if> ><a href="MarketProperty">虚拟道具</a>
-    </li>
-    <li <c:if test="${markettype=='gift'}">class="g-act_second_active"</c:if>><a href="MarketGift">礼品赠送</a></li>
-    <li <c:if test="${markettype=='resource'}">class="g-act_second_active"</c:if>><a href="MarketResource">课程资源</a></li>
-    <li <c:if test="${markettype=='onebuy'}">class="g-act_second_active"</c:if>><a href="MarketOnebuy">一元秒购</a></li>
-    <li style="float: right;padding-right: 200px;">
-        <input type="text" name="firstname" value="输入公屏聊天信息"
-               style="padding: 8px;border-radius: 16px;background: #fff;border: 1px solid #000;">
-    </li>
+<div class="g-hd">
+    <ul class="m-nav f-cb g-w1200">
+        <li>&nbsp;</li>
+        <li
+                <c:if test="${markettype=='property'}">class="g-act_second_active"</c:if> ><a
+                href="MarketProperty">虚拟道具</a></li>
+        <li <c:if test="${markettype=='gift'}">class="g-act_second_active"</c:if>><a href="MarketGift">礼品赠送</a></li>
+        <li <c:if test="${markettype=='resource'}">class="g-act_second_active"</c:if>><a href="MarketResource">课程资源</a>
+        </li>
+        <li <c:if test="${markettype=='onebuy'}">class="g-act_second_active"</c:if>><a href="MarketOnebuy">一元秒购</a></li>
+        <li style="float: right;padding-right: 200px;">
+            <input type="text" name="firstname" value="输入公屏聊天信息"
+                   style="padding: 8px;border-radius: 16px;background: #fff;border: 1px solid #000;">
+        </li>
     </ul>
 </div>
-
+</div>

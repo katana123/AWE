@@ -7,6 +7,7 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -35,7 +36,137 @@
     <script src="${pageContext.request.contextPath }/dist/communityMainpage/libs/poposlides.js"></script>
 
     <!--图片轮滑-->
+    <style type="text/css">
+        .navigator-nav li.current a {
+            border: 1px solid #0099CC;
+            border-radius: 3px;
+            color: #0099CC;
+        }
 
+        .navigator-nav1 li a {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .navigator-nav1 li {
+            float: left;
+            width: 180px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .top-right-radius {
+            border-top-right-radius: 2em;
+        }
+
+        .tab-header > ul {
+            padding: 10px 0px;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        .tab-header > ul > li {
+            float: left;
+            padding: 0px 10px;
+        }
+
+        .tab-header > ul > li.active > a {
+            background-color: #fff;
+        }
+
+        .tab-header > ul > li > a {
+            display: block;
+            padding: 15px 62px;
+            color: #fff;
+            transition: all .3s ease;
+        }
+
+        .tab-header_bg1 {
+            background-color: #4b4a5d
+        }
+
+        .tab-header_bg2 {
+            background-color: #615f79
+        }
+
+        .tab-header_bg3 {
+            background-color: #7c799c
+        }
+
+        .tab-header_bg4 {
+            background-color: #89b7d2
+        }
+
+        .tab-header_bg5 {
+            background-color: #6d6b85
+        }
+
+        .tab-header_bg6 {
+            background-color: #c1dee2
+        }
+
+        .tab-header_bg7 {
+            background-color: #adcee1
+        }
+
+        .tab-header_bg8 {
+            background-color: #5b7fab
+        }
+
+        .tab-header_bg9 {
+            background-color: #6d6b85
+        }
+
+        .tab-header_bg10 {
+            background-color: #77b1d2
+        }
+
+        .tab-header_bg11 {
+            background-color: #759ccb
+        }
+
+        .tab-header_bg12 {
+            background-color: #406087
+        }
+
+        .hotmember-interview .clearfix {
+            padding-bottom: 30px;
+        }
+
+        .show_div {
+            display: block;
+        }
+
+        .hidden_div {
+            display: none;
+        }
+
+        .container-title {
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .section-title {
+            margin: 0 auto;
+            text-align: center;
+            font-size: 24px;
+            color: #4b4b4b;
+            font-weight: 400;
+        }
+
+        .container-title p {
+            margin-top: 16px;
+            text-align: center;
+            width: 190px;
+            padding: 3px 0px;
+            margin: 0px auto;
+            font-size: 15px;
+            color: #999;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -45,15 +176,16 @@
                 src="${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/logo.png"></a>
 
             <ul class="g-login" style="float:right">
-                <li><a href="" class="nav1">首页</a></li>
-                <li class="g-act"><a href="login">登录</a></li>
-                <li>
-                    <select class="g-select" name="">
-                        <option value="">小李飞刀</option>
-                        <option value="">公司头条</option>
-                    </select>
-                </li>
-                <li><a href="#"> 退出</a></li>
+                <c:choose>
+                    <c:when test="${cookie.userlogin.value == null || cookie.userlogin.value == '' }">
+                        <li><a href="login"> 登录</a>|</li>
+                        <li><a href="register"> 注册</a>|</li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><span>${cookie.userlogin.value }&nbsp;</span></li>
+                        <li><a href="logout">退出登录</a>&nbsp;</li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
         </div>
     </div>
@@ -62,20 +194,15 @@
 
     <div class="header">
         <ul class="main_nav hide_search_box" id="hideSearchBox">
-            <li class="home icons active"><a href="#" title="学社首页">
-                <!--            <i class="fa fa-home"></i>-->
+            <li class="home icons active"><a href="#" title="首页">
                 <em>首页</em></a></li>
-            <li class="my_league icons "><a href="#" id="myleague" rel="nofollow" title="我的学社">
-                <!--            <i class="fa fa-user"></i>-->
+            <li class="my_league icons "><a href="communitySummaryAll" id="myleague" rel="nofollow" title="学社总汇">
                 <em>学社总汇</em></a></li>
-            <li class="league_nav icons"><a href="#" title="发现学社">
-                <!--            <i class="fa fa-eye"></i>-->
+            <li class="league_nav icons"><a href="communityStudyCom" title="共同学习">
                 <em>共同学习</em></a></li>
-            <li class="article_mall icons "><a href="MarketProperty" title="商城">
-                <!--            <i class="fa fa-shopping-bag"></i>-->
+            <li class="article_mall icons "><a href="communityFunRoom" title="学有所乐">
                 <em>学有所乐</em></a></li>
-            <li class="icons more_functions "><a href="MarketOnebuy" title="一元购" rel="nofollow">
-                <!--            <i class="fa fa-bullseye"></i>-->
+            <li class="icons more_functions "><a href="communityMarketProperty" title="商城" rel="nofollow">
                 <em>商城</em></a></li>
             <li class="search_league" style=" overflow: hidden;"></li>
         </ul>
@@ -91,4 +218,5 @@
         <li style="background: url('${pageContext.request.contextPath }/dist/communityMainpage/tmp/images/banner.png') center"></li>
     </ul>
 </div>
+
 <!-- banner end-->

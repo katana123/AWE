@@ -8,7 +8,7 @@ import java.util.Map;
 @Controller
 public class MarketHandler {
     /*-------------商城start-------------*/
-    @RequestMapping("/MarketProperty")
+    @RequestMapping("/communityMarketProperty")
     public String MarketProperty(Map<String, Object> map) {
         map.put("markettype", "property");
         return "/communityMarket/property";

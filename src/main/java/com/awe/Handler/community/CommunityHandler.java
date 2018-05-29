@@ -7,27 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CommunityHandler {
 
 
-    /*---------学有所乐start-------------*/
-
-    //大型赛区
-    @RequestMapping("/communityFunArea")
-    public String CommunityFunArea() {
-        return "/communityFun/area";
-    }
-
-    //极乐大厅
-    @RequestMapping("/communityFunHall")
-    public String CommunityFunHall() {
-        return "/communityFun/hall";
-    }
-
-    //房间
-    @RequestMapping("/communityFunRoom")
-    public String CommunityFunRoom() {
-        return "/communityFun/room";
-    }
-
-    /*-------学有所乐end--------*/
 
 
     //创建社区

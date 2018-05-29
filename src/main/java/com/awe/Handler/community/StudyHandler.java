@@ -7,7 +7,7 @@ import java.util.Map;
 
 @Controller
 public class StudyHandler {
-    @RequestMapping("/Studycom")
+    @RequestMapping("/communityStudyCom")
     public String Studycom(Map<String, Object> map) {
         map.put("studytype", "com");
         return "/communityStudy/studycom";
