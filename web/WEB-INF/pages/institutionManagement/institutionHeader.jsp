@@ -19,7 +19,7 @@
     <link href="${pageContext.request.contextPath }/dist/institutionManagement/css/poposlides.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath }/dist/institutionManagement/libs/jquery-1.8.3.min.js"></script>
     <script src="${pageContext.request.contextPath }/dist/institutionManagement/libs/poposlides.js"></script>
-
+    <script src="${pageContext.request.contextPath }/dist/common/layer/layer.js"></script>
     <!--图片轮滑-->
     <style>
         .pagination1 {
@@ -530,6 +530,16 @@
             -moz-transition: all .3s;
             -ms-transition: all .3s;
         }
+
+        .savebtn {
+            width: 100px;
+            height: 40px;
+            border-radius: 5px;
+            background-color: #5fbfd0;
+            color: #fff;
+            border: none;
+            margin-left: 105px;
+        }
     </style>
 </head>
 <body>
@@ -664,9 +674,11 @@
                     <li class="league_nav icons"><a
                             href="${pageContext.request.contextPath }/institutionMembers/${ccid}" title="机构成员">
                         <em>机构成员</em></a></li>
-                    <li class="league_nav icons"><a href="authoritySetting" title="权限设置">
+                    <li class="league_nav icons"><a href="${pageContext.request.contextPath }/authoritySetting/${ccid}"
+                                                    title="权限设置">
                         <em>权限设置</em></a></li>
-                    <li class="article_mall icons "><a href="../机构管理2/课教管理_资料管理.html" title="课教管理">
+                    <li class="article_mall icons "><a href="${pageContext.request.contextPath }/dataManagement/${ccid}"
+                                                       title="课教管理">
                         <em>课教管理</em></a></li>
                     <li class="article_mall icons "><a href="../机构管理2/发布管理_发布课程.html" title="发布管理">
                         <em>发布管理</em></a></li>

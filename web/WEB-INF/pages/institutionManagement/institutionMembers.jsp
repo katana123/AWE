@@ -6,9 +6,9 @@
             <!--          <a id="blackListManageBTN" href="javascript:;" class="btn">管理黑名单</a>-->
         </div>
         <div class="form-c mem-search">
-            <input type="text" placeholder="搜索成员" maxlength="20" value="" id="txt_key">
-            <input id="hid_LeagueID" type="hidden" value="10118">
-            <a href="javascript:" class="btn-search"><i></i>搜索</a></div>
+            <input type="text" placeholder="输入用户名" maxlength="20" value="" id="txt_key" style="width: 100%;">
+            <%--<input id="hid_LeagueID" type="hidden" value="10118">
+            <a href="javascript:" class="btn-search"><i></i>搜索</a></div>--%>
         <div class="fr grey"> 已添加成员30</div>
     </div>
     <div class="del_more_users hide">

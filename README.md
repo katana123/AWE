@@ -9,4 +9,10 @@
 <br/>
 问题：
 <br/>
-1、机构资料的手机号、QQ号和邮箱地址是用社长的相关信息还是在数据库中新增单独的机构信息
+1、机构资料的手机号、QQ号和邮箱地址是用社长的相关信息还是在数据库中新增单独的机构信息（在社团信息表C_CINFO中新增手机号CPHONE、QQ号CQQ、邮箱地址CEMAIL三个字段）
+<br/>
+2、机构用户关联表、机构资源关联表
+<br/>
+（新建机构用户关联表C_ULINK，包含字段机构ID CCID、用户ID CUID、用户角色ID ROLEID
+<BR/>
+新建机构资源关联表C_RLINK，包含字段机构ID CCID、资源名称 RNAME、上传时间 UPLOADTIME、资源大类<课程、资料、视频> RMAJOR、资源小类<WORD、PPT、JPG> RMINOR、资源大小 RSIZE）

@@ -83,8 +83,8 @@ public class LoginHandler {
     public String validateUnamePwd(@RequestParam(value = "cusername", required = true) String Cusername,
                                    @RequestParam(value = "cpwd", required = true) String Cpwd,
                                    HttpServletResponse response) {
-        List<CCusers> cCusers = ccusersService.getByCusername(Cusername);
-        if (null == cCusers || cCusers.size() == 0) {
+        CCusers cCusers = ccusersService.getByCusername(Cusername);
+        if (null == cCusers) {
             return "0";//用户不存在
         } else {
             List<CCusers> cCusers2 = ccusersService.getByCusernameAndCpwd(Cusername, Cpwd);

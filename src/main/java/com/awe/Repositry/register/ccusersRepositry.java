@@ -14,7 +14,7 @@ public interface ccusersRepositry extends JpaRepository<CCusers,Integer> {
 
     CCusers getByCuid(Long cuid);
 
-    List<CCusers> getByCusername(String cuserName);
+    CCusers getByCusername(String cuserName);
 
     @Transactional
     @Modifying(clearAutomatically = true)
@@ -24,4 +24,7 @@ public interface ccusersRepositry extends JpaRepository<CCusers,Integer> {
     List<CCusers> getByCusernameAndCpwd(String cuserName, String cPwd);
 
     CCusers getByCupn(String cupn);
+
+    //获取学社关联的用户
+    //List<CCusers> getByCcidAndRoleid( String ccid , String roleid);
 }

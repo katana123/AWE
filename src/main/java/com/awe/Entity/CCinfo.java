@@ -24,6 +24,10 @@ public class CCinfo {
     private String ccinfo;
     private String ccb;
     private long cleve;
+    private String cqq;
+    private String cphone;
+    private String cemail;
+
 
     @GeneratedValue
     @Id
@@ -161,6 +165,30 @@ public class CCinfo {
         this.cleve = cleve;
     }
 
+    public String getCqq() {
+        return cqq;
+    }
+
+    public void setCqq(String cqq) {
+        this.cqq = cqq;
+    }
+
+    public String getCphone() {
+        return cphone;
+    }
+
+    public void setCphone(String cphone) {
+        this.cphone = cphone;
+    }
+
+    public String getCemail() {
+        return cemail;
+    }
+
+    public void setCemail(String cemail) {
+        this.cemail = cemail;
+    }
+
     @Override
     public String toString() {
         return "CCinfo{" +
@@ -179,6 +207,9 @@ public class CCinfo {
                 ", ccinfo='" + ccinfo + '\'' +
                 ", ccb='" + ccb + '\'' +
                 ", cleve=" + cleve +
+                ", cqq='" + cqq + '\'' +
+                ", cphone='" + cphone + '\'' +
+                ", cemail='" + cemail + '\'' +
                 '}';
     }
 }

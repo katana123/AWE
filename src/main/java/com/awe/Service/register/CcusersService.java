@@ -35,7 +35,7 @@ public class CcusersService {
     }
 
     @Transactional(readOnly = true)
-    public List<CCusers> getByCusername(String cuserName) {
+    public CCusers getByCusername(String cuserName) {
         return ccusersRepositry.getByCusername(cuserName);
     }
 

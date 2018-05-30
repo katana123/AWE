@@ -107,12 +107,8 @@ public class RegisterHandler {
     @ResponseBody
     @RequestMapping(value = "/ajaxValidateCusername",method = RequestMethod.POST)
     public boolean validateCusername(@RequestParam(value = "nick", required = true) String Cusername) {
-        List<CCusers> cCusers = ccusersService.getByCusername(Cusername);
-        if (null == cCusers || cCusers.size() == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        CCusers cCusers = ccusersService.getByCusername(Cusername);
+        return null == cCusers;
     }
 
     @RequestMapping(value = "/register_add",method = RequestMethod.POST)
