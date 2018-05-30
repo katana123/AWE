@@ -17,20 +17,21 @@
     <meta name="viewport" content="width=device-width"/>
 
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/community/css/reset.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/community/css/create_container.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/community/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityCreate/css/reset.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityCreate/css/create_container.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityCreate/css/font-awesome.min.css"/>
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/community/css/head.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/community/css/drag.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityCreate/css/head.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityCreate/css/drag.css"/>
 
 
-    <script src="${pageContext.request.contextPath }/dist/community/libs/jquery-1.8.3.min.js" type="text/javascript"
+    <script src="${pageContext.request.contextPath }/dist/communityCreate/libs/jquery-1.8.3.min.js"
+            type="text/javascript"
             charset="utf-8"></script>
 
-    <script src="${pageContext.request.contextPath }/dist/community/libs/jquery.SuperSlide.2.1.1.js"
+    <script src="${pageContext.request.contextPath }/dist/communityCreate/libs/jquery.SuperSlide.2.1.1.js"
             type="text/javascript" charset="utf-8"></script>
-    <script src="${pageContext.request.contextPath }/dist/community/js/drag.js" type="text/javascript"
+    <script src="${pageContext.request.contextPath }/dist/communityCreate/js/drag.js" type="text/javascript"
             charset="utf-8"></script>
 </head>
 <style>
@@ -75,7 +76,8 @@
 <div class="g-head">
     <div class="header_top">
         <div class="g-search f-cb">
-            <a class="g-logo" href="" style="float:left;"><img src="images/logo.png"></a>
+            <a class="g-logo" href="" style="float:left;"><img
+                    src="${pageContext.request.contextPath }/dist/communityCreate/images/logo.png"></a>
             <!-- 	<h1><a href="/" class="logo" onclick="">AWE社团</a></h1>
                 <div class="g-hd2" style="width:300px; float:left;">
                 <ul class="g-login">
@@ -84,13 +86,16 @@
                </ul>
                </div>-->
             <ul class="g-login" style="float:right">
-                <li><a href="../../product一级/index.html" class="nav1">首页</a></li>
-                <li class="g-act"><a href="../../登录/登录.html">登录</a></li>
-                <li><select class="g-select" name="">
-                    <option value="">小李飞刀</option>
-                    <option value="">公司头条</option>
-                </select></li>
-                <li><a href="../../登录/登录.html"> 退出</a></li>
+                <c:choose>
+                    <c:when test="${cookie.userlogin.value == null || cookie.userlogin.value == '' }">
+                        <li><a href="login"> 登录</a>|</li>
+                        <li><a href="register"> 注册</a>|</li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><span>${cookie.userlogin.value }&nbsp;</span></li>
+                        <li><a href="logout">退出登录</a>&nbsp;</li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
         </div>
     </div>
@@ -99,24 +104,17 @@
     <div class="header">
 
         <ul class="main_nav hide_search_box" id="hideSearchBox">
-            <li class="home icons active"><a href="/" title="社团首页">
-                <!--            <i class="fa fa-home"></i>-->
+            <li class="home icons active"><a href="#" title="首页">
                 <em>首页</em></a></li>
-            <li class="my_league icons "><a href="/my/" id="myleague" rel="nofollow" title="我的社团">
-                <!--            <i class="fa fa-user"></i>-->
+            <li class="my_league icons "><a href="communitySummaryAll" id="myleague" rel="nofollow" title="学社总汇">
                 <em>学社总汇</em></a></li>
-            <li class="league_nav icons"><a href="/explore/" title="发现社团">
-                <!--            <i class="fa fa-eye"></i>-->
+            <li class="league_nav icons"><a href="communityStudyCom" title="共同学习">
                 <em>共同学习</em></a></li>
-
-            <li class="article_mall icons "><a href="/mall/" title="商城">
-                <!--            <i class="fa fa-shopping-bag"></i>-->
+            <li class="article_mall icons "><a href="communityFunRoom" title="学有所乐">
                 <em>学有所乐</em></a></li>
-            <li class="icons more_functions "><a href="/more/" title="一元购" rel="nofollow">
-                <!--            <i class="fa fa-bullseye"></i>-->
+            <li class="icons more_functions "><a href="communityMarketProperty" title="商城" rel="nofollow">
                 <em>商城</em></a></li>
-            <li class="search_league" style=" overflow: hidden;">
-            </li>
+            <li class="search_league" style=" overflow: hidden;"></li>
         </ul>
         <!-- <div class="search_box">
                          <input type="text" class="search_key_input" placeholder="搜索整个社团帖子，活动话题" id="topTxtKeyWord" value="">

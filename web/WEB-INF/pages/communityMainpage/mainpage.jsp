@@ -50,17 +50,29 @@
 
                         function tab1(pid) {
                             var tabs = ["tab1", "tab2", "tab3", "tab4"];
-                            if (tabs[i] == tab1) {
+                            if (tabs[0] == pid) {
                                 document.getElementById("list1").className = "all active";
+                                document.getElementById("list2").className = "hotLeague";
+                                document.getElementById("list3").className = "hotLeague";
+                                document.getElementById("list4").className = "hotLeague";
                             }
-                            else if (tabs[i] == tab2) {
+                            else if (tabs[1] == pid) {
                                 document.getElementById("list2").className = "all active";
+                                document.getElementById("list1").className = "hotLeague";
+                                document.getElementById("list3").className = "hotLeague";
+                                document.getElementById("list4").className = "hotLeague";
                             }
-                            else if (tabs[i] == tab3) {
+                            else if (tabs[2] == pid) {
                                 document.getElementById("list3").className = "all active";
+                                document.getElementById("list2").className = "hotLeague";
+                                document.getElementById("list1").className = "hotLeague";
+                                document.getElementById("list4").className = "hotLeague";
                             }
-                            else if (tabs[i] == tab4) {
-                                document.getElementById("list3").className = "all active";
+                            else if (tabs[3] == pid) {
+                                document.getElementById("list4").className = "all active";
+                                document.getElementById("list2").className = "hotLeague";
+                                document.getElementById("list3").className = "hotLeague";
+                                document.getElementById("list1").className = "hotLeague";
                             }
 
                         }
