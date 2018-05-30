@@ -50,6 +50,7 @@
 
             <div class=" create_league">
                 <!-- <div class="panel st-info"> -->
+
                 <form:form class="next-form next-form-left ver next-form-large" id="check_form"
                            action="${pageContext.request.contextPath }/createSetup" method="post">
                     <div class="create-form">
@@ -58,9 +59,8 @@
                                 学社名称：
                             </div>
                             <div class="create-form-con fl">
-                                <form:input placeholder="名称最多15个汉字，创建后名称不可修改" type="text" path="cccname" id="CCname"
-                                            class="width3"
-                                            name="CCName" value=""/>
+                                <form:input placeholder="名称最多15个汉字，创建后名称不可修改" type="text" path="ccccname" id="CCname"
+                                            class="width3" name="CCName" value=""/>
 
 
                             </div>
@@ -72,7 +72,7 @@
                             </div>
                             <div class="create-form-con fl form-li">
                                 <div class="form-c">
-                                    <form:select class="m-select" path="ccl" id="CCl" name="CCl">
+                                    <form:select class="m-select" path="cccl" id="CCl" name="CCl">
                                         <option value="1">
                                             语言
                                         </option>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="create-form-con fl form-li">
                                 <div class="form-c">
-                                    <form:select class="m-select" path="ccp" id="CCp" name="CCp">
+                                    <form:select class="m-select" path="cccp" id="CCp" name="CCp">
                                         <option value="1">
                                             开放加入
                                         </option>
