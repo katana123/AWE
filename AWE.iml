@@ -35,11 +35,21 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="file://D:/jarSource/ssspExceptSpring" />
+          <root url="file://$USER_HOME$/Desktop/ssspExceptSpring" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://D:/jarSource/ssspExceptSpring" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/Desktop/ssspExceptSpring" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Desktop/ssspExceptSpring" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/Desktop/ssspExceptSpring" recursive="false" />
       </library>
     </orderEntry>
     <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.5.6" level="project" />

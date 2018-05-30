@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -325,10 +326,15 @@
     <div class="g-hd">
         <ul class="m-nav f-cb g-w1200">
             <li>&nbsp;</li>
-            <li><a href="communityFunRoom">房间</a></li>
-            <li class="g-act_second_active"><a href="communityFunHall">极乐大厅</a></li>
 
-            <li><a href="communityFunArea">大型赛区</a></li>
+            <li
+                    <c:if test="${funtype=='hall'}">class="g-act_second_active"</c:if> ><a
+                    href="communityFunHall">极乐大厅</a></li>
+            <li <c:if test="${funtype=='room'}">class="g-act_second_active"</c:if>><a href="communityFunRoom">房间</a>
+            </li>
+            <li
+            <c:if test="${funtype=='area'}">class
+            ="g-act_second_active"</c:if> ><a href="communityFunArea">大型赛区</a></li>
 
             <li style="float: right;
     padding-right: 200px;"><input type="text" name="firstname" value="输入公屏聊天信息" style="
