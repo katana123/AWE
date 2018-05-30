@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="header.jsp" flush="true"/>
 
 <div class="wrapper" style="overflow: hidden;">
@@ -15,7 +16,8 @@
                     <i class="iconfont">y</i>
                     <i class="ui-step-number">1</i>
         -->
-                    <img src="images/1.png" width="50px"> <span class="ui-step-text">创建学社</span></div>
+                    <img src="${pageContext.request.contextPath }/dist/communityCreate/images/1.png" width="50px"> <span
+                        class="ui-step-text">创建学社</span></div>
             </li>
             <li class="ui-step-active">
                 <div class="ui-step-line">-</div>
@@ -24,7 +26,8 @@
                         <i class="iconfont">y</i>
                         <i class="ui-step-number">2</i>
         -->
-                    <img src="images/2.png" width="50px"> <span class="ui-step-text" style="left: -70px;">学社审核</span>
+                    <img src="${pageContext.request.contextPath }/dist/communityCreate/images/2.png" width="50px"> <span
+                        class="ui-step-text" style="left: -70px;">学社审核</span>
                 </div>
             </li>
             <li class="ui-step-end">
@@ -34,7 +37,8 @@
                     <i class="iconfont">y</i>
                     <i class="iconfont ui-step-number"></i>
         -->
-                    <img src="images/3.png" width="50px"> <span class="ui-step-text">创建完成</span></div>
+                    <img src="${pageContext.request.contextPath }/dist/communityCreate/images/3.png" width="50px"> <span
+                        class="ui-step-text">创建完成</span></div>
             </li>
         </ol>
         <div class="cont-l" style="margin-top:50px;">
@@ -44,7 +48,8 @@
                     <div class="create-form-item clearfix">
                         <div class="name fl">
                             <!--                                   <input type="checkbox">-->
-                            <img src="images/checked.jpg" style="margin-top: -8px;"/>
+                            <img src="${pageContext.request.contextPath }/dist/communityCreate/images/checked.jpg"
+                                 style="margin-top: -8px;"/>
                         </div>
                         <div class="create-form-con fl">普通学社</div>
                     </div>
@@ -67,7 +72,8 @@
                     <div class="create-form-item clearfix por10">
                         <div class="name fl">
                             <!--                                    <input type="checkbox">-->
-                            <img src="images/checked_grey.jpg" style="margin-top: -8px;"/>
+                            <img src="${pageContext.request.contextPath }/dist/communityCreate/images/checked_grey.jpg"
+                                 style="margin-top: -8px;"/>
                         </div>
                         <div class="create-form-con fl form-li">
                             <div class="form-c">机构/老师学社</div>
@@ -91,7 +97,8 @@
 
                             <div style="width: 200px;float:left"><input type="radio" name="d_type" checked
                                                                         style="margin-bottom: 10px"/>我的营业执照<br> <img
-                                    src="images/add.jpg"/></div>
+                                    src="${pageContext.request.contextPath }/dist/communityCreate/images/add.jpg"/>
+                            </div>
                             <div><input type="radio" name="d_type" style="margin-bottom: 10px"/>教师资格证书<br>
                                 <p>公司请上传有年检的营业执照副本扫描件</p>
                                 <p>教师请上传教师资格证书</p>
@@ -115,7 +122,9 @@
 
                         </div>
                         <div class="create-form-con fl">
-                            <div style="width: 200px;float:left">*身份证正反两面扫描件<br> <img src="images/add.jpg"/></div>
+                            <div style="width: 200px;float:left">*身份证正反两面扫描件<br> <img
+                                    src="${pageContext.request.contextPath }/dist/communityCreate/images/add.jpg"/>
+                            </div>
                             <div><br>
 
                                 <p style="padding-top: 20px;">文件小于2M</p>
@@ -137,7 +146,7 @@
                     <div class="create-form-item clearfix">
                         <div class="create-form-con fl">
                             <div class="check">
-                                <input type="checkbox" id="cbAgree" checked="checked">已阅读并同意
+                                <input type="checkbox" id="cbAgree" checked="checked"/>已阅读并同意
                                 <a href="" target="_blank" style="color: #47c8fb">AWE社团规范</a>
 
                             </div>

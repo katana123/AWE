@@ -285,20 +285,28 @@
                     <div class="g-btn-search"><i class="fa fa-search"></i></div>
                 </div>
         -->
-        <ul class="g-login" style="float: right">
-            <li><a href=""> 登录</a>|</li>
-            <li><a href=""> 注册</a>|</li>
-            <li><a href=""> 学社</a></li>
+        <ul class="g-login" style="float:right">
+            <c:choose>
+                <c:when test="${cookie.userlogin.value == null || cookie.userlogin.value == '' }">
+                    <li><a href="login"> 登录</a>|</li>
+                    <li><a href="register"> 注册</a>|</li>
+                </c:when>
+                <c:otherwise>
+                    <li><span>${cookie.userlogin.value }&nbsp;</span></li>
+                    <li><a href="logout">退出登录</a>&nbsp;</li>
+                </c:otherwise>
+            </c:choose>
         </ul>
     </div>
     <div class="g-hd">
         <ul class="m-nav f-cb g-w1200">
-            <li><a href="../../学社首页/学社首页.htm">首页</a></li>
 
-            <li><a href="../学社汇总2/全部学社.html">学社总汇</a></li>
-            <li><a href="../03共同学习/共同学习.html">共同学习</a></li>
-            <li class="g-act"><a href="房间.html">学有所乐</a></li>
-            <li><a href="../商城/商城-行为道具.html">商城</a></li>
+            <li><a href="communityMainpage">首页</a></li>
+
+            <li><a href="communitySummary">学社总汇</a></li>
+            <li><a href="communityStudycom">共同学习</a></li>
+            <li><a href="communityFunRoom">学有所乐</a></li>
+            <li class="g-act"><a href="MarketProperty">商城</a></li>
         </ul>
     </div>
     <div class="g-banner">

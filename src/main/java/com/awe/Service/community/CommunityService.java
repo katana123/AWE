@@ -20,6 +20,7 @@ public class CommunityService {
         return communityRepositry.findOne(ccid);
     }
 
+
     //获取官方学社
     @Transactional(readOnly = true)
     public List<CCinfo> getAuthorityCommunities() {
