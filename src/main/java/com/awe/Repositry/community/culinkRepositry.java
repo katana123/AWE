@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface culinkRepositry extends JpaRepository<CUlink, Integer> {
+
+
+    CUlink findByCcidAndCuid(Long ccid, Long cuid);
 }

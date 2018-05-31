@@ -1,6 +1,9 @@
 package com.awe.Test;
 
+import com.awe.Repositry.register.ccusersRepositry;
+import com.awe.Service.community.CommunityService;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,10 +18,17 @@ import static com.awe.Util.common.MailUtil.sendMail;
 public class MsgTest {
 
     private ApplicationContext ctx = null;
+    @Autowired
+    private ccusersRepositry ccusersRepositry = null;
+
+    @Autowired
+    private CommunityService communityService = null;
 
     {
 
         ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ccusersRepositry = ctx.getBean(ccusersRepositry.class);
+        communityService = ctx.getBean(CommunityService.class);
     }
 
 
@@ -35,5 +45,10 @@ public class MsgTest {
         String body = "这是邮件的正文";
         sendMail(to,subject,body);
     }
+
+    /*@Test
+    public void sd(){
+        communityService.linkedCCusers(1,2);
+    }*/
 
 }

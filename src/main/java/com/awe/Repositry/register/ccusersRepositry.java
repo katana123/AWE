@@ -2,6 +2,7 @@ package com.awe.Repositry.register;
 
 import com.awe.Entity.CCusers;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -10,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public interface ccusersRepositry extends JpaRepository<CCusers,Integer> {
+public interface ccusersRepositry extends JpaRepository<CCusers, Integer>, JpaSpecificationExecutor<CCusers> {
 
     CCusers getByCuid(Long cuid);
 
@@ -24,7 +25,4 @@ public interface ccusersRepositry extends JpaRepository<CCusers,Integer> {
     List<CCusers> getByCusernameAndCpwd(String cuserName, String cPwd);
 
     CCusers getByCupn(String cupn);
-
-    //获取学社关联的用户
-    //List<CCusers> getByCcidAndRoleid( String ccid , String roleid);
 }

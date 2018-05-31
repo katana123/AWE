@@ -17,6 +17,7 @@ public class institutionManagementHandler {
 
     @Autowired
     private CommunityService communityService;
+    @Autowired
     private CcusersService ccusersService;
 
     /*-----------机构管理start----------*/
@@ -37,22 +38,29 @@ public class institutionManagementHandler {
     }
 
     //机构成员添加
-    /*@ResponseBody
+    @ResponseBody
     @RequestMapping(value = "/ajaxAddInstitutionMember", method = RequestMethod.POST)
     public String AddInstitutionMember(@RequestParam(value = "cusername", required = true) String cusername,
                                        @RequestParam(value = "ccid" , required = true) Long ccid){
         CCusers cCusers = ccusersService.getByCusername(cusername);
         if (null == cCusers) {
+            System.out.println("8");
             return "0";//用户不存在
         } else {
-            CUlink cUlink = new CUlink();
-            cUlink.setCcid(ccid);
-            cUlink.setCuid(cCusers.getCuid());
-            cUlink.setRoleid(1);
-            communityService.addMember(cUlink);
-            return "1";
+            CUlink cUlinkOnce = communityService.linkOnce(ccid, cCusers.getCuid());
+            if (null == cUlinkOnce) {
+                CUlink cUlink = new CUlink();
+                cUlink.setCcid(ccid);
+                cUlink.setCuid(cCusers.getCuid());
+                cUlink.setRoleid(1);
+                communityService.addMember(cUlink);
+                return "1";
+            } else {
+                return "2";
+            }
+
         }
-    }*/
+    }
 
     //机构成员页面
     @RequestMapping(value = "/institutionMembers/{ccid}", method = RequestMethod.GET)
