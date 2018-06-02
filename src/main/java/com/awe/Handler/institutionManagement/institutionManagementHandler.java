@@ -1,5 +1,7 @@
 package com.awe.Handler.institutionManagement;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.awe.Entity.CCinfo;
 import com.awe.Entity.CCusers;
 import com.awe.Entity.CUlink;
@@ -9,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +31,7 @@ public class institutionManagementHandler {
     public String DataManagement(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map) {
         CCinfo cCinfo = communityService.get(ccid);
         map.put("community", cCinfo);
+        map.put("pageno", 4);
         return "/institutionManagement/dataManagement";
     }
 
@@ -34,7 +40,22 @@ public class institutionManagementHandler {
     public String AuthoritySetting(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map) {
         CCinfo cCinfo = communityService.get(ccid);
         map.put("community", cCinfo);
+        List<Object> cCusers = communityService.linkedCCusers(ccid);
+        String text = JSON.toJSONString(cCusers);
+        map.put("members", text);
+        BigInteger membernum = communityService.membernum(Long.valueOf(ccid));
+        map.put("membercount", membernum);
+        map.put("pageno", 3);
         return "/institutionManagement/authoritySetting";
+    }
+
+    //机构成员删除
+    @ResponseBody
+    @RequestMapping(value = "/ajaxDeleteInstitutionMember", method = RequestMethod.POST)
+    public String DeleteLinkedMember(@RequestParam(value = "cuid", required = true) Long cuid,
+                                     @RequestParam(value = "ccid", required = true) Long ccid) {
+        communityService.deleteLinkedMember(ccid, cuid);
+        return "1";
     }
 
     //机构成员添加
@@ -67,6 +88,16 @@ public class institutionManagementHandler {
     public String InstitutionMembers(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map) {
         CCinfo cCinfo = communityService.get(ccid);
         map.put("community", cCinfo);
+        List<Object> cCusers = communityService.linkedCCusers(ccid);
+        String text = JSON.toJSONString(cCusers);
+        map.put("members", text);
+        BigInteger membernum = communityService.membernum(Long.valueOf(ccid));
+        map.put("membercount", membernum);
+        map.put("pageno", 2);
+        /*for (Object obj:map.keySet()) {
+            Object value = map.get(obj);
+            System.out.println(value);
+        }*/
         return "/institutionManagement/institutionMembers";
     }
 
@@ -84,6 +115,7 @@ public class institutionManagementHandler {
     public String InstitutionData(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map) {
         CCinfo cCinfo = communityService.get(ccid);
         map.put("community", cCinfo);
+        map.put("pageno", 1);
         return "/institutionManagement/institutionData";
     }
     /*-----------机构管理end----------*/

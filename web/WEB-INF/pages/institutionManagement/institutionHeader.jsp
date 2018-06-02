@@ -634,27 +634,27 @@
 <div class="header_wrap">
     <div class="header">
         <ul class="main_nav hide_search_box">
-            <li class="home icons"><a href="../资料管理.html" title="社团首页">
+            <li class="home icons"><a href="" title="">
                 <!--            <i class="fa fa-home"></i>-->
                 <em>资料管理</em></a></li>
-            <li class="league_nav icons"><a href="../栏目管理.html" title="发现社团">
+            <li class="league_nav icons"><a href="" title="">
                 <!--            <i class="fa fa-eye"></i>-->
                 <em>栏目管理</em></a></li>
-            <li class="league_nav icons"><a href="../成员管理.html" title="发现社团">
+            <li class="league_nav icons"><a href="" title="">
                 <!--            <i class="fa fa-eye"></i>-->
                 <em>社员管理</em></a></li>
-            <li class="article_mall icons "><a href="../帖子管理.html" title="商城">
+            <li class="article_mall icons "><a href="" title="">
                 <!--            <i class="fa fa-shopping-bag"></i>-->
                 <em>帖子管理</em></a></li>
-            <li class="article_mall icons "><a href="../功能管理.html" title="商城">
+            <li class="article_mall icons "><a href="" title="">
                 <!--            <i class="fa fa-shopping-bag"></i>-->
                 <em>功能管理</em></a></li>
-            <li class="article_mall icons "><a href="../../../AWE社区/学有所乐/房间.html" title="商城">
+            <li class="article_mall icons "><a href="" title="">
                 <!--            <i class="fa fa-shopping-bag"></i>-->
-                <em>学有所乐</em></a></li>
-            <li class="icons more_functions "><a href="../../../AWE社区/商城/商城-行为道具.html" title="一元购" rel="nofollow">
+                <em>回收站</em></a></li>
+            <li class="article_mall icons active"><a href="" title="">
                 <!--            <i class="fa fa-bullseye"></i>-->
-                <em>商城</em></a></li>
+                <em>机构管理</em></a></li>
             <%--<li class="search_league" style=" overflow: hidden;"></li>--%>
         </ul>
     </div>
@@ -668,23 +668,26 @@
             </div>
             <div class="header1 container-title">
                 <ul class="main_nav2 hide_search_box">
-                    <li class="home icons active "><a href="${pageContext.request.contextPath }/institutionData/${ccid}"
-                                                      title="机构资料">
+                    <li class="article_mall <c:if test="${pageno == 1}">active</c:if>"><a
+                            href="${pageContext.request.contextPath }/institutionData/${ccid}"
+                            title="机构资料">
                         <em>机构资料</em></a></li>
-                    <li class="league_nav icons"><a
+                    <li class="article_mall <c:if test="${pageno == 2}">active</c:if>"><a
                             href="${pageContext.request.contextPath }/institutionMembers/${ccid}" title="机构成员">
                         <em>机构成员</em></a></li>
-                    <li class="league_nav icons"><a href="${pageContext.request.contextPath }/authoritySetting/${ccid}"
-                                                    title="权限设置">
+                    <li class="article_mall <c:if test="${pageno == 3}">active</c:if>"><a
+                            href="${pageContext.request.contextPath }/authoritySetting/${ccid}"
+                            title="权限设置">
                         <em>权限设置</em></a></li>
-                    <li class="article_mall icons "><a href="${pageContext.request.contextPath }/dataManagement/${ccid}"
-                                                       title="课教管理">
+                    <li class="article_mall <c:if test="${pageno == 4}">active</c:if>"><a
+                            href="${pageContext.request.contextPath }/dataManagement/${ccid}"
+                            title="课教管理">
                         <em>课教管理</em></a></li>
-                    <li class="article_mall icons "><a href="../机构管理2/发布管理_发布课程.html" title="发布管理">
+                    <li class="article_mall"><a href="../机构管理2/发布管理_发布课程.html" title="发布管理">
                         <em>发布管理</em></a></li>
-                    <li class="article_mall icons"><a href="#" title="销财管理">
+                    <li class="article_mall"><a href="#" title="销财管理">
                         <em>销财管理</em></a></li>
-                    <li class="article_mall icons"><a href="../机构管理2/个人中心.html" title="个人中心">
+                    <li class="article_mall"><a href="../机构管理2/个人中心.html" title="个人中心">
                         <em>个人中心</em></a></li>
                 </ul>
             </div>

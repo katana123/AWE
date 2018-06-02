@@ -1,5 +1,6 @@
 package com.awe.Test;
 
+import com.alibaba.fastjson.JSON;
 import com.awe.Repositry.register.ccusersRepositry;
 import com.awe.Service.community.CommunityService;
 import org.junit.Test;
@@ -11,6 +12,8 @@ import javax.mail.MessagingException;
 import javax.sql.DataSource;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
 
 import static com.awe.Util.common.MailUtil.sendMail;
 
@@ -46,9 +49,26 @@ public class MsgTest {
         sendMail(to,subject,body);
     }
 
-    /*@Test
-    public void sd(){
-        communityService.linkedCCusers(1,2);
-    }*/
+    @Test
+    public void linkedMemberss() {
+        HashMap map = new HashMap();
+        List cCusers = communityService.linkedCCusers(1);
+        String text = JSON.toJSONString(cCusers);
+        /*Object objects = JSON.parse(text);*/
 
+        System.out.println(text);
+        System.out.println(text.getClass());
+        //JSONObject jsonObject = JSON.parseObject(text);
+        map.put("members", text);
+        //System.out.println(map.toString());
+        for (Object obj : map.keySet()) {
+            Object value = map.get(obj);
+            System.out.println(value);
+        }
+    }
+
+    @Test
+    public void unlinkMember() {
+        communityService.deleteLinkedMember((long) 1, (long) 20);
+    }
 }

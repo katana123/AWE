@@ -2,6 +2,7 @@ package com.awe.Entity;
 
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Table(name = "c_ulink")
 @Entity
@@ -11,6 +12,7 @@ public class CUlink {
     private long ccid;
     private long cuid;
     private long roleid;
+    private Date jointime;
 
     @GeneratedValue
     @Id
@@ -46,6 +48,15 @@ public class CUlink {
         this.roleid = roleid;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getJointime() {
+        return jointime;
+    }
+
+    public void setJointime(Date jointime) {
+        this.jointime = jointime;
+    }
+
     @Override
     public String toString() {
         return "CUlink{" +
@@ -53,6 +64,7 @@ public class CUlink {
                 ", ccid=" + ccid +
                 ", cuid=" + cuid +
                 ", roleid=" + roleid +
+                ", jointime=" + jointime +
                 '}';
     }
 }

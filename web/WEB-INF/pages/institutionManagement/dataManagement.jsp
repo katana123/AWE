@@ -14,7 +14,21 @@
     <div class="course_input f-fl">
         <input class="f-fl" type="text" name="course_name" placeholder="搜索资料">
         <input class="f-fl" type="text" name="course_type" placeholder="全部">
-        <a class="f-fl scsp" href="javascript:">上传资料</a>
+        <form action="${pageContext.request.contextPath }/upload" enctype="multipart/form-data" method="post">
+            <table>
+                <tr>
+                    <td>文件描述:</td>
+                    <td><input type="text" name="description"></td>
+                </tr>
+                <tr>
+                    <td>请选择文件:</td>
+                    <td><input type="file" name="file"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="上传"></td>
+                </tr>
+            </table>
+        </form>
     </div>
 
 </div>
