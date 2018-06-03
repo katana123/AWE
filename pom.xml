@@ -24,7 +24,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>4.3.16.RELEASE</version>
+            <version>5.0.6.RELEASE</version>
         </dependency>
 
 
@@ -35,17 +35,18 @@
             <version>2.7.7</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/net.sourceforge.cglib/com.springsource.net.sf.cglib -->
         <dependency>
             <groupId>net.sourceforge.cglib</groupId>
             <artifactId>com.springsource.net.sf.cglib</artifactId>
             <version>2.2.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.aspectj/com.springsource.org.aspectj.weaver -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>com.springsource.org.aspectj.weaver</artifactId>
             <version>1.6.8.RELEASE</version>
-            <classifier>sources</classifier>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/javassist/javassist -->
@@ -81,7 +82,7 @@
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
-            <version>1.0.2.Final</version>
+            <version>1.0.0.Final</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
@@ -92,13 +93,12 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+        <!-- https://mvnrepository.com/artifact/javamail/javamail -->
         <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>javax.mail-api</artifactId>
-            <version>1.6.0</version>
+            <groupId>javamail</groupId>
+            <artifactId>javamail</artifactId>
+            <version>1.3.2</version>
         </dependency>
-
 
 
         <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
@@ -113,7 +113,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>4.3.16.RELEASE</version>
+            <version>5.0.6.RELEASE</version>
         </dependency>
 
         <!-- c3p0 start -->
@@ -294,7 +294,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>4.3.16.RELEASE</version>
+            <version>4.0.0.RELEASE</version>
         </dependency>
 
         <!-- 发送邮件-->
@@ -360,7 +360,7 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.2</version>
+            <version>2.4</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
@@ -370,20 +370,6 @@
             <version>1.3.3</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.4</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>portlet-api</groupId>
-            <artifactId>portlet-api</artifactId>
-            <version>1.0</version>
-            <scope>provided</scope>
-        </dependency>
 
     </dependencies>
 
@@ -414,18 +400,4 @@
         </plugins>
     </build>
 
-    <repositories>
-        <repository>
-            <id>Sonatype</id>
-            <name>Sonatype Repository</name>
-            <url>http://repository.sonatype.org/content/groups/public/</url>
-            <layout>default</layout>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 </project>

@@ -1,5 +1,6 @@
 package com.awe.Handler.community;
 
+import com.alibaba.fastjson.JSON;
 import com.awe.Entity.CCinfo;
 import com.awe.Service.community.CommunityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,13 @@ public class CommunityHandler {
         }*/
         map.put("authorityCommunities", authorityCommunities);
         return "/communityMainpage/mainpage";
+    }
+
+    @RequestMapping("/testLink")
+    public String TestLink(Map<String, Object> map) {
+        List<Object> cCusers = communityService.linkedCCusers(2);
+        String text = JSON.toJSONString(cCusers);
+        map.put("members", text);
+        return "/test/testLink";
     }
 }

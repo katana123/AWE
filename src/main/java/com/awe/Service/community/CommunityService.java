@@ -70,4 +70,5 @@ public class CommunityService {
     public List<CCinfo> getAuthorityCommunities() {
         return communityRepositry.getByCleve((long) 0);
     }
+
 }

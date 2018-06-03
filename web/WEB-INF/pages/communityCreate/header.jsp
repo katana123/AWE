@@ -25,14 +25,17 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/communityCreate/css/drag.css"/>
 
 
-    <script src="${pageContext.request.contextPath }/dist/communityCreate/libs/jquery-1.8.3.min.js"
+    <!--<script src="${pageContext.request.contextPath }/dist/communityCreate/libs/jquery-1.8.3.min.js"
+            type="text/javascript"
+            charset="utf-8"></script>-->
+
+    <script src="${pageContext.request.contextPath }/dist/communityCreate/js/jquery-1.9.1.min.js"
             type="text/javascript"
             charset="utf-8"></script>
-
-    <script src="${pageContext.request.contextPath }/dist/communityCreate/libs/jquery.SuperSlide.2.1.1.js"
-            type="text/javascript" charset="utf-8"></script>
     <script src="${pageContext.request.contextPath }/dist/communityCreate/js/drag.js" type="text/javascript"
             charset="utf-8"></script>
+
+
 </head>
 <style>
 

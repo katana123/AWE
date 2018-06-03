@@ -3,6 +3,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <jsp:include page="header.jsp" flush="true"/>
 
+<div class="next-overlay-backdrop" id="cover" style="display:none"></div>
+<div class="next-dialog right next-overlay-inner animated zoomIn mobile-check-dialog"
+     style="width: 480px; left: 400px; top:180px;z-index: 100;background-color: #fff;border:1px solid rgb(237, 233, 233); position: absolute; display:none;"
+     id="dialog_up"></div>
 <div class="wrapper" style="overflow: hidden;">
     <div class="container">
         <div class="container-title">
@@ -52,16 +56,18 @@
                 <!-- <div class="panel st-info"> -->
 
                 <form:form class="next-form next-form-left ver next-form-large" id="check_form"
-                           action="${pageContext.request.contextPath }/createSetup" method="post">
+                           enctype="multipart/form-data"
+                           action="${pageContext.request.contextPath }/createSetup" method="post"
+                           modelAttribute="ccinfo">
                     <div class="create-form">
                         <div class="create-form-item clearfix">
                             <div class="name fl">
                                 学社名称：
                             </div>
                             <div class="create-form-con fl">
-                                <form:input placeholder="名称最多15个汉字，创建后名称不可修改" type="text" path="ccccname" id="CCname"
-                                            class="width3" name="CCName" value=""/>
-
+                                <form:input placeholder="名称最多15个汉字，创建后名称不可修改" type="text"
+                                            path="ccname" id="ccname" class="width3" value=""/>
+                                <span id="checkname" style="color:red;"></span>
 
                             </div>
                         </div>
@@ -72,12 +78,12 @@
                             </div>
                             <div class="create-form-con fl form-li">
                                 <div class="form-c">
-                                    <form:select class="m-select" path="cccl" id="CCl" name="CCl">
+                                    <form:select class="m-select" path="ccl" id="CCl" name="CCl">
                                         <option value="1">
                                             语言
                                         </option>
                                     </form:select>
-
+                                    <span id="checkccl" style="color:red;"></span>
                                 </div>
                             </div>
                         </div>
@@ -89,12 +95,12 @@
                             </div>
                             <div class="create-form-con fl form-li">
                                 <div class="form-c">
-                                    <form:select class="m-select" path="cccp" id="CCp" name="CCp">
+                                    <form:select class="m-select" path="ccp" id="CCp" name="CCp">
                                         <option value="1">
                                             开放加入
                                         </option>
                                     </form:select>
-
+                                    <span id="checkccp" style="color:red;"></span>
                                 </div>
                             </div>
                         </div>
@@ -118,12 +124,13 @@
                                     <div class="file-set">
                                         <!--<form method="POST" class="upload_form" name="upload_file_form"
                                               style="position:relative;height:40px;" action="" target="">-->
-                                        <input type="file" class="input-file" id="CClpa" name="CClpa" value="选择图片">
-                                        <input type="file" name="imgOne" id="imgOne"
-                                               onchange="preImg(this.id,'imgPre');" tabindex="-1"
-                                               style="position:absolute; visibility:visible; outline-width:medium; outline-style:none; outline-color:initial; opacity:0; filter:alpha(opacity:0); cursor:pointer;"/>
+                                        <!--<input type="file" class="input-file" id="CClpa" name="CClpa" value="选择图片">-->
+                                        <input type="file" name="CClpa" id="CClpa"
+                                               onchange="preImg(this.id,'imgPre');"
+                                               class="input-file"/>
                                         <!--</form>-->
-                                        <div class="btn-upload">上传图标</div>
+                                        <div class="btn-upload" id="uploadbutton">上传图标</div>
+                                        <span id="checkcclpa" style="color:red;"></span>
                                     </div>
                                 </div>
                                 <span class="grey" style="position: absolute;margin: -33px 0 0 174px;">你可以上传一个 180*180 大小的图片作为社团图标。</span>
@@ -141,19 +148,24 @@
                                 验证：
                             </div>
                             <div class="create-form-con fl">
+                                <input id="drag1" type="hidden" value="0"/>
                                 <div id="drag">
 
                                     <div class="handler handler_bg"></div>
                                 </div>
+                                <span id="checkdrag" style="color:red;"></span>
                                 <script type="text/javascript">
                                     $('#drag').drag();
+
                                 </script>
+
+
                             </div>
                         </div>
                         <div class="create-form-item clearfix">
                             <div class="create-form-con fl">
                                 <div class="check">
-                                    <input type="checkbox" id="cbAgree" checked="checked">已阅读并同意
+                                    <input type="checkbox" id="cbAgree" name="cbAgree" checked="checked">已阅读并同意
                                     <a href="" target="_blank" style="color: #47c8fb">AWE社团规范</a>
 
                                 </div>
@@ -171,10 +183,50 @@
         </div>
     </div>
 </div>
+<!--<form method="post" action="${pageContext.request.contextPath}/addpic" enctype="multipart/form-data">
+<input type="file" name="file" value="file">
+<input type="submit" value="确定">
+</form>-->
 <script type="text/javascript">
+    /**
+     * 从 file 域获取 本地图片 url
+     */
+    function getFileUrl(sourceId) {
+        var url;
+        if (navigator.userAgent.indexOf("MSIE") >= 1) { // IE
+            url = document.getElementById(sourceId).value;
+        } else if (navigator.userAgent.indexOf("Firefox") > 0) { // Firefox
+            url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+        } else if (navigator.userAgent.indexOf("Chrome") > 0) { // Chrome
+            url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+        }
+        return url;
+    }
+
+    /**
+     * 将本地图片 显示到浏览器上
+     */
+    function preImg(sourceId, targetId) {
+        var url = getFileUrl(sourceId);
+        var imgPre = document.getElementById(targetId);
+        imgPre.style.display = "block";
+        imgPre.src = url;
+    }
+</script>
+<script type="text/javascript">
+    // 点击按钮的时候选择图片
+    $("#uploadbutton").click(function () {
+        $("#CClpa").click();
+    });
+
+</script>
+<script type="text/javascript">
+
     $(document).ready(function () {
-        $("input#leagueName").keyup(function () {
-            var val = $("input#leagueName").val().length;
+
+        $("#ccname").blur(function () {
+            $("#checkname").text("");
+            var val = $("#ccname").val();
             var len = 0;
             for (var i = 0; i < val.length; i++) {
                 var a = val.charAt(i);
@@ -185,9 +237,41 @@
                     len += 1;
                 }
             }
-            if (len > 15) {
-                alert('最多只能输入15个字符')
-            }///这里你换成其他更友善的提示调用函数什么的都行
+            if (len = 0) {
+                $("#checkname").text("名称不能为空");
+            }
+            else if (len > 30) {
+                $("#checkname").text("名称最多15个汉字,请修改");
+            } else {
+                $.post("${pageContext.request.contextPath }/ajaxValidateCcname",
+                    {nick: $("#ccname").val()},
+                    function (data) {
+                        if (!data) {
+                            $("#checkname").text("有相同名称,请修改");
+                        }
+                    });
+            }
+
+        });
+        $("#formSubmit").click(function () {
+            if ($("#checkname").text() != '') {
+                return false
+            } else if ($("#ccname").val() == '') {
+                $("#checkname").text("请填写名称");
+                return false
+            } else if ($("#CCl").val() == 0) {
+                $("#checkccl").text("请选择行业方向");
+                return false
+            } else if ($("#CCp").val() == 0) {
+                $("#checkccp").text("请选择学社类型");
+                return false
+            } else if ($("#CClpa").val() == '') {
+                $("#checkcclpa").text("请选择图片");
+                return false
+            } else if ($("#drag1").val() == 0) {
+                $("#checkdrag").text("请拖动滑块验证");
+                return false
+            }
 
         });
     });

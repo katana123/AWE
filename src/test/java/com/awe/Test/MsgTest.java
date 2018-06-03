@@ -52,7 +52,7 @@ public class MsgTest {
     @Test
     public void linkedMemberss() {
         HashMap map = new HashMap();
-        List cCusers = communityService.linkedCCusers(1);
+        List cCusers = communityService.linkedCCusers(2);
         String text = JSON.toJSONString(cCusers);
         /*Object objects = JSON.parse(text);*/
 

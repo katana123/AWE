@@ -53,6 +53,7 @@
             handler.unbind('mousedown');
             $(document).unbind('mousemove');
             $(document).unbind('mouseup');
+            document.getElementById("drag1").value = '1';
         }
     };
 })(jQuery);
