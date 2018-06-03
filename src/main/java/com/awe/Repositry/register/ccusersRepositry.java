@@ -33,5 +33,6 @@ public interface ccusersRepositry extends JpaRepository<CCusers, Integer>, JpaSp
     @Query(value = "select count(*) membernum from c_cusers u left join c_ulink cu on u.cuid = cu.cuid where cu.ccid = ?1", nativeQuery = true)
     BigInteger membernum(Long ccid);
 
-
+    @Query(value = "select cuid from c_cusers where cusername=?1", nativeQuery = true)
+    int getCuidbyCusername(String cusername);
 }

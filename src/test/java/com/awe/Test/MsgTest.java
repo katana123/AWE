@@ -71,4 +71,10 @@ public class MsgTest {
     public void unlinkMember() {
         communityService.deleteLinkedMember((long) 1, (long) 20);
     }
+
+    @Test
+    public void getCuidbyCusername() {
+        int cuid = ccusersRepositry.getCuidbyCusername("awelogin");
+        System.out.println(cuid);
+    }
 }
