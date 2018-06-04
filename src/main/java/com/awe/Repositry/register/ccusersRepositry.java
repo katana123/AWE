@@ -1,6 +1,7 @@
 package com.awe.Repositry.register;
 
 import com.awe.Entity.CCusers;
+import com.awe.Data.JoinedMember;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
@@ -35,4 +36,7 @@ public interface ccusersRepositry extends JpaRepository<CCusers, Integer>, JpaSp
 
     @Query(value = "select cuid from c_cusers where cusername=?1", nativeQuery = true)
     int getCuidbyCusername(String cusername);
+
+    @Query(value = "select u.cuid,u.cusername,u.cqqid,u.cupn,cu.jointime from c_cusers u left join c_ulink cu on u.cuid = cu.cuid where cu.ccid = ?1", nativeQuery = true)
+    List<JoinedMember> findJoinedMember(Integer ccid);
 }

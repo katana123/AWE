@@ -61,4 +61,6 @@
     <!-- 配置 SpringData -->
     <jpa:repositories base-package="com.awe"
                       entity-manager-factory-ref="entityManagerFactory"></jpa:repositories>
+
+
 </beans>

@@ -1,6 +1,8 @@
 package com.awe.Test;
 
 import com.alibaba.fastjson.JSON;
+import com.awe.Entity.CCinfo;
+import com.awe.Data.JoinedMember;
 import com.awe.Repositry.register.ccusersRepositry;
 import com.awe.Service.community.CommunityService;
 import org.junit.Test;
@@ -76,5 +78,33 @@ public class MsgTest {
     public void getCuidbyCusername() {
         int cuid = ccusersRepositry.getCuidbyCusername("awelogin");
         System.out.println(cuid);
+    }
+
+    @Test
+    public void ss(){
+        List<CCinfo> authorityCommunities =communityService.getAuthorityCommunities();
+
+        System.out.println(authorityCommunities.getClass());
+
+        for (CCinfo attribute : authorityCommunities) {
+            System.out.println(attribute.toString());
+        }
+
+        List<JoinedMember> JoinedMember = communityService.linkedCCuser(1);
+
+        System.out.println(JoinedMember.getClass());
+
+        for (JoinedMember attribute : JoinedMember) {
+            System.out.println(attribute.toString());
+        }
+
+        /*HashMap map = new HashMap();
+
+        map.put("members", JoinedMember);
+        for (Object obj : map.keySet()) {
+            Object value = map.get(obj);
+            System.out.println(value);
+        }*/
+
     }
 }

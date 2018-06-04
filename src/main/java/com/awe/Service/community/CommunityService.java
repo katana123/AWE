@@ -2,6 +2,7 @@ package com.awe.Service.community;
 
 import com.awe.Entity.CCinfo;
 import com.awe.Entity.CUlink;
+import com.awe.Data.JoinedMember;
 import com.awe.Repositry.community.communityRepositry;
 import com.awe.Repositry.community.culinkRepositry;
 import com.awe.Repositry.register.ccusersRepositry;
@@ -32,6 +33,12 @@ public class CommunityService {
     @Transactional
     public void deleteLinkedMember(Long ccid, Long cuid) {
         culinkRepositry.deleteLinkedMember(ccid, cuid);
+    }
+
+    //获取学社关联的用户
+    @Transactional
+    public List<JoinedMember> linkedCCuser(Integer ccid) {
+        return ccusersRepositry.findJoinedMember(ccid);
     }
 
     //获取学社关联的用户
