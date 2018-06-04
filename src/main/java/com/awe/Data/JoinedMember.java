@@ -14,6 +14,7 @@ public class JoinedMember {
 
     //无参构造器Constructor
     public JoinedMember() {
+
     }
 
     //有参构造器Constructor
