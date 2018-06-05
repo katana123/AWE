@@ -92,6 +92,11 @@ public class LoginHandler {
                 return "1";//密码错误
             } else {
                 Cookie cookie = new Cookie("userlogin", Cusername);//将登录信息加入cookie中
+                cookie.setPath("/");// 这个要设置
+                cookie.setMaxAge(60 * 60 * 24 * 3); //设置cookie最大失效时间<br> cookie1.setMaxAge(60*60*24*3);
+                response.addCookie(cookie);
+                cookie = new Cookie("userid", cCusers2.get(0).getCuid() + "");//将登录信息加入cookie中
+                cookie.setPath("/");// 这个要设置
                 cookie.setMaxAge(60 * 60 * 24 * 3); //设置cookie最大失效时间<br> cookie1.setMaxAge(60*60*24*3);
                 response.addCookie(cookie);
                 return "2";//登录成功

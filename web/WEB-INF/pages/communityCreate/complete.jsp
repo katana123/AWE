@@ -1,4 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="header.jsp" flush="true"/>
+
 
 <div class="wrapper" style="overflow: hidden;">
     <div class="container">
@@ -10,7 +12,7 @@
             <li class="ui-step-start ui-step-active" id="stepstart">
                 <div class="ui-step-line">-</div>
                 <div class="ui-step-icon">
-                    <img src="${pageContext.request.contextPath }/dist/community/images/1.png" width="50px"> <span
+                    <img src="${pageContext.request.contextPath }/dist/communityCreate/images/1.png" width="50px"> <span
                         class="ui-step-text">创建学社</span></div>
             </li>
             <li class="ui-step-active">
@@ -20,7 +22,7 @@
                         <i class="iconfont">y</i>
                         <i class="ui-step-number">2</i>
         -->
-                    <img src="${pageContext.request.contextPath }/dist/community/images/2.png" width="50px"> <span
+                    <img src="${pageContext.request.contextPath }/dist/communityCreate/images/2.png" width="50px"> <span
                         class="ui-step-text" style="left: -70px;">学社审核</span></div>
             </li>
             <li class="ui-step-end ui-step-active">
@@ -30,7 +32,7 @@
                     <i class="iconfont">y</i>
                     <i class="iconfont ui-step-number"></i>
         -->
-                    <img src="${pageContext.request.contextPath }/dist/community/images/3.png" width="50px"> <span
+                    <img src="${pageContext.request.contextPath }/dist/communityCreate/images/3.png" width="50px"> <span
                         class="ui-step-text">创建完成</span></div>
             </li>
         </ol>

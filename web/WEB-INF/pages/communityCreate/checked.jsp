@@ -22,10 +22,6 @@
             <li class="ui-step-active">
                 <div class="ui-step-line">-</div>
                 <div class="ui-step-icon">
-                    <!--
-                        <i class="iconfont">y</i>
-                        <i class="ui-step-number">2</i>
-        -->
                     <img src="${pageContext.request.contextPath }/dist/communityCreate/images/2.png" width="50px"> <span
                         class="ui-step-text" style="left: -70px;">学社审核</span>
                 </div>
@@ -33,10 +29,6 @@
             <li class="ui-step-end">
                 <div class="ui-step-line">-</div>
                 <div class="ui-step-icon">
-                    <!--
-                    <i class="iconfont">y</i>
-                    <i class="iconfont ui-step-number"></i>
-        -->
                     <img src="${pageContext.request.contextPath }/dist/communityCreate/images/3.png" width="50px"> <span
                         class="ui-step-text">创建完成</span></div>
             </li>
@@ -61,10 +53,18 @@
                                 <p style="line-height: 20px;;padding-top: 30px;">
                                     为了营造绿色的网络环境，让我们一起携手合作，打造出一个优秀的学习平台，相互学习；共同进步！所谓梦想，是永不停息的疯狂，可怕的是，比你优秀的人比你还要努力。</p>
                                 <div style="float: left;padding-top: 30px;">
-                                    <span style="float: left">&gt;&gt;仅差一步之遥</span>
-                                    <a href="complete.jsp" id="formSubmit" class="btn btn-m btn-blue"
-                                       style="float: left;   margin:10px; margin-top: -10px;">进入下一步</a>
-                                    <span style="color: green" style="float: left">绿色网络，从我做起，亲们加油！！！</span>
+                                    <form action="personcomplete" method="post" modelAttribute="ccinfo">
+                                        <span style="float: left">&gt;&gt;仅差一步之遥</span>
+
+                                        <input type="hidden" name="ccname" value="${ccname}"/>
+                                        <button type="submit" id="fSubmit" class="btn btn-m btn-blue"
+                                                style="float: left;   margin:10px; margin-top: -10px;border:none;width:120px;">
+                                            进入下一步
+                                        </button>
+
+
+                                        <span style="color: green" style="float: left">绿色网络，从我做起，亲们加油！！！</span>
+                                    </form>
                                 </div>
                             </div>
                         </div>

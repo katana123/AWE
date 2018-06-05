@@ -33,24 +33,18 @@ public class CreateHandler {
     @ResponseBody
     @RequestMapping(value = "/ajaxValidateCcname", method = RequestMethod.POST)
     public boolean validateCcname(@RequestParam(value = "nick", required = true) String ccname) {
-        List<CCinfo> cCinfo = createService.getByCcname(ccname);
-        if (null == cCinfo || cCinfo.size() == 0) {
+        CCinfo cCinfo = createService.getByCcname(ccname);
+        if (null == cCinfo) {
             return true;
         } else {
             return false;
         }
     }
-    //创建社区
-    @RequestMapping(value = "/createSetup11", method = RequestMethod.POST)
-    public String CreateSetup(CCinfo ccinfo) {
 
-        createService.insert(ccinfo);
-        return "/communityCreate/checked";
-    }
 
     //创建社区+处理上传文件
     @RequestMapping(value = "/createSetup", method = RequestMethod.POST)
-    private String fildUpload(CCinfo ccinfo, @RequestParam(value = "CClpa", required = false) MultipartFile file,
+    private String fildUpload(CCinfo ccinfo, Map<String, Object> map, @RequestParam(value = "CClpa", required = false) MultipartFile file,
                               HttpServletRequest request) throws Exception {
         //基本表单
         System.out.println(ccinfo.toString());
@@ -67,12 +61,27 @@ public class CreateHandler {
             String imageName = contentType.substring(contentType.indexOf("/") + 1);
             path = "/images/" + uuid + "." + imageName;
             // String path = request.getServletContext().getRealPath("/images/");
+            //判断路径是否存在，如果不存在就创建一个
+            String filename = file.getOriginalFilename();
+            File filepath = new File(pathRoot + "/images/", filename);
+            if (!filepath.getParentFile().exists()) {
+                filepath.getParentFile().mkdirs();
+            }
             file.transferTo(new File(pathRoot + path));
         }
-        System.out.println(path);
+        //System.out.println(path);
         request.setAttribute("imagesPath", path);
         ccinfo.setCclpa(path);
         createService.insert(ccinfo);
+        map.put("ccname", ccinfo.getCcname());
         return "/communityCreate/checked";
+    }
+
+    //创建社区审核geren
+    @RequestMapping(value = "/personcomplete", method = RequestMethod.POST)
+    public String Createcheck(@RequestParam(value = "ccname", required = true) String ccname) {
+        CCinfo ccinfo = createService.getByCcname(ccname);
+        createService.updatecct("1", ccinfo.getCcid());
+        return "/communityCreate/complete";
     }
 }

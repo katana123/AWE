@@ -16,10 +16,15 @@ public class CreateService {
     private CreateRepository createRepository;
 
     @Transactional(readOnly = true)
-    public List<CCinfo> getByCcname(String ccname) {
+    public CCinfo getByCcname(String ccname) {
         return createRepository.getByCcname(ccname);
     }
 
+    //更新一个学社对象的类型
+    @Transactional
+    public void updatecct(String cct, Integer ccid) {
+        createRepository.updatCcinfoByCcid(cct, ccid);
+    }
 
     //插入添加一个学社对象
     @Transactional

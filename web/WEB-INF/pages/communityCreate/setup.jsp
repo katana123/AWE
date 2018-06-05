@@ -59,6 +59,7 @@
                            enctype="multipart/form-data"
                            action="${pageContext.request.contextPath }/createSetup" method="post"
                            modelAttribute="ccinfo">
+                    <form:input type="hidden" path="cuid" id="ccuid" value="${cookie.userid.value }"/>
                     <div class="create-form">
                         <div class="create-form-item clearfix">
                             <div class="name fl">
@@ -173,7 +174,9 @@
                         </div>
                         <div class="create-form-item clearfix">
                             <div class="create-form-con fl">
-                                <button type="submit" id="formSubmit" class="btn btn-m btn-blue">创建社团</button>
+                                <button type="submit" id="formSubmit" class="btn btn-m btn-blue"
+                                        style="border:none;width:120px;">创建社团
+                                </button>
                             </div>
                         </div>
 
@@ -225,7 +228,7 @@
     $(document).ready(function () {
 
         $("#ccname").blur(function () {
-            $("#checkname").text("");
+            //$("#checkname").text("");
             var val = $("#ccname").val();
             var len = 0;
             for (var i = 0; i < val.length; i++) {
@@ -237,7 +240,7 @@
                     len += 1;
                 }
             }
-            if (len = 0) {
+            if (len == 0) {
                 $("#checkname").text("名称不能为空");
             }
             else if (len > 30) {
@@ -246,7 +249,9 @@
                 $.post("${pageContext.request.contextPath }/ajaxValidateCcname",
                     {nick: $("#ccname").val()},
                     function (data) {
-                        if (!data) {
+                        if (data) {
+                            $("#checkname").text("");
+                        } else {
                             $("#checkname").text("有相同名称,请修改");
                         }
                     });
@@ -270,6 +275,9 @@
                 return false
             } else if ($("#drag1").val() == 0) {
                 $("#checkdrag").text("请拖动滑块验证");
+                return false
+            } else if ($("#ccuid").val() == 0) {
+
                 return false
             }
 
