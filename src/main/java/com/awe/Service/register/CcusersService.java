@@ -15,6 +15,7 @@ public class CcusersService {
     @Autowired
     private ccusersRepositry ccusersRepositry;
 
+    @Transactional(readOnly = true)
     public CCusers getByCupn(String cupn) {
         return ccusersRepositry.getByCupn(cupn);
     }

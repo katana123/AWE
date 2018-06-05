@@ -1,7 +1,9 @@
 package com.awe.Service.community;
 
+import com.awe.Data.InstitutionMembers;
 import com.awe.Entity.CCinfo;
 import com.awe.Entity.CUlink;
+import com.awe.Data.CommunityMembers;
 import com.awe.Repositry.community.communityRepositry;
 import com.awe.Repositry.community.culinkRepositry;
 import com.awe.Repositry.register.ccusersRepositry;
@@ -34,10 +36,21 @@ public class CommunityService {
         culinkRepositry.deleteLinkedMember(ccid, cuid);
     }
 
+    @Transactional(readOnly = true)
+    public List<CommunityMembers> findOneCommunityMemberByCusernameAndCcid(String cuserName,Integer ccid){
+        return ccusersRepositry.findOneCommunityMemberByCusernameAndCcid(cuserName,ccid);
+    }
+
     //获取学社关联的用户
+    @Transactional(readOnly = true)
+    public List<CommunityMembers> CommunityMembers(Integer ccid) {
+        return ccusersRepositry.findCommunityMembers(ccid);
+    }
+
+    //获取机构关联的用户
     @Transactional
-    public List<Object> linkedCCusers(Integer ccid) {
-        return ccusersRepositry.findJoinedMembers(ccid);
+    public List<InstitutionMembers> findInstitutionMembers(Integer ccid) {
+        return ccusersRepositry.findInstitutionMembers(ccid);
     }
 
     //一个学社只能添加同一个用户一次

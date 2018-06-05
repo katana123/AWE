@@ -181,26 +181,28 @@ public class CCusers {
     this.cqqid = cqqid;
   }
 
-    @Override
-    public String toString() {
-        return "CCusers{" +
-                "cuid=" + cuid +
-                ", cusername='" + cusername + '\'' +
-                ", cpwd='" + cpwd + '\'' +
-                ", cimei='" + cimei + '\'' +
-                ", cimsi='" + cimsi + '\'' +
-                ", cxlh='" + cxlh + '\'' +
-                ", cright='" + cright + '\'' +
-                ", cud='" + cud + '\'' +
-                ", cuname='" + cuname + '\'' +
-                ", cupn='" + cupn + '\'' +
-                ", cidc='" + cidc + '\'' +
-                ", cunit='" + cunit + '\'' +
-                ", cmos=" + cmos +
-                ", cssid=" + cssid +
-                ", cemail='" + cemail + '\'' +
-                ", ccid=" + ccid +
-                ", cqqid=" + cqqid +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "CCusers{" +
+            "cuid=" + cuid +
+            ", cusername='" + cusername + '\'' +
+            ", cpwd='" + cpwd + '\'' +
+            ", cimei='" + cimei + '\'' +
+            ", cimsi='" + cimsi + '\'' +
+            ", cxlh='" + cxlh + '\'' +
+            ", cright='" + cright + '\'' +
+            ", cud='" + cud + '\'' +
+            ", cuname='" + cuname + '\'' +
+            ", cupn='" + cupn + '\'' +
+            ", cidc='" + cidc + '\'' +
+            ", cunit='" + cunit + '\'' +
+            ", cmos=" + cmos +
+            ", cssid=" + cssid +
+            ", cemail='" + cemail + '\'' +
+            ", ccid=" + ccid +
+            ", cqqid=" + cqqid +
+            '}';
+  }
+
+
 }

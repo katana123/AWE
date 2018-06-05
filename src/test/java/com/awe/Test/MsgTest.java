@@ -1,6 +1,8 @@
 package com.awe.Test;
 
 import com.alibaba.fastjson.JSON;
+import com.awe.Data.CommunityMembers;
+import com.awe.Entity.CCinfo;
 import com.awe.Repositry.register.ccusersRepositry;
 import com.awe.Service.community.CommunityService;
 import org.junit.Test;
@@ -52,13 +54,8 @@ public class MsgTest {
     @Test
     public void linkedMemberss() {
         HashMap map = new HashMap();
-        List cCusers = communityService.linkedCCusers(2);
+        List cCusers = communityService.findInstitutionMembers(2);
         String text = JSON.toJSONString(cCusers);
-        /*Object objects = JSON.parse(text);*/
-
-        System.out.println(text);
-        System.out.println(text.getClass());
-        //JSONObject jsonObject = JSON.parseObject(text);
         map.put("members", text);
         //System.out.println(map.toString());
         for (Object obj : map.keySet()) {
@@ -71,4 +68,11 @@ public class MsgTest {
     public void unlinkMember() {
         communityService.deleteLinkedMember((long) 1, (long) 20);
     }
+
+    @Test
+    public void getCuidbyCusername() {
+        int cuid = ccusersRepositry.getCuidbyCusername("awelogin");
+        System.out.println(cuid);
+    }
+
 }

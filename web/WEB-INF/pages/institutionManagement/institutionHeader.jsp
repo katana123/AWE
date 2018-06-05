@@ -640,7 +640,7 @@
             <li class="league_nav icons"><a href="" title="">
                 <!--            <i class="fa fa-eye"></i>-->
                 <em>栏目管理</em></a></li>
-            <li class="league_nav icons"><a href="" title="">
+            <li class="league_nav icons"><a href="${pageContext.request.contextPath }/memberManagement/${ccid}" title="社员管理">
                 <!--            <i class="fa fa-eye"></i>-->
                 <em>社员管理</em></a></li>
             <li class="article_mall icons "><a href="" title="">

@@ -72,7 +72,7 @@
         <ul>
             <li><a href="../资料管理.html">资料管理</a></li>
             <li><a href="../栏目管理.html">栏目管理</a></li>
-            <li><a href="../成员管理.html">社员管理</a></li>
+            <li><a href="${pageContext.request.contextPath }/memberManagement/${ccid}">社员管理</a></li>
             <li><a href="../帖子管理.html">帖子管理</a></li>
             <li><a href="../功能管理.html">功能管理</a></li>
             <li><a href="../回收站.html">回收站</a></li>

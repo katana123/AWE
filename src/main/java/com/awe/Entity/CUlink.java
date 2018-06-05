@@ -2,6 +2,7 @@ package com.awe.Entity;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 
 @Table(name = "c_ulink")
