@@ -2,7 +2,6 @@
 <jsp:include page="poheader.jsp"></jsp:include>
 
 <div class="m-news-top2" style="min-height: 1200PX">
-
     <div class="topic_list" style="padding-left: 30px;
     padding-right: 30px;">
         <ul>

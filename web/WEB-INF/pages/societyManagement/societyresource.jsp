@@ -1,8 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="soheader.jsp"></jsp:include>
 <div class="m-news-top2">
-
-
     <div class="m-cp-list" style="height: auto">
         <div class="m-news-list2-title" style="    padding: 20px 0px;"><a href="">全部</a><a href=""
                                                                                            style="padding-left: 30px;">栏目一</a><a

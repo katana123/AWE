@@ -1,8 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="soheader.jsp"></jsp:include>
 <div class="m-news-top2">
-
-
     <div class="m-news-list2-title" style=" padding: 20px 0px;    padding-left: 20px;"><a href="">明星老师</a>
         <!--					<a style="float: right;padding-right: 20px;">更多</a>-->
     </div>

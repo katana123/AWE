@@ -280,16 +280,7 @@
 <div class="g-doc">
     <div class="g-search g-w1200 f-cb">
         <a class="g-logo" href=""><img src="${pageContext.request.contextPath }/dist/societyManagement/images/logo.jpg"></a>
-        <!--
-                <div class="g-sarch-input">
-                    <select class="g-select" name="" >
-                        <option value="">精品推荐</option>
-                        <option value="">公司头条</option>
-                    </select>
-                    <input type="text" name="search" id="search" value="" placeholder="请输入关键字">
-                    <div class="g-btn-search"><i class="fa fa-search"></i></div>
-                </div>
-        -->
+
         <ul class="g-login" style="float:right">
             <c:choose>
                 <c:when test="${cookie.userlogin.value == null || cookie.userlogin.value == '' }">

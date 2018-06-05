@@ -1,9 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="soheader.jsp"></jsp:include>
-
-
 <div class="m-news-left m-news2-left">
-
     <div class="m-btn f-cb">
         <div style="width: 40%;float:left">
             <a href="/mag/1426841235/" target="_blank">

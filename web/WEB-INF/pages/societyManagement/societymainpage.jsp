@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="soheader.jsp"></jsp:include>
-
 <div class="m-news-top2">
     <div class="m-bg">
         <dt class="m-news-list2-title" style="padding-left: 20px;
