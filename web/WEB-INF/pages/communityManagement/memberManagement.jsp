@@ -593,14 +593,14 @@
                             <span class="last_post" data-value="7">最后发言时间<i></i></span>
                             <span class="member_birthday">出生年月</span>
                         </li>
-                        <c:forEach items="${JoinedMember}" var="JoinedMember">
+                        <c:forEach items="${CommunityMembers}" var="CommunityMembers">
                         <li class="" data-userid="72310219" data-username="LOVEWUST">
                             <span class="no">01</span>
                             <span class="owner"></span>
                             <a rel="nofollow" href="http://bulo.hujiang.com/72310219/" target="_blank">
                             <span class="header_icon">
                                 <img src="http://i2n.hjfile.cn/u/200/72310219/YNMgubeuIOk4Rei.jpg" alt=""></span>
-                                <span class="ellipsis_text">${JoinedMember[1]}</span>
+                                <span class="ellipsis_text">${CommunityMembers[1]}</span>
                             </a>
                             <span class="member_nickName"></span>
                             <span class="month_post">0</span>
@@ -609,7 +609,7 @@
 
                             <span class="level_no">2</span>
                             <span class="rank_num">0</span>
-                            <span class="join_date">${JoinedMember[4]}</span>
+                            <span class="join_date">${CommunityMembers[4]}</span>
                             <span class="last_post">2017/07/11</span>
                             <span class="member_birthday"></span>
 

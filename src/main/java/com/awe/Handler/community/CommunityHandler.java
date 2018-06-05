@@ -1,6 +1,7 @@
 package com.awe.Handler.community;
 
 import com.alibaba.fastjson.JSON;
+import com.awe.Data.InstitutionMembers;
 import com.awe.Entity.CCinfo;
 import com.awe.Service.community.CommunityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +42,8 @@ public class CommunityHandler {
 
     @RequestMapping("/testLink")
     public String TestLink(Map<String, Object> map) {
-        List<Object> cCusers = communityService.linkedCCusers(2);
-        String text = JSON.toJSONString(cCusers);
-        map.put("members", text);
+        List<InstitutionMembers> InstitutionMembers = communityService.findInstitutionMembers(2);
+        map.put("InstitutionMembers", InstitutionMembers);
         return "/test/testLink";
     }
 }

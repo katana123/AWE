@@ -53,9 +53,9 @@
         });
     }
 
-    $(function () {
+    /*$(function () {
         var html = "";
-        var ajson =${members};
+        var ajson =$1{members};
         for (var i = 0; i < ajson.length; i++) {
             if (i % 2 == 0) {
                 html += "<li class=\"odd\">";
@@ -72,7 +72,7 @@
             html += "<span class=\"owner\"></span>";
             html += "<a rel=\"nofollow\" href=\"#\" target=\"_blank\">";
             html += "<span class=\"header_icon\">";
-            html += "<img src=\"${pageContext.request.contextPath }/dist/institutionManagement/images/user_list.jpg\" alt=\"\">";
+            html += "<img src=\"$1{pageContext.request.contextPath }/dist/institutionManagement/images/user_list.jpg\" alt=\"\">";
             html += "</span>";
             html += "<span class=\"ellipsis_text\">" + ajson[i][1] + "</span>";
             html += "</a>";
@@ -82,11 +82,11 @@
             html += "<span class=\"level_no\">2</span>";
             html += "<span class=\"rank_num\">0</span>";
             html += "<span class=\"join_date\">2017/06/02</span>";
-            html += "<span class=\"last_post\"><a href=\"javascript:;\">编辑</a> <a href=\"javascript:;\" onclick=\"deleteMember(" + ajson[i][0] + ",${ccid},'" + ajson[i][1] + "')\">删除</a></span>";
+            html += "<span class=\"last_post\"><a href=\"javascript:;\">编辑</a> <a href=\"javascript:;\" onclick=\"deleteMember(" + ajson[i][0] + ",$1{ccid},'" + ajson[i][1] + "')\">删除</a></span>";
             html += "</li>";
         }
         $("#linkedmembers").append(html);
-    });
+    });*/
 </script>
 <div class="wrapper">
     <div class="form-li">
@@ -111,7 +111,28 @@
                         class="join_date" data-value="5">入社时间</span> <span class="last_post" data-value="7">操作</span>
             </li>
             <div id="linkedmembers">
+                <c:forEach items="${InstitutionMembers}" var="i">
+                    <li class="odd">
 
+                    <%--<li class="">--%>
+
+                    <span class="no"></span>
+                    <span class="owner"></span>
+                    <a rel="nofollow" href="#" target="_blank">
+                        <span class="header_icon">
+                            <img src="${pageContext.request.contextPath }/dist/institutionManagement/images/user_list.jpg" alt="">
+                        </span>
+                        <span class="ellipsis_text"></span>
+                    </a>
+                    <span class="member_nickName"></span>
+                    <span class="month_reply"></span>
+                    <span class="month_check"></span>
+                    <span class="level_no">2</span>
+                    <span class="rank_num">0</span>
+                    <span class="join_date"></span>
+                    <span class="last_post"><a href="javascript:;">编辑</a> <a href="javascript:;" onclick="">删除</a></span>
+                    </li>
+                </c:forEach>
             </div>
         </ul>
     </div>

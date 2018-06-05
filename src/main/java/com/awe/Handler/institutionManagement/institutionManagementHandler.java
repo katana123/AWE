@@ -1,7 +1,8 @@
 package com.awe.Handler.institutionManagement;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+import com.awe.Data.CommunityMembers;
+import com.awe.Data.InstitutionMembers;
 import com.awe.Entity.CCinfo;
 import com.awe.Entity.CCusers;
 import com.awe.Entity.CUlink;
@@ -12,8 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,9 +39,8 @@ public class institutionManagementHandler {
     public String AuthoritySetting(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map) {
         CCinfo cCinfo = communityService.get(ccid);
         map.put("community", cCinfo);
-        List<Object> cCusers = communityService.linkedCCusers(ccid);
-        String text = JSON.toJSONString(cCusers);
-        map.put("members", text);
+        List<InstitutionMembers> InstitutionMembers = communityService.findInstitutionMembers(ccid);
+        map.put("members", InstitutionMembers);
         BigInteger membernum = communityService.membernum(Long.valueOf(ccid));
         map.put("membercount", membernum);
         map.put("pageno", 3);
@@ -63,23 +61,12 @@ public class institutionManagementHandler {
     @RequestMapping(value = "/ajaxAddInstitutionMember", method = RequestMethod.POST)
     public String AddInstitutionMember(@RequestParam(value = "cusername", required = true) String cusername,
                                        @RequestParam(value = "ccid" , required = true) Long ccid){
-        CCusers cCusers = ccusersService.getByCusername(cusername);
-        if (null == cCusers) {
-            System.out.println("8");
-            return "0";//用户不存在
+        List<CommunityMembers> communityMembers = communityService.findOneCommunityMemberByCusernameAndCcid(cusername, ccid.intValue());
+        if (null == communityMembers || communityMembers.size() == 0) {
+            return "0";
         } else {
-            CUlink cUlinkOnce = communityService.linkOnce(ccid, cCusers.getCuid());
-            if (null == cUlinkOnce) {
-                CUlink cUlink = new CUlink();
-                cUlink.setCcid(ccid);
-                cUlink.setCuid(cCusers.getCuid());
-                cUlink.setRoleid(1);
-                communityService.addMember(cUlink);
-                return "1";
-            } else {
-                return "2";
-            }
-
+            System.out.println("222222222");
+            return "";
         }
     }
 
@@ -88,16 +75,11 @@ public class institutionManagementHandler {
     public String InstitutionMembers(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map) {
         CCinfo cCinfo = communityService.get(ccid);
         map.put("community", cCinfo);
-        List<Object> cCusers = communityService.linkedCCusers(ccid);
-        String text = JSON.toJSONString(cCusers);
-        map.put("members", text);
+        List<InstitutionMembers> InstitutionMembers = communityService.findInstitutionMembers(ccid);
+        map.put("InstitutionMembers", InstitutionMembers);
         BigInteger membernum = communityService.membernum(Long.valueOf(ccid));
         map.put("membercount", membernum);
         map.put("pageno", 2);
-        /*for (Object obj:map.keySet()) {
-            Object value = map.get(obj);
-            System.out.println(value);
-        }*/
         return "/institutionManagement/institutionMembers";
     }
 

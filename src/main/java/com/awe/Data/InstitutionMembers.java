@@ -5,21 +5,19 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class JoinedMember {
-    private long userid;
+public class InstitutionMembers {
+    private long cuid;
     private String cusername;
     private long cqqid;
     private String cupn;
     private Date jointime;
 
-    //无参构造器Constructor
-    public JoinedMember() {
-
+    public InstitutionMembers(long cuid) {
+        this.cuid = cuid;
     }
 
-    //有参构造器Constructor
-    public JoinedMember(long userid, String cusername, long cqqid, String cupn, Date jointime) {
-        this.userid = userid;
+    public InstitutionMembers(long cuid, String cusername, long cqqid, String cupn, Date jointime) {
+        this.cuid = cuid;
         this.cusername = cusername;
         this.cqqid = cqqid;
         this.cupn = cupn;

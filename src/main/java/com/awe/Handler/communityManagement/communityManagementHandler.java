@@ -1,6 +1,6 @@
 package com.awe.Handler.communityManagement;
 
-import com.awe.Data.JoinedMember;
+import com.awe.Data.CommunityMembers;
 import com.awe.Service.community.CommunityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +19,8 @@ public class communityManagementHandler {
 
     @RequestMapping(value = "/memberManagement/{ccid}", method = RequestMethod.GET)
     public String memberManagement(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map){
-        List<JoinedMember> JoinedMember = communityService.linkedCCuser(1);
-        map.put("JoinedMember", JoinedMember);
+        List<CommunityMembers> CommunityMembers = communityService.CommunityMembers(1);
+        map.put("CommunityMembers", CommunityMembers);
         return "/communityManagement/memberManagement";
     }
 }

@@ -1,8 +1,8 @@
 package com.awe.Test;
 
 import com.alibaba.fastjson.JSON;
+import com.awe.Data.CommunityMembers;
 import com.awe.Entity.CCinfo;
-import com.awe.Data.JoinedMember;
 import com.awe.Repositry.register.ccusersRepositry;
 import com.awe.Service.community.CommunityService;
 import org.junit.Test;
@@ -54,13 +54,8 @@ public class MsgTest {
     @Test
     public void linkedMemberss() {
         HashMap map = new HashMap();
-        List cCusers = communityService.linkedCCusers(2);
+        List cCusers = communityService.findInstitutionMembers(2);
         String text = JSON.toJSONString(cCusers);
-        /*Object objects = JSON.parse(text);*/
-
-        System.out.println(text);
-        System.out.println(text.getClass());
-        //JSONObject jsonObject = JSON.parseObject(text);
         map.put("members", text);
         //System.out.println(map.toString());
         for (Object obj : map.keySet()) {
@@ -80,31 +75,4 @@ public class MsgTest {
         System.out.println(cuid);
     }
 
-    @Test
-    public void ss(){
-        List<CCinfo> authorityCommunities =communityService.getAuthorityCommunities();
-
-        System.out.println(authorityCommunities.getClass());
-
-        for (CCinfo attribute : authorityCommunities) {
-            System.out.println(attribute.toString());
-        }
-
-        List<JoinedMember> JoinedMember = communityService.linkedCCuser(1);
-
-        System.out.println(JoinedMember.getClass());
-
-        for (JoinedMember attribute : JoinedMember) {
-            System.out.println(attribute.toString());
-        }
-
-        /*HashMap map = new HashMap();
-
-        map.put("members", JoinedMember);
-        for (Object obj : map.keySet()) {
-            Object value = map.get(obj);
-            System.out.println(value);
-        }*/
-
-    }
 }
