@@ -25,9 +25,19 @@
                         <c:forEach items="${authorityCommunities}" var="authorityCommunities">
                             <a href="${pageContext.request.contextPath }/communityUserMainpage/${authorityCommunities.ccid}"
                                class="member-item" target="_parent">
-                                <div class="interview-img"><img
-                                        src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
-                                        alt="AWE官方学社" title="AWE官方学社"></div>
+                                <div class="interview-img">
+
+                                    <c:choose>
+                                        <c:when test="${authorityCommunities.cclpa == null}">
+                                            <img src="${pageContext.request.contextPath }/dist/communityMainpage/files_com/2017-06-01-1496246655-322-3667.jpg"
+                                                 alt="AWE官方学社" title="AWE官方学社"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <img src="${pageContext.request.contextPath }${authorityCommunities.cclpa}"
+                                                 alt="AWE官方学社" title="AWE官方学社"/>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
                                 <div class="interview-info">
                                     <p class="interview-title">${authorityCommunities.ccname}</p>
                                     <p class="interview-des">${authorityCommunities.ccinfo}</p>
