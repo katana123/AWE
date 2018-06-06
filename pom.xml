@@ -282,70 +282,70 @@
         <!--&lt;!&ndash; c3p0 end &ndash;&gt;
 
         &lt;!&ndash; ehcache start &ndash;&gt;-->
-         <dependency>
-             <groupId>net.sf.ehcache</groupId>
-             <artifactId>ehcache-core</artifactId>
-             <version>2.4.3</version>
-         </dependency>
-         <!--&lt;!&ndash; ehcache end &ndash;&gt;
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>2.4.3</version>
+        </dependency>
+        <!--&lt;!&ndash; ehcache end &ndash;&gt;
 
-         &lt;!&ndash;hibernate start &ndash;&gt;
-         &lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate/hibernate-core &ndash;&gt;-->
-         <dependency>
-             <groupId>org.hibernate</groupId>
-             <artifactId>hibernate-core</artifactId>
-             <version>${hibernate.version}</version>
-         </dependency>
+        &lt;!&ndash;hibernate start &ndash;&gt;
+        &lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate/hibernate-core &ndash;&gt;-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 
-         <dependency>
-             <groupId>org.hibernate</groupId>
-             <artifactId>hibernate-entitymanager</artifactId>
-             <version>${hibernate.version}</version>
-         </dependency>
-         <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache &ndash;&gt;-->
-         <dependency>
-             <groupId>org.hibernate</groupId>
-             <artifactId>hibernate-ehcache</artifactId>
-             <version>${hibernate.version}</version>
-         </dependency>
-         <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 &ndash;&gt;-->
-         <dependency>
-             <groupId>org.hibernate</groupId>
-             <artifactId>hibernate-c3p0</artifactId>
-             <version>${hibernate.version}</version>
-         </dependency>
-         <dependency>
-             <groupId>org.hibernate.common</groupId>
-             <artifactId>hibernate-commons-annotations</artifactId>
-             <version>4.0.2.Final</version>
-         </dependency>
-         <!--&lt;!&ndash;hibernate end &ndash;&gt;
-         &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons &ndash;&gt;-->
-         <dependency>
-             <groupId>org.springframework.data</groupId>
-             <artifactId>spring-data-commons</artifactId>
-             <version>1.6.2.RELEASE</version>
-         </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache &ndash;&gt;-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 &ndash;&gt;-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.common</groupId>
+            <artifactId>hibernate-commons-annotations</artifactId>
+            <version>4.0.2.Final</version>
+        </dependency>
+        <!--&lt;!&ndash;hibernate end &ndash;&gt;
+        &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons &ndash;&gt;-->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+            <version>1.6.2.RELEASE</version>
+        </dependency>
 
-         <dependency>
-             <groupId>org.hibernate.javax.persistence</groupId>
-             <artifactId>hibernate-jpa-2.1-api</artifactId>
-             <version>1.0.2.Final</version>
-         </dependency>
-         <!--&lt;!&ndash;mysql start &ndash;&gt;-->
-         <dependency>
-             <groupId>mysql</groupId>
-             <artifactId>mysql-connector-java</artifactId>
-             <version>${mysql.version}</version>
-         </dependency>
-         <!--&lt;!&ndash;mysql end &ndash;&gt;
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.2.Final</version>
+        </dependency>
+        <!--&lt;!&ndash;mysql start &ndash;&gt;-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <!--&lt;!&ndash;mysql end &ndash;&gt;
 
-         &lt;!&ndash;logger start &ndash;&gt;-->
-         <dependency>
-             <groupId>org.slf4j</groupId>
-             <artifactId>slf4j-api</artifactId>
-             <version>1.7.7</version>
-         </dependency>
+        &lt;!&ndash;logger start &ndash;&gt;-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.7</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-nop -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -355,82 +355,82 @@
         </dependency>
 
         <dependency>
-             <groupId>org.slf4j</groupId>
-             <artifactId>jcl-over-slf4j</artifactId>
-             <version>1.7.7</version>
-         </dependency>
-         <dependency>
-             <groupId>ch.qos.logback</groupId>
-             <artifactId>logback-core</artifactId>
-             <version>1.1.2</version>
-         </dependency>
-         <dependency>
-             <groupId>ch.qos.logback</groupId>
-             <artifactId>logback-classic</artifactId>
-             <version>1.1.2</version>
-         </dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.1.2</version>
+        </dependency>
         <!-- &lt;!&ndash;logger end &ndash;&gt;
 
          &lt;!&ndash;test start &ndash;&gt;-->
-         <dependency>
-             <groupId>junit</groupId>
-             <artifactId>junit</artifactId>
-             <version>4.12</version>
-             <scope>test</scope>
-         </dependency>
-         <!--&lt;!&ndash;test end &ndash;&gt;
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <!--&lt;!&ndash;test end &ndash;&gt;
 
-         &lt;!&ndash;common start &ndash;&gt;-->
-         <dependency>
-             <groupId>org.apache.commons</groupId>
-             <artifactId>commons-lang3</artifactId>
-             <version>3.3.2</version>
-         </dependency>
-         <!--&lt;!&ndash;common end &ndash;&gt;
+        &lt;!&ndash;common start &ndash;&gt;-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+        <!--&lt;!&ndash;common end &ndash;&gt;
 
-         &lt;!&ndash; https://mvnrepository.com/artifact/javax.servlet/jstl &ndash;&gt;-->
-         <dependency>
-             <groupId>javax.servlet</groupId>
-             <artifactId>jstl</artifactId>
-             <version>1.2</version>
-         </dependency>
-         <!--&lt;!&ndash; https://mvnrepository.com/artifact/taglibs/standard &ndash;&gt;-->
-         <dependency>
-             <groupId>taglibs</groupId>
-             <artifactId>standard</artifactId>
-             <version>1.1.2</version>
-         </dependency>
+        &lt;!&ndash; https://mvnrepository.com/artifact/javax.servlet/jstl &ndash;&gt;-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/taglibs/standard &ndash;&gt;-->
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
+        </dependency>
 
         <!-- &lt;!&ndash; CXF &ndash;&gt;
          &lt;!&ndash;cxf-rt-frontend-jaxws支持soap类型服务 &ndash;&gt;-->
-         <dependency>
-             <groupId>org.apache.cxf</groupId>
-             <artifactId>cxf-rt-frontend-jaxws</artifactId>
-             <version>${cxf.version}</version>
-         </dependency>
-         <!--&lt;!&ndash;cxf-rt-frontend-jaxrs支持rest服务 &ndash;&gt;-->
-         <dependency>
-             <groupId>org.apache.cxf</groupId>
-             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-             <version>${cxf.version}</version>
-         </dependency>
-         <dependency>
-             <groupId>org.apache.cxf</groupId>
-             <artifactId>cxf-rt-transports-http</artifactId>
-             <version>${cxf.version}</version>
-         </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <!--&lt;!&ndash;cxf-rt-frontend-jaxrs支持rest服务 &ndash;&gt;-->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
 
-         <!--&lt;!&ndash;用于跨域的jar包 &ndash;&gt;-->
-         <dependency>
-             <groupId>com.thetransactioncompany</groupId>
-             <artifactId>java-property-utils</artifactId>
-             <version>1.9</version>
-         </dependency>
-         <dependency>
-             <groupId>com.thetransactioncompany</groupId>
-             <artifactId>cors-filter</artifactId>
-             <version>1.7</version>
-         </dependency>
+        <!--&lt;!&ndash;用于跨域的jar包 &ndash;&gt;-->
+        <dependency>
+            <groupId>com.thetransactioncompany</groupId>
+            <artifactId>java-property-utils</artifactId>
+            <version>1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.thetransactioncompany</groupId>
+            <artifactId>cors-filter</artifactId>
+            <version>1.7</version>
+        </dependency>
 
 
         <!-- 发送邮件-->
