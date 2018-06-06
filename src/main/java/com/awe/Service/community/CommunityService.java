@@ -53,10 +53,14 @@ public class CommunityService {
         return ccusersRepositry.findInstitutionMembers(ccid);
     }
 
+    public CUlink findByCcidAndCuid(Long ccid, Long cuid){
+        return culinkRepositry.findByCcidAndCuid(ccid,cuid);
+    }
+
     //一个学社只能添加同一个用户一次
     @Transactional(readOnly = true)
-    public CUlink linkOnce(Long ccid, Long cuid) {
-        return culinkRepositry.findByCcidAndCuid(ccid, cuid);
+    public List<CommunityMembers> linkOnce(Long ccid, String cusername) {
+        return culinkRepositry.findInsMemByCcidAndCuid(ccid, cusername);
     }
 
     //学社添加成员
@@ -84,4 +88,7 @@ public class CommunityService {
         return communityRepositry.getByCleve((long) 0);
     }
 
+    /*public void addiMember(IUlink iUlink) {
+        iulinkRepositry.saveAndFlush(iUlink);
+    }*/
 }

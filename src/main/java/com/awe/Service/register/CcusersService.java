@@ -16,6 +16,11 @@ public class CcusersService {
     private ccusersRepositry ccusersRepositry;
 
     @Transactional(readOnly = true)
+    public int getCuidbyCusername(String cusername){
+        return ccusersRepositry.getCuidbyCusername(cusername);
+    }
+
+    @Transactional(readOnly = true)
     public CCusers getByCupn(String cupn) {
         return ccusersRepositry.getByCupn(cupn);
     }

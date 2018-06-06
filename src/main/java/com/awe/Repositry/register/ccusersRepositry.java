@@ -29,10 +29,10 @@ public interface ccusersRepositry extends JpaRepository<CCusers, Integer>, JpaSp
 
     CCusers getByCupn(String cupn);
 
-    @Query(value = "select u.cuid,u.cusername,u.cqqid,u.cupn,cu.jointime from c_cusers u right join c_ulink cu on u.cuid = cu.cuid right join i_ulink iu on u.cuid=iu.cuid where cu.ccid =?1", nativeQuery = true)
+    @Query(value = "select u.cuid,u.cusername,u.cqqid,u.cupn,cu.jointime from c_cusers u right join c_ulink cu on u.cuid = cu.cuid where cu.roleid>1 and cu.ccid =?1", nativeQuery = true)
     List<InstitutionMembers> findInstitutionMembers(Integer ccid);
 
-    @Query(value = "select count(*) membernum from c_cusers u right join c_ulink cu on u.cuid = cu.cuid right join i_ulink iu on u.cuid=iu.cuid where cu.ccid = ?1", nativeQuery = true)
+    @Query(value = "select count(*) membernum from c_cusers u right join c_ulink cu on u.cuid = cu.cuid where cu.roleid>1 and cu.ccid = ?1", nativeQuery = true)
     BigInteger membernum(Long ccid);
 
     @Query(value = "select cuid from c_cusers where cusername=?1", nativeQuery = true)

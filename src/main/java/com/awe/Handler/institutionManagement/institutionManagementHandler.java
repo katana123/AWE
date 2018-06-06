@@ -1,10 +1,8 @@
 package com.awe.Handler.institutionManagement;
 
-import com.alibaba.fastjson.JSON;
 import com.awe.Data.CommunityMembers;
 import com.awe.Data.InstitutionMembers;
 import com.awe.Entity.CCinfo;
-import com.awe.Entity.CCusers;
 import com.awe.Entity.CUlink;
 import com.awe.Service.community.CommunityService;
 import com.awe.Service.register.CcusersService;
@@ -52,7 +50,9 @@ public class institutionManagementHandler {
     @RequestMapping(value = "/ajaxDeleteInstitutionMember", method = RequestMethod.POST)
     public String DeleteLinkedMember(@RequestParam(value = "cuid", required = true) Long cuid,
                                      @RequestParam(value = "ccid", required = true) Long ccid) {
-        communityService.deleteLinkedMember(ccid, cuid);
+        CUlink cUlink = communityService.findByCcidAndCuid(ccid, cuid);
+        cUlink.setRoleid(1);
+        communityService.addMember(cUlink);
         return "1";
     }
 
@@ -65,8 +65,16 @@ public class institutionManagementHandler {
         if (null == communityMembers || communityMembers.size() == 0) {
             return "0";
         } else {
-            System.out.println("222222222");
-            return "";
+            List<CommunityMembers> iUlinkOnce = communityService.linkOnce(ccid,cusername);
+            if(null == iUlinkOnce || iUlinkOnce.size() == 0){
+                Long cuid = Long.valueOf(ccusersService.getCuidbyCusername(cusername));
+                CUlink cUlink = communityService.findByCcidAndCuid(ccid, cuid);
+                cUlink.setRoleid(10);
+                communityService.addMember(cUlink);
+                return "1";
+            }else{
+                return "2";
+            }
         }
     }
 
