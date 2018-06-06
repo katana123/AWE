@@ -159,8 +159,8 @@
 <body>
 <div class="g-head">
     <div class="header_top">
-        <div class="g-search f-cb"><a class="g-logo" href="../product一级/index.html" style="float:left;"><img
-                src="tmp/images/logo.png"></a>
+        <div class="g-search f-cb"><a class="g-logo" href="index" style="float:left;"><img
+                src="${pageContext.request.contextPath }/dist/common/images/logo.jpg"></a>
 
             <ul class="g-login" style="float:right">
                 <li><a href="" class="nav1">首页</a></li>

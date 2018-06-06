@@ -86,7 +86,7 @@
 <body>
 <div class="g-doc">
     <div class="g-search g-w1200 f-cb">
-        <a class="g-logo" href="index"><img src="${pageContext.request.contextPath }/dist/mainpage/images/logo3.png"></a>
+        <a class="g-logo" href="index"><img src="${pageContext.request.contextPath }/dist/common/images/logo.jpg"></a>
         <div class="g-sarch-input">
             <select class="g-select" name="">
                 <option value="">精品推荐</option>
