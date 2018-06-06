@@ -98,6 +98,7 @@
                         <li><span>${cookie.userlogin.value }&nbsp;</span></li>
                         <li><a href="logout">退出登录</a>&nbsp;</li>
                     </c:otherwise>
+
                 </c:choose>
             </ul>
         </div>
