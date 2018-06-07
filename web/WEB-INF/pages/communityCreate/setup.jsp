@@ -277,7 +277,7 @@
                 $("#checkdrag").text("请拖动滑块验证");
                 return false
             } else if ($("#ccuid").val() == 0) {
-
+                alert("请登录！")
                 return false
             }
 

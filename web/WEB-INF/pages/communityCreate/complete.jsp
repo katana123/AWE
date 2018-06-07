@@ -48,12 +48,12 @@
                                 <p style="font-size: 20px;">恭喜您的学社已创建完成！</p>
                                 <p style="line-height: 20px;;padding-top: 30px;">普通学社直接点击：<a
                                         style="padding-left: 10px;color: #169bd5"
-                                        href="../03用户学社主页/学社主页1-机构主页 - 主页.html">&gt;&gt;进入个人学社主页</a></p>
+                                        href="societyMainpage">&gt;&gt;进入个人学社主页</a></p>
                                 <p style="line-height: 20px;;padding-top: 30px;">机构/老师学社需要审核期3-5天：：<a
                                         style="padding-left: 10px;color: #169bd5" href="">&gt;&gt;审核进度查询</a></p>
                                 <div style="float: left;padding-top: 30px;font-size: 18px;color: #169bd5"><a
                                         style="float: left;color: #169bd5"
-                                        href="../../社团首页/社团首页.htm">&gt;&gt;返回AWE学社首页</a>
+                                        href="communityMainpage">&gt;&gt;返回AWE学社首页</a>
                                 </div>
                             </div>
                         </div>

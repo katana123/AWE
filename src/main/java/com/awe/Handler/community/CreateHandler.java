@@ -25,6 +25,7 @@ public class CreateHandler {
     //打开社区创建页面
     @RequestMapping("/communitySetup")
     public String CommunitySetup(Map<String, Object> map) {
+
         map.put("ccinfo", new CCinfo());
         return "/communityCreate/setup";
     }

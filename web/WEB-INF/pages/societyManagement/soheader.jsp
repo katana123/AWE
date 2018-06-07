@@ -318,13 +318,13 @@
             <div class="bd">
                 <ul>
                     <li><a href="" target=""><img
-                            src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/banner.png"></a>
+                            src="/dist/societyManagement/tmp/images/banner.png"></a>
                     </li>
                     <li><a href="" target=""><img
-                            src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/banner.png"></a>
+                            src="/dist/societyManagement/tmp/images/banner.png"></a>
                     </li>
                     <li><a href="" target=""><img
-                            src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/banner.png"></a>
+                            src="/dist/societyManagement/tmp/images/banner.png"></a>
                     </li>
                 </ul>
             </div>
@@ -344,11 +344,12 @@
             <div class="m-toutiao f-cb">
                 <!--                <p class="g-tt">AWE头条</p>-->
                 <ul class="m-son-nav f-fl">
-                    <li style="width: 80px;font-size: 14px;background: url(tmp/images/li_bg1.png)"><a href="">机构</a>
+                    <li style="width: 80px;font-size: 14px;background: url(${pageContext.request.contextPath }/dist/societyManagement/tmp/images/li_bg1.png)">
+                        <a href="">机构</a>
                     </li>  <!-- class="son-act"-->
                     <li
                             <c:if test="${tabpage=='home'  || tabpage==''}">class="m-son-nav_active"</c:if> >
-                        <a href="societymainpage">
+                        <a href="societyMainpage">
                             <span class="second_nav_top"
                                   <c:if test="${tabpage=='home'}">class="font_white"</c:if> >主页</span>
                             <span class="second_nav_bottom" <c:if test="${tabpage=='home'}">class="font_white"</c:if>>HOME</span>
@@ -356,7 +357,7 @@
                     </li>
                     <li <c:if test="${tabpage=='course'}">class="m-son-nav_active"</c:if>>
                         <div>
-                            <a href="societycourse">
+                            <a href="societyCourse">
                                 <span class="second_nav_top"
                                       <c:if test="${tabpage=='course'}">class="font_white"</c:if>>课程(9)</span>
                                 <span class="second_nav_bottom"
@@ -365,27 +366,28 @@
                         </div>
                     </li>
                     <li <c:if test="${tabpage=='resource'}">class="m-son-nav_active"</c:if>>
-                        <a href="societyresource">
+                        <a href="societyResource">
                             <span class="second_nav_top" <c:if test="${tabpage=='resource'}">class="font_white"</c:if>>资源(12)</span>
                             <span class="second_nav_bottom"
                                   <c:if test="${tabpage=='resource'}">class="font_white"</c:if>>  RESOURCES</span>
                         </a>
                     </li>
                     <li <c:if test="${tabpage=='teacher'}">class="m-son-nav_active"</c:if>>
-                        <a href="societyteacher">
+                        <a href="societyTeacher">
                             <span class="second_nav_top" <c:if test="${tabpage=='teacher'}">class="font_white"</c:if>>老师(5)</span>
                             <span class="second_nav_bottom"
                                   <c:if test="${tabpage=='teacher'}">class="font_white"</c:if>>TEACHERS</span>
                         </a>
                     </li>
                     <li <c:if test="${tabpage=='about'}">class="m-son-nav_active"</c:if>>
-                        <a href="societyabout">
+                        <a href="societyAbout">
                             <span class="second_nav_top"
                                   <c:if test="${tabpage=='about'}">class="font_white"</c:if>>关于我们</span>
                             <span class="second_nav_bottom" <c:if test="${tabpage=='about'}">class="font_white"</c:if>>ABOUT US</span>
                         </a>
                     </li>
-                    <li style="background: url(tmp/images/weixin.jpg) center center;background-repeat: no-repeat;"><a
+                    <li style="background: url(${pageContext.request.contextPath }/dist/societyManagement/tmp/images/weixin.jpg) center center;background-repeat: no-repeat;">
+                        <a
                             href=""></a></li>
                 </ul>
             </div>

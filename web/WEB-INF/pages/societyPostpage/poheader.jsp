@@ -358,7 +358,7 @@
                     <li style="width: 80px;font-size: 14px;background: url(tmp/images/li_bg1.png)"><a href="">学社</a>
                     </li>  <!-- class="son-act"-->
                     <li <c:if test="${tabpage=='allpost' || tabpage==''}">class="m-son-nav_active"</c:if>>
-                        <a href="societypost">
+                        <a href="societyPost">
                             <span class="second_nav_top" <c:if test="${tabpage=='allpost'}">class="font_white"</c:if>>全部帖子</span>
                             <span class="second_nav_bottom"
                                   <c:if test="${tabpage=='allpost'}">class="font_white"</c:if>>ALL POST</span>
@@ -366,7 +366,7 @@
                     </li>
                     <li <c:if test="${tabpage=='mypost'}">class="m-son-nav_active"</c:if>>
                         <div>
-                            <a href="societymypost">
+                            <a href="societyMypost">
                                 <span class="second_nav_top"
                                       <c:if test="${tabpage=='mypost'}">class="font_white"</c:if>>我的帖子(9)</span>
                                 <span class="second_nav_bottom"
@@ -376,20 +376,20 @@
 
                     </li>
                     <li <c:if test="${tabpage=='essence'}">class="m-son-nav_active"</c:if>>
-                        <a href="societyessencepost">
+                        <a href="societyEssencepost">
                             <span class="second_nav_top" <c:if test="${tabpage=='essence'}">class="font_white"</c:if>>精华(12)</span>
                             <span class="second_nav_bottom"
                                   <c:if test="${tabpage=='essence'}">class="font_white"</c:if>>  ESSENCE  </span>
                         </a>
                     </li>
                     <li <c:if test="${tabpage=='event'}">class="m-son-nav_active"</c:if>>
-                        <a href="societyevent">
+                        <a href="societyEvent">
                             <span class="second_nav_top" <c:if test="${tabpage=='event'}">class="font_white"</c:if>>活动帖子(5)</span>
                             <span class="second_nav_bottom" <c:if test="${tabpage=='event'}">class="font_white"</c:if>>EVENT</span>
                         </a>
                     </li>
                     <li <c:if test="${tabpage=='notice'}">class="m-son-nav_active"</c:if>>
-                        <a href="societynotice.jsp">
+                        <a href="societyNotice.jsp">
                             <span class="second_nav_top" <c:if test="${tabpage=='notice'}">class="font_white"</c:if>>学社公告</span>
                             <span class="second_nav_bottom" <c:if test="${tabpage=='notice'}">class="font_white"</c:if>>NOTICE </span>
                         </a>
