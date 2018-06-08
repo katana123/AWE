@@ -17,6 +17,8 @@
     <meta name="viewport" content="width=device-width"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/societyManagement/css/function.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/societyManagement/css/rest.css"/>
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath }/dist/societyManagement/css/my_community_activity.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/societyManagement/css/common.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/societyManagement/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/societyManagement/css/index.css"/>
@@ -54,7 +56,6 @@
         .blue {
             background-color: #36b9c5;
         }
-
         .m-head-list li {
             padding: 10px;
             margin: 0px auto;
@@ -64,19 +65,16 @@
         .m-son-nav li {
             width: 110px;
         }
-
         .g-hd li {
             float: left;
             width: 140px;
             text-align: center;
         }
-
         .g-hd li {
             float: left;
             width: 140px;
             text-align: center;
         }
-
         .slideBox {
             height: 300px;
             overflow: hidden;
@@ -86,7 +84,6 @@
         .g-act_second_active {
             background: #21abca;
         }
-
         .m-son-nav li {
             float: left;
             width: 114px;
@@ -101,7 +98,6 @@
         .m-toutiao {
             padding-top: 6px;
         }
-
         .m-son-nav {
             margin-left: 0px;
             margin-top: -5px;
@@ -137,7 +133,6 @@
             font-size: 16px;
             line-height: 40px;
         }
-
         .m-btn-qd {
             background-color: #f08935;
             color: #fff;
@@ -146,14 +141,12 @@
             padding: 5px 30px;
             float: left;
         }
-
         .m-user-img {
             width: 30px;
             height: 30px;
             border-radius: 50%;
             float: left;
         }
-
         /*	图片上的浮层*/
         .slideBox .hd_text {
             height: 45px;
@@ -196,7 +189,6 @@
         .blue_border {
             border-bottom: 1px dashed #3bafba;
         }
-
         .main_sidebar h3 {
             line-height: 16px;
             color: #3bafba;
@@ -205,23 +197,19 @@
             padding-bottom: 18px;
             margin-bottom: 20px;
         }
-
         .change_mag {
             float: right;
             color: #e78537;
             font-size: 14px;
         }
-
         .magazine_list li {
             padding-bottom: 10px;
             padding-top: 10px;
             border-bottom: 1px dashed #3bafba;
         }
-
         .book {
             position: relative;
         }
-
         .magazine_list .mag_img {
             float: left;
             width: 114px;
@@ -231,13 +219,11 @@
             box-shadow: 0px 0px 8px #eaeaea;
             border-radius: 5px;
         }
-
         .main_sidebar .book_root, .detail_mag_box .book_root, .cont-r .book_root {
             width: 80px;
             height: 100px;
             background-size: 80px auto;
         }
-
         .ellipsis_text {
             display: inline-block;
             overflow: hidden;
@@ -245,7 +231,6 @@
             white-space: nowrap;
             color: #333;
         }
-
         .magazine_list .mag_desc {
             display: block;
             margin-bottom: 15px;
@@ -255,18 +240,15 @@
             font-size: 12px;
             overflow: hidden;
         }
-
         .magazine_list .mag_num {
             display: inline;
             color: #999;
             font-size: 12px;
         }
-
         .magazine_list .mag_num_right {
             float: right;
             color: #e78537;
         }
-
         .magazine_list .mag_name {
             display: block;
             width: 150px;
@@ -345,7 +327,8 @@
             <li <c:if test="${content=='inst'}">class="g-act_second_active"</c:if>><a href="societymainpage">机构页面</a>
             </li>
 
-            <li <c:if test="${content=='post'}">class="g-act_second_active"</c:if>><a href="societypost">学社帖子</a></li>
+            <li <c:if test="${content=='post'}">class="g-act_second_active"</c:if>><a href="societyPostpage">学社帖子</a>
+            </li>
         </ul>
     </div>
 
@@ -358,7 +341,7 @@
                     <li style="width: 80px;font-size: 14px;background: url(tmp/images/li_bg1.png)"><a href="">学社</a>
                     </li>  <!-- class="son-act"-->
                     <li <c:if test="${tabpage=='allpost' || tabpage==''}">class="m-son-nav_active"</c:if>>
-                        <a href="societyPost">
+                        <a href="societyPostpage">
                             <span class="second_nav_top" <c:if test="${tabpage=='allpost'}">class="font_white"</c:if>>全部帖子</span>
                             <span class="second_nav_bottom"
                                   <c:if test="${tabpage=='allpost'}">class="font_white"</c:if>>ALL POST</span>
@@ -389,12 +372,13 @@
                         </a>
                     </li>
                     <li <c:if test="${tabpage=='notice'}">class="m-son-nav_active"</c:if>>
-                        <a href="societyNotice.jsp">
+                        <a href="societyNotice">
                             <span class="second_nav_top" <c:if test="${tabpage=='notice'}">class="font_white"</c:if>>学社公告</span>
                             <span class="second_nav_bottom" <c:if test="${tabpage=='notice'}">class="font_white"</c:if>>NOTICE </span>
                         </a>
                     </li>
-                    <li style="background: url(tmp/images/weixin.jpg) center center;background-repeat: no-repeat;"><a
+                    <li style="background: url(${pageContext.request.contextPath }/dist/societyManagement/tmp/images/weixin.jpg) center center;background-repeat: no-repeat;">
+                        <a
                             href=""></a></li>
                 </ul>
             </div>

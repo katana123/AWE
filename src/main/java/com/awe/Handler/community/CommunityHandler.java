@@ -20,11 +20,11 @@ public class CommunityHandler {
     private CommunityService communityService;
 
     /*-----------用户学社主页start----------*/
-    @RequestMapping(value = "/communityUserMainpage/{ccid}", method = RequestMethod.GET)
-    public String CommunityUserMainpage(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map) {
+    @RequestMapping(value = "/societyMainpage/{ccid}", method = RequestMethod.GET)
+    public String societyMainpage(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map) {
         CCinfo cCinfo = communityService.get(ccid);
         map.put("community", cCinfo);
-        return "/userMain/userMainpage";
+        return "/societyManagement/societymainpage";
     }
     /*-----------用户学社主页end----------*/
 

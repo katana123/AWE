@@ -7,7 +7,8 @@
     padding-right: 30px;">
         <ul>
             <li class="clearfix"><a rel="nofollow" class="topic_icon" href="" target="_blank"
-                                    title="DDDDDouble"> <img class="topic_list_img_user" src="images/user1.jpg">
+                                    title="DDDDDouble"> <img class="topic_list_img_user"
+                                                             src="${pageContext.request.contextPath }/dist/societyManagement/images/user1.jpg">
             </a>
                 <div class="topic_content">
                     <div class="topic_title clearfix"><span class="topic_times">1天前</span> <span
@@ -24,7 +25,8 @@
                 </div>
             </li>
             <li class="clearfix"><a rel="nofollow" class="topic_icon" href="" target="_blank" title="樱516莲">
-                <img class="topic_list_img_user" src="images/user2.jpg"> </a>
+                <img class="topic_list_img_user"
+                     src="${pageContext.request.contextPath }/dist/societyManagement/images/user2.jpg"> </a>
                 <div class="topic_content">
                     <div class="topic_title clearfix"><span class="topic_times">14小时前</span> <span
                             class="icon-hot">热帖</span> <a href="/topic/1711637434874/" class="ellipsis_text"
@@ -43,7 +45,8 @@
             </li>
 
             <li class="clearfix"><a rel="nofollow" class="topic_icon" href="" target="_blank" title="樱516莲">
-                <img class="topic_list_img_user" src="images/user2.jpg"> </a>
+                <img class="topic_list_img_user"
+                     src="${pageContext.request.contextPath }/dist/societyManagement/images/user2.jpg"> </a>
                 <div class="topic_content">
                     <div class="topic_title clearfix"><span class="topic_times">14小时前</span> <span
                             class="icon_team">精华</span> <a href="/topic/1711637434874/" class="ellipsis_text"
@@ -61,7 +64,8 @@
                 </div>
             </li>
             <li class="clearfix"><a rel="nofollow" class="topic_icon" href="" target="_blank"
-                                    title="DDDDDouble"> <img class="topic_list_img_user" src="images/user1.jpg">
+                                    title="DDDDDouble"> <img class="topic_list_img_user"
+                                                             src="${pageContext.request.contextPath }/dist/societyManagement/images/user1.jpg">
                 <span class="user_name">DDDDDouble</span> </a>
                 <div class="topic_content">
                     <div class="topic_title clearfix"><span class="topic_times">24分钟前</span> <a
@@ -78,7 +82,9 @@
                 </div>
             </li>
             <li class="clearfix"><a rel="nofollow" class="topic_icon" href="" target="_blank" title="ywb1218">
-                <img class="topic_list_img_user" src="images/user3.jpg"> <span class="user_name">ywb1218</span>
+                <img class="topic_list_img_user"
+                     src="${pageContext.request.contextPath }/dist/societyManagement/images/user3.jpg"> <span
+                    class="user_name">ywb1218</span>
             </a>
                 <div class="topic_content">
                     <div class="topic_title clearfix"><span class="topic_times">2017-03-24 16:43</span> <a
@@ -95,7 +101,9 @@
                 </div>
             </li>
             <li class="clearfix"><a rel="nofollow" class="topic_icon" href="" target="_blank" title="狼毫"> <img
-                    class="topic_list_img_user" src="images/user4.jpg"> <span class="user_name">狼毫</span> </a>
+                    class="topic_list_img_user"
+                    src="${pageContext.request.contextPath }/dist/societyManagement/images/user4.jpg"> <span
+                    class="user_name">狼毫</span> </a>
                 <div class="topic_content">
                     <div class="topic_title clearfix"><span class="topic_times">1天前</span> <a
                             href="/topic/1711634971375/" class="ellipsis_text" target="_blank"
@@ -103,12 +111,16 @@
                         20170509要是嫌弃我的画画水平乃们就完蛋了！</a></div>
                     <p class="topic_desc">&nbsp;&nbsp;游戏规则：&nbsp;1.答案仅楼主可见！！！否则作废！！！&nbsp;2.当日凡答对即奖励3基金~3.时间：每天1期~时间可看标题~4.未加入或修改I…</p>
                     <a href="/topic/1711634971375/" class="topic_imgs" target="_blank"> <span
-                            class="topic_img_box"><img src="images/topic1.png" class="topic_content_img"
-                                                       onerror="this.parentNode.style.display='none'"
-                                                       alt="【你画我猜】第477期 20170509要是嫌弃我的画画水平乃们就完蛋了！"></span> <span
-                            class="topic_img_box"><img src="images/topic2.png" class="topic_content_img"
-                                                       onerror="this.parentNode.style.display='none'"
-                                                       alt="【你画我猜】第477期 20170509要是嫌弃我的画画水平乃们就完蛋了！"></span> </a>
+                            class="topic_img_box"><img
+                            src="${pageContext.request.contextPath }/dist/societyManagement/images/topic1.png"
+                            class="topic_content_img"
+                            onerror="this.parentNode.style.display='none'"
+                            alt="【你画我猜】第477期 20170509要是嫌弃我的画画水平乃们就完蛋了！"></span> <span
+                            class="topic_img_box"><img
+                            src="${pageContext.request.contextPath }/dist/societyManagement/images/topic2.png"
+                            class="topic_content_img"
+                            onerror="this.parentNode.style.display='none'"
+                            alt="【你画我猜】第477期 20170509要是嫌弃我的画画水平乃们就完蛋了！"></span> </a>
                     <div class="other_info clearfix "><span class="icons praise_num" title="点赞数"><i></i>3</span>
                         <span class="icons reply_num" title="回帖数"><i></i>47</span> <span class="icons read_num"
                                                                                          title="阅读数"><i></i>140</span>
@@ -118,7 +130,9 @@
                 </div>
             </li>
             <li class="clearfix"><a rel="nofollow" class="topic_icon" href="" target="_blank" title="ywb1218">
-                <img class="topic_list_img_user" src="images/user3.jpg"> <span class="user_name">ywb1218</span>
+                <img class="topic_list_img_user"
+                     src="${pageContext.request.contextPath }/dist/societyManagement/images/user3.jpg"> <span
+                    class="user_name">ywb1218</span>
             </a>
                 <div class="topic_content">
                     <div class="topic_title clearfix"><span class="topic_times">2017-03-15 10:57</span> <a
@@ -134,7 +148,8 @@
                 </div>
             </li>
             <li class="clearfix"><a rel="nofollow" class="topic_icon" href="" target="_blank"
-                                    title="DDDDDouble"> <img class="topic_list_img_user" src="images/user1.jpg">
+                                    title="DDDDDouble"> <img class="topic_list_img_user"
+                                                             src="${pageContext.request.contextPath }/dist/societyManagement/images/user1.jpg">
                 <span class="user_name">DDDDDouble</span> </a>
                 <div class="topic_content">
                     <div class="topic_title clearfix"><span class="topic_times">24分钟前</span> <a
@@ -151,7 +166,9 @@
                 </div>
             </li>
             <li class="clearfix"><a rel="nofollow" class="topic_icon" href="" target="_blank" title="ywb1218">
-                <img class="topic_list_img_user" src="images/user3.jpg"> <span class="user_name">ywb1218</span>
+                <img class="topic_list_img_user"
+                     src="${pageContext.request.contextPath }/dist/societyManagement/images/user3.jpg"> <span
+                    class="user_name">ywb1218</span>
             </a>
                 <div class="topic_content">
                     <div class="topic_title clearfix"><span class="topic_times">2017-03-24 16:43</span> <a
@@ -168,7 +185,9 @@
                 </div>
             </li>
             <li class="clearfix"><a rel="nofollow" class="topic_icon" href="" target="_blank" title="狼毫"> <img
-                    class="topic_list_img_user" src="images/user4.jpg"> <span class="user_name">狼毫</span> </a>
+                    class="topic_list_img_user"
+                    src="${pageContext.request.contextPath }/dist/societyManagement/images/user4.jpg"> <span
+                    class="user_name">狼毫</span> </a>
                 <div class="topic_content">
                     <div class="topic_title clearfix"><span class="topic_times">1天前</span> <a
                             href="/topic/1711634971375/" class="ellipsis_text" target="_blank"
@@ -176,12 +195,16 @@
                         20170509要是嫌弃我的画画水平乃们就完蛋了！</a></div>
                     <p class="topic_desc">&nbsp;&nbsp;游戏规则：&nbsp;1.答案仅楼主可见！！！否则作废！！！&nbsp;2.当日凡答对即奖励3基金~3.时间：每天1期~时间可看标题~4.未加入或修改I…</p>
                     <a href="/topic/1711634971375/" class="topic_imgs" target="_blank"> <span
-                            class="topic_img_box"><img src="images/topic1.png" class="topic_content_img"
-                                                       onerror="this.parentNode.style.display='none'"
-                                                       alt="【你画我猜】第477期 20170509要是嫌弃我的画画水平乃们就完蛋了！"></span> <span
-                            class="topic_img_box"><img src="images/topic2.png" class="topic_content_img"
-                                                       onerror="this.parentNode.style.display='none'"
-                                                       alt="【你画我猜】第477期 20170509要是嫌弃我的画画水平乃们就完蛋了！"></span> </a>
+                            class="topic_img_box"><img
+                            src="${pageContext.request.contextPath }/dist/societyManagement/images/topic1.png"
+                            class="topic_content_img"
+                            onerror="this.parentNode.style.display='none'"
+                            alt="【你画我猜】第477期 20170509要是嫌弃我的画画水平乃们就完蛋了！"></span> <span
+                            class="topic_img_box"><img
+                            src="${pageContext.request.contextPath }/dist/societyManagement/images/topic2.png"
+                            class="topic_content_img"
+                            onerror="this.parentNode.style.display='none'"
+                            alt="【你画我猜】第477期 20170509要是嫌弃我的画画水平乃们就完蛋了！"></span> </a>
                     <div class="other_info clearfix "><span class="icons praise_num" title="点赞数"><i></i>3</span>
                         <span class="icons reply_num" title="回帖数"><i></i>47</span> <span class="icons read_num"
                                                                                          title="阅读数"><i></i>140</span>
@@ -191,7 +214,9 @@
                 </div>
             </li>
             <li class="clearfix"><a rel="nofollow" class="topic_icon" href="" target="_blank" title="ywb1218">
-                <img class="topic_list_img_user" src="images/user3.jpg"> <span class="user_name">ywb1218</span>
+                <img class="topic_list_img_user"
+                     src="${pageContext.request.contextPath }/dist/societyManagement/images/user3.jpg"> <span
+                    class="user_name">ywb1218</span>
             </a>
                 <div class="topic_content">
                     <div class="topic_title clearfix"><span class="topic_times">2017-03-15 10:57</span> <a
@@ -230,7 +255,9 @@
         <div style="width: 40%;float:left">
             <a href="/mag/1426841235/" target="_blank">
                 <div class="book">
-                    <img class="mag_img" src="tmp/images/depart_logo_right.jpg" width="101" height="101">
+                    <img class="mag_img"
+                         src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/depart_logo_right.jpg"
+                         width="101" height="101">
                     <div class="book_root"></div>
                 </div>
             </a>
@@ -240,7 +267,8 @@
                                                      target="_blank">我说英语教育</a></div>
             <div class="mag_desc" style="width: 100%;height:36px;    line-height: 36px;"><span
                     class="orange orange_right">已认证</span></div>
-            <div class="mag_num" style="width: 100%;height:auto;"><img src="tmp/images/pay.png" width="30px"/>
+            <div class="mag_num" style="width: 100%;height:auto;"><img
+                    src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/pay.png" width="30px"/>
             </div>
         </div>
     </div>
@@ -277,7 +305,8 @@
     <ul>
         <li class="clearfix">
             <div style="width: 100%;height: 90px;">
-                <img class="mag_img" src="tmp/images/msg1.jpg">
+                <img class="mag_img"
+                     src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/msg1.jpg">
 
 
                 <span class="book">
@@ -291,7 +320,8 @@
         </li>
         <li class="clearfix">
             <div style="width: 100%;height: 90px;">
-                <img class="mag_img" src="tmp/images/msg2.jpg">
+                <img class="mag_img"
+                     src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/msg2.jpg">
 
 
                 <span class="book">
@@ -332,7 +362,7 @@
                 <li>最近加入成员</li>
             </ul>
         </div>
-        <div style="width: 340px;height:360px;  background-image: url(images/bg_right_small.jpg);background-size: 100% ">
+        <div style="width: 340px;height:360px;  background-image: url(${pageContext.request.contextPath }/dist/societyManagement/images/bg_right_small.jpg);background-size: 100% ">
             <ul class="m-head-list" style="background: #fff;margin-bottom: 10px;">
                 <li><a href=""><span class="m-garden">1</span>我是小明</a></li>
                 <li><a href=""><span class="m-garden">2</span>我是小明</a></li>
@@ -356,7 +386,7 @@
                     <li>本社优秀帖子</li>
                 </ul>
             </div>
-            <div style="width: 340px;height:410px;  background-image: url(images/bg_right_small.jpg);background-size: 100% ">
+            <div style="width: 340px;height:410px;  background-image: url(${pageContext.request.contextPath }/dist/societyManagement/images/bg_right_small.jpg);background-size: 100% ">
                 <ul class="m-head-list" style="background: #fff;margin-bottom: 10px;">
                     <li><a href=""><span class="m-garden">1</span>初级英语练习</a></li>
                     <li><a href=""><span class="m-garden">2</span>初级英语练习</a></li>

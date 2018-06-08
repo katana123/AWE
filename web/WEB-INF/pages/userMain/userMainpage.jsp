@@ -330,7 +330,7 @@
     <div class="g-hd">
         <ul class="m-nav f-cb g-w1200">
             <li>&nbsp;</li>
-            <li class="g-act_second_active"><a href="communityUserMainpage">机构页面</a></li>
+            <li class="g-act_second_active"><a href="societyMainpage">机构页面</a></li>
 
             <li><a href="学社主页2-学社帖子 - 全部.html">学社帖子</a></li>
             <li style="float: right;

@@ -15,9 +15,16 @@ public class CreateService {
     @Autowired
     private CreateRepository createRepository;
 
+    //检查社团名称是否重复
     @Transactional(readOnly = true)
     public CCinfo getByCcname(String ccname) {
         return createRepository.getByCcname(ccname);
+    }
+
+    //检查机构名称是否重复
+    @Transactional(readOnly = true)
+    public CCinfo getByCccname(String cccname) {
+        return createRepository.getByCccname(cccname);
     }
 
     //更新一个学社对象的类型

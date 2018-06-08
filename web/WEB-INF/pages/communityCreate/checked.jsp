@@ -40,10 +40,11 @@
                     <div class="create-form-item clearfix">
                         <div class="name fl">
                             <!--                                   <input type="checkbox">-->
-                            <img src="${pageContext.request.contextPath }/dist/communityCreate/images/checked.jpg"
+                            <img id="person"
+                                 src="${pageContext.request.contextPath }/dist/communityCreate/images/checked.jpg"
                                  style="margin-top: -8px;"/>
                         </div>
-                        <div class="create-form-con fl">普通学社</div>
+                        <div class="create-form-con fl"> &nbsp;普通学社</div>
                     </div>
                     <div class="create-form-item clearfix">
                         <div class="name fl"></div>
@@ -72,11 +73,12 @@
                     <div class="create-form-item clearfix por10">
                         <div class="name fl">
                             <!--                                    <input type="checkbox">-->
-                            <img src="${pageContext.request.contextPath }/dist/communityCreate/images/checked_grey.jpg"
+                            <img id="inst"
+                                 src="${pageContext.request.contextPath }/dist/communityCreate/images/checked_grey.jpg"
                                  style="margin-top: -8px;"/>
                         </div>
                         <div class="create-form-con fl form-li">
-                            <div class="form-c">机构/老师学社</div>
+                            <div class="form-c"> &nbsp;机构/老师学社</div>
                         </div>
                     </div>
                     <div class="create-form-item clearfix">
@@ -84,9 +86,10 @@
                             *公司/教师名称：
                         </div>
                         <div class="create-form-con fl">
-                            <input placeholder="请填写公司或者教师名称，最多15个汉字，创建后名称不可修改" type="text" id="leagueName"
-                                   class="width3" name="leagueName" value="">
-                            <input id="hid_IsRepeatName" type="hidden" value="0">
+                            <input placeholder="请填写公司或者教师名称，最多15个汉字，创建后名称不可修改" type="text" id="instName"
+                                   class="width3" name="instName" value="">
+                            <span id="checkname" style="color:red;"></span>
+                            <input id="IsRepeatName" type="hidden" value="${ccname}">
                         </div>
                     </div>
                     <div class="create-form-item clearfix" style="margin-top:0px">
@@ -166,3 +169,60 @@
 </div>
 
 <jsp:include page="footer.jsp" flush="true"/>
+<script>
+    $(document).ready(function () {
+        $("#person").click(function () {
+            document.getElementById('person').src = '${pageContext.request.contextPath }/dist/communityCreate/images/checked.jpg';
+            //or $('#id').attr('src','a.png');
+            document.getElementById('inst').src = '${pageContext.request.contextPath }/dist/communityCreate/images/checked_grey.jpg';
+            //or $('#id').attr('src','b.png');
+
+        });
+
+        $("#inst").click(function () {
+            document.getElementById('person').src = '${pageContext.request.contextPath }/dist/communityCreate/images/checked_grey.jpg';
+            //or $('#id').attr('src','a.png');
+            document.getElementById('inst').src = '${pageContext.request.contextPath }/dist/communityCreate/images/checked.jpg';
+            //or $('#id').attr('src','b.png');
+
+        })
+    })
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#instName").blur(function () {
+            //$("#checkname").text("");
+            var val = $("#instName").val();
+            var len = 0;
+            for (var i = 0; i < val.length; i++) {
+                var a = val.charAt(i);
+                if (a.match(/[^\x00-\xff]/ig) != null) {
+                    len += 2;
+                }
+                else {
+                    len += 1;
+                }
+            }
+            if (len == 0) {
+                $("#checkname").text("名称不能为空");
+            }
+            else if (len > 30) {
+                $("#checkname").text("名称最多15个汉字,请修改");
+            } else {
+                $("#checkname").text("");
+                /*$.post("ajaxInstCccname",
+                    {nick: $("#instName").val()},
+                    function (data) {
+                        if (data) {
+                            $("#checkname").text("");
+                        } else {
+                            $("#checkname").text("有相同名称,请修改");
+                        }
+                    });*/
+            }
+
+        });
+    })
+</script>

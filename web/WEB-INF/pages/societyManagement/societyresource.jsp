@@ -9,7 +9,8 @@
         </div>
         <div style="width: 100%; display: block;height:auto;">
             <div class="m-list">
-                <img src="tmp/images/porduct1.jpg" width="250" height="180">
+                <img src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/porduct1.jpg"
+                     width="250" height="180">
                 <p class="m-list-title">GRE 托福 雅思考试指导</p>
                 <div class="m-price f-cb">
                     <p class="f-fl m-price-color"><font style="color: red">￥218</font></p>
@@ -23,7 +24,8 @@
                 -->
             </div>
             <div class="m-list">
-                <img src="tmp/images/porduct1.jpg" width="250" height="180">
+                <img src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/porduct1.jpg"
+                     width="250" height="180">
                 <p class="m-list-title">GRE 托福 雅思考试指导</p>
                 <div class="m-price f-cb">
                     <p class="f-fl m-price-color">免费</p>
@@ -37,7 +39,8 @@
                 -->
             </div>
             <div class="m-list">
-                <img src="tmp/images/porduct1.jpg" width="250" height="180">
+                <img src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/porduct1.jpg"
+                     width="250" height="180">
                 <p class="m-list-title">GRE 托福 雅思考试指导</p>
                 <div class="m-price f-cb">
                     <p class="f-fl m-price-color">免费</p>
@@ -51,7 +54,8 @@
                 -->
             </div>
             <div class="m-list">
-                <img src="tmp/images/porduct1.jpg" width="250" height="180">
+                <img src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/porduct1.jpg"
+                     width="250" height="180">
                 <p class="m-list-title">GRE 托福 雅思考试指导</p>
                 <div class="m-price f-cb">
                     <p class="f-fl m-price-color">免费</p>
@@ -65,7 +69,8 @@
                 -->
             </div>
             <div class="m-list">
-                <img src="tmp/images/porduct1.jpg" width="250" height="180">
+                <img src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/porduct1.jpg"
+                     width="250" height="180">
                 <p class="m-list-title">GRE 托福 雅思考试指导</p>
                 <div class="m-price f-cb">
                     <p class="f-fl m-price-color">免费</p>
@@ -79,7 +84,8 @@
                 -->
             </div>
             <div class="m-list">
-                <img src="tmp/images/porduct1.jpg" width="250" height="180">
+                <img src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/porduct1.jpg"
+                     width="250" height="180">
                 <p class="m-list-title">GRE 托福 雅思考试指导</p>
                 <div class="m-price f-cb">
                     <p class="f-fl m-price-color">免费</p>
@@ -103,7 +109,8 @@
         -->
         <div style="width: 100%; display: block;height:auto;">
             <div class="m-list">
-                <img src="tmp/images/porduct1.jpg" width="250" height="180">
+                <img src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/porduct1.jpg"
+                     width="250" height="180">
                 <p class="m-list-title">GRE 托福 雅思考试指导</p>
                 <div class="m-price f-cb">
                     <p class="f-fl m-price-color">免费</p>
@@ -117,7 +124,8 @@
                 -->
             </div>
             <div class="m-list">
-                <img src="tmp/images/porduct1.jpg" width="250" height="180">
+                <img src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/porduct1.jpg"
+                     width="250" height="180">
                 <p class="m-list-title">GRE 托福 雅思考试指导</p>
                 <div class="m-price f-cb">
                     <p class="f-fl m-price-color">免费</p>
@@ -131,7 +139,8 @@
                 -->
             </div>
             <div class="m-list">
-                <img src="tmp/images/porduct1.jpg" width="250" height="180">
+                <img src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/porduct1.jpg"
+                     width="250" height="180">
                 <p class="m-list-title">GRE 托福 雅思考试指导</p>
                 <div class="m-price f-cb">
                     <p class="f-fl m-price-color">免费</p>
@@ -145,7 +154,8 @@
                 -->
             </div>
             <div class="m-list">
-                <img src="tmp/images/porduct1.jpg" width="250" height="180">
+                <img src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/porduct1.jpg"
+                     width="250" height="180">
                 <p class="m-list-title">GRE 托福 雅思考试指导</p>
                 <div class="m-price f-cb">
                     <p class="f-fl m-price-color">免费</p>
@@ -159,7 +169,8 @@
                 -->
             </div>
             <div class="m-list">
-                <img src="tmp/images/porduct1.jpg" width="250" height="180">
+                <img src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/porduct1.jpg"
+                     width="250" height="180">
                 <p class="m-list-title">GRE 托福 雅思考试指导</p>
                 <div class="m-price f-cb">
                     <p class="f-fl m-price-color">免费</p>
@@ -173,7 +184,8 @@
                 -->
             </div>
             <div class="m-list">
-                <img src="tmp/images/porduct1.jpg" width="250" height="180">
+                <img src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/porduct1.jpg"
+                     width="250" height="180">
                 <p class="m-list-title">GRE 托福 雅思考试指导</p>
                 <div class="m-price f-cb">
                     <p class="f-fl m-price-color"><font style="color: red">￥218</font></p>
@@ -198,7 +210,9 @@
         <div style="width: 40%;float:left">
             <a href="/mag/1426841235/" target="_blank">
                 <div class="book">
-                    <img class="mag_img" src="tmp/images/depart_logo_right.jpg" width="101" height="101">
+                    <img class="mag_img"
+                         src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/depart_logo_right.jpg"
+                         width="101" height="101">
                     <div class="book_root"></div>
                 </div>
             </a>
@@ -208,7 +222,9 @@
             </div>
             <div class="mag_desc" style="width: 100%;height:36px;    line-height: 36px;"><span
                     class="orange orange_right">已认证</span></div>
-            <div class="mag_num" style="width: 100%;height:auto;"><img src="tmp/images/pay.png" width="30px"/></div>
+            <div class="mag_num" style="width: 100%;height:auto;"><img
+                    src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/pay.png" width="30px"/>
+            </div>
         </div>
     </div>
     <div class="m-btn f-cb right_span blue_border">
@@ -244,7 +260,8 @@
     <ul>
         <li class="clearfix">
             <div style="width: 100%;height: 90px;">
-                <img class="mag_img" src="tmp/images/msg1.jpg">
+                <img class="mag_img"
+                     src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/msg1.jpg">
 
 
                 <span class="book">
@@ -258,7 +275,8 @@
         </li>
         <li class="clearfix">
             <div style="width: 100%;height: 90px;">
-                <img class="mag_img" src="tmp/images/msg2.jpg">
+                <img class="mag_img"
+                     src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/msg2.jpg">
 
 
                 <span class="book">
@@ -299,7 +317,7 @@
                 <li>最近加入成员</li>
             </ul>
         </div>
-        <div style="width: 305px;height:360px;  background-image: url(images/bg_right_small.jpg);background-size: 100% ">
+        <div style="width: 305px;height:360px;  background-image: url(${pageContext.request.contextPath }/dist/societyManagement/images/bg_right_small.jpg);background-size: 100% ">
             <ul class="m-head-list" style="background: #fff;margin-bottom: 10px;">
                 <li><a href=""><span class="m-garden">1</span>我是小明</a></li>
                 <li><a href=""><span class="m-garden">2</span>我是小明</a></li>
@@ -323,7 +341,7 @@
                     <li>本社优秀帖子</li>
                 </ul>
             </div>
-            <div style="width: 340px;height:410px;  background-image: url(images/bg_right_small.jpg);background-size: 100% ">
+            <div style="width: 340px;height:410px;  background-image: url(${pageContext.request.contextPath }/dist/societyManagement/images/bg_right_small.jpg);background-size: 100% ">
                 <ul class="m-head-list" style="background: #fff;margin-bottom: 10px;">
                     <li><a href=""><span class="m-garden">1</span>初级英语练习</a></li>
                     <li><a href=""><span class="m-garden">2</span>初级英语练习</a></li>

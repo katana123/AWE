@@ -85,4 +85,16 @@ public class CreateHandler {
         createService.updatecct("1", ccinfo.getCcid());
         return "/communityCreate/complete";
     }
+
+    //验证用户名是否存在，存在返回1，不存在返回0
+    @ResponseBody
+    @RequestMapping(value = "/ajaxInstCccname", method = RequestMethod.POST)
+    public boolean validateInstCccname(@RequestParam(value = "nick", required = true) String cccname) {
+        CCinfo cCinfo = createService.getByCccname(cccname);
+        if (null == cCinfo) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

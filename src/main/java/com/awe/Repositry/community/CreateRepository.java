@@ -15,6 +15,8 @@ public interface CreateRepository extends JpaRepository<CCinfo, Integer> {
 
     CCinfo getByCcname(String ccname);
 
+    CCinfo getByCccname(String cccname);
+
     @Transactional
     @Modifying(clearAutomatically = true)
     @Query(value = "update c_cinfo u set u.cct =?1 where u.ccid = ?2", nativeQuery = true)

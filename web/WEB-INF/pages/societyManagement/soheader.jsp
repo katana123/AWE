@@ -318,13 +318,13 @@
             <div class="bd">
                 <ul>
                     <li><a href="" target=""><img
-                            src="/dist/societyManagement/tmp/images/banner.png"></a>
+                            src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/banner.jpg"></a>
                     </li>
                     <li><a href="" target=""><img
-                            src="/dist/societyManagement/tmp/images/banner.png"></a>
+                            src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/banner.jpg"></a>
                     </li>
                     <li><a href="" target=""><img
-                            src="/dist/societyManagement/tmp/images/banner.png"></a>
+                            src="${pageContext.request.contextPath }/dist/societyManagement/tmp/images/banner.jpg"></a>
                     </li>
                 </ul>
             </div>
@@ -333,10 +333,11 @@
     <div class="g-hd">
         <ul class="m-nav f-cb g-w1200">
             <li>&nbsp;</li>
-            <li <c:if test="${content=='inst'}">class="g-act_second_active"</c:if>><a href="societymainpage">机构页面</a>
+            <li <c:if test="${content=='inst'}">class="g-act_second_active"</c:if>><a href="societyMainpage">机构页面</a>
             </li>
 
-            <li <c:if test="${content=='post'}">class="g-act_second_active"</c:if>><a href="societypost">学社帖子</a></li>
+            <li <c:if test="${content=='post'}">class="g-act_second_active"</c:if>><a href="societyPostpage">学社帖子</a>
+            </li>
         </ul>
     </div>
     <div class="g-bd">

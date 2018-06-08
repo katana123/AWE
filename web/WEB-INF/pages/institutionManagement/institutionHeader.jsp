@@ -608,7 +608,7 @@
         </div>
         <div class="col-8">
             <div class="title"><a
-                    href="${pageContext.request.contextPath }/communityUserMainpage/${community.ccid}"><span
+                    href="${pageContext.request.contextPath }/societyMainpage/${community.ccid}"><span
                     id="headLeagueName"
                     class="title_text">${community.ccname}</span></a> <span class="fl">（总帖数2 |社员数3）</span>
                 <span class="fl ml10 unsigned-icon" data-id="10116"></span></div>
@@ -620,7 +620,7 @@
                     <p>机构：${community.cccname} </p>
                     <div class="summary"></div>
                 </div>
-                <div class="fr"><a href="${pageContext.request.contextPath }/communityUserMainpage/${community.ccid}"
+                <div class="fr"><a href="${pageContext.request.contextPath }/societyMainpage/${community.ccid}"
                                    class="btn btn-l btn-green" id="btnManage">返回学社</a></div>
             </div>
             <div class="hui_tooltip" style="display: none;">
