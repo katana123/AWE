@@ -86,7 +86,7 @@
 <body>
 <div class="g-doc">
     <div class="g-search g-w1200 f-cb">
-        <a class="g-logo" href="index"><img src="${pageContext.request.contextPath }/dist/common/images/logo.jpg"></a>
+        <a class="g-logo" href="index"><img src="${pageContext.request.contextPath }/dist/common/images/logo.png"></a>
         <div class="g-sarch-input">
             <select class="g-select" name="">
                 <option value="">精品推荐</option>
@@ -135,11 +135,11 @@
             <div class="bd">
                 <ul>
                     <li><a href="" target=""><img
-                            src="${pageContext.request.contextPath }/dist/mainpage/tmp/images/banner2.jpg"></a></li>
+                            src="${pageContext.request.contextPath }/dist/mainpage/tmp/images/banner5.jpg"></a></li>
                     <li><a href="" target=""><img
-                            src="${pageContext.request.contextPath }/dist/mainpage/tmp/images/banner2.jpg"></a></li>
+                            src="${pageContext.request.contextPath }/dist/mainpage/tmp/images/banner5.jpg"></a></li>
                     <li><a href="" target=""><img
-                            src="${pageContext.request.contextPath }/dist/mainpage/tmp/images/banner2.jpg"></a></li>
+                            src="${pageContext.request.contextPath }/dist/mainpage/tmp/images/banner5.jpg"></a></li>
                 </ul>
             </div>
         </div>
