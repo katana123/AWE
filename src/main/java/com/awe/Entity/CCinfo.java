@@ -1,11 +1,8 @@
 package com.awe.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Table(name = "c_cinfo")
+@Table(name = "c_cinfo", uniqueConstraints = {@UniqueConstraint(columnNames = "ccname")})
 @Entity
 public class CCinfo {
 

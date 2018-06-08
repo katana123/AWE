@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -30,7 +31,7 @@ public class CreateHandler {
         return "/communityCreate/setup";
     }
 
-    //验证用户名是否存在，存在返回1，不存在返回0
+    //验证用户名是否存在，存在返回false，不存在返回 true
     @ResponseBody
     @RequestMapping(value = "/ajaxValidateCcname", method = RequestMethod.POST)
     public boolean validateCcname(@RequestParam(value = "nick", required = true) String ccname) {
@@ -73,7 +74,13 @@ public class CreateHandler {
         //System.out.println(path);
         request.setAttribute("imagesPath", path);
         ccinfo.setCclpa(path);
-        createService.insert(ccinfo);
+        if (validateCcname(ccinfo.getCcname())) {
+            try {
+                createService.insert(ccinfo);
+            } catch (Exception exception) {
+                System.out.println("新增数据异常exception");
+            }
+        }
         map.put("ccname", ccinfo.getCcname());
         return "/communityCreate/checked";
     }

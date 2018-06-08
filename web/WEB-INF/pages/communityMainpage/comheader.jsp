@@ -130,7 +130,7 @@
         }
 
         .hotmember-interview .clearfix {
-            padding-bottom: 30px;
+            padding-bottom: 10px;
         }
 
         .show_div {
@@ -164,6 +164,10 @@
             margin: 0px auto;
             font-size: 15px;
             color: #999;
+        }
+
+        .member-item {
+            margin-bottom: 30px;
         }
 
     </style>
