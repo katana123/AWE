@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -83,6 +84,61 @@ public class CreateHandler {
         }
         map.put("ccname", ccinfo.getCcname());
         return "/communityCreate/checked";
+    }
+
+    //创建机构社区或老师社区+处理上传文件
+    @RequestMapping(value = "/instcomplete", method = RequestMethod.POST)
+    private String filesUpload(CCinfo ccinfo, Map<String, Object> map,
+                               @RequestParam(value = "filepic", required = false) MultipartFile[] file,
+                               @RequestParam("instName") String cccname,
+                               @RequestParam("ccname") String ccname,
+                               @RequestParam("dtype") String dtype,
+                               @RequestParam("idnumber") String cidnum,
+                               HttpServletRequest request) throws Exception {
+        //基本表单
+        // System.out.println(ccinfo.toString());
+        //获得物理路径webapp所在路径
+        String pathRoot = request.getSession().getServletContext().getRealPath("");
+        String path = "";
+        List<String> listImagePath = new ArrayList<String>();
+        for (MultipartFile mf : file) {
+            if (!mf.isEmpty()) {
+                //生成uuid作为文件名称
+                String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+                //获得文件类型（可以判断如果不是图片，禁止上传）
+                String contentType = mf.getContentType();
+                //获得文件后缀名称
+                String imageName = contentType.substring(contentType.indexOf("/") + 1);
+                path = "/images/" + uuid + "." + imageName;
+                mf.transferTo(new File(pathRoot + path));
+                listImagePath.add(path);
+
+            }
+
+        }
+        ccinfo = createService.getByCcname(ccname);
+        if (dtype == "yyzz") {   //机构
+            ccinfo.setCbca(listImagePath.get(0));
+            ccinfo.setCccname(cccname);
+            ccinfo.setCct("3");
+        } else {        //老师
+            ccinfo.setClla(listImagePath.get(0));
+            ccinfo.setClname(cccname);
+            ccinfo.setCct("2");
+        }
+        ccinfo.setCidfa(listImagePath.get(1));
+        ccinfo.setCidba(listImagePath.get(2));
+        ccinfo.setCidnum(cidnum);
+
+
+        try {
+            createService.update(ccinfo);
+        } catch (Exception exception) {
+            System.out.println("更新数据异常exception");
+        }
+
+        map.put("ccname", ccinfo.getCcname());
+        return "/communityCreate/complete";
     }
 
     //创建社区审核geren

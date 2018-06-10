@@ -9,6 +9,7 @@ public class CCinfo {
     private Integer ccid;
     private long cuid;
     private String ccname;
+    private String cct;
     private String ccl;
     private String ccp;
     private String cclpa;
@@ -24,7 +25,7 @@ public class CCinfo {
     private String cqq;
     private String cphone;
     private String cemail;
-
+    private String cidnum;
 
     @GeneratedValue
     @Id
@@ -63,6 +64,13 @@ public class CCinfo {
         this.ccl = ccl;
     }
 
+    public String getCct() {
+        return cct;
+    }
+
+    public void setCct(String cct) {
+        this.cct = cct;
+    }
 
     public String getCcp() {
         return ccp;
@@ -186,6 +194,13 @@ public class CCinfo {
         this.cemail = cemail;
     }
 
+    public String getCidnum() {
+        return cidnum;
+    }
+
+    public void setCidnum(String cidnum) {
+        this.cidnum = cidnum;
+    }
     @Override
     public String toString() {
         return "CCinfo{" +
@@ -207,6 +222,7 @@ public class CCinfo {
                 ", cqq='" + cqq + '\'' +
                 ", cphone='" + cphone + '\'' +
                 ", cemail='" + cemail + '\'' +
+                ", cidnum='" + cidnum + '\'' +
                 '}';
     }
 }

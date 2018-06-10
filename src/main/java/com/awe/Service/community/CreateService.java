@@ -35,6 +35,12 @@ public class CreateService {
 
     //插入添加一个学社对象
     @Transactional
+    public void update(CCinfo ccinfo) {
+        createRepository.saveAndFlush(ccinfo);
+    }
+
+    //插入添加一个学社对象
+    @Transactional
     public void insert(CCinfo ccinfo) {
         createRepository.saveAndFlush(ccinfo);
     }

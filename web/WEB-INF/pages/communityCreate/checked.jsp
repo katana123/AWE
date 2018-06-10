@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <jsp:include page="header.jsp" flush="true"/>
 
 <div class="wrapper" style="overflow: hidden;">
@@ -81,91 +83,101 @@
                             <div class="form-c"> &nbsp;机构/老师学社</div>
                         </div>
                     </div>
-                    <div class="create-form-item clearfix">
-                        <div class="name fl">
-                            *公司/教师名称：
-                        </div>
-                        <div class="create-form-con fl">
-                            <input placeholder="请填写公司或者教师名称，最多15个汉字，创建后名称不可修改" type="text" id="instName"
-                                   class="width3" name="instName" value="">
-                            <span id="checkname" style="color:red;"></span>
-                            <input id="ccname" name="ccname" type="hidden" value="${ccname}">
-                        </div>
-                    </div>
-                    <div class="create-form-item clearfix" style="margin-top:0px">
-                        <div class="name fl">
-
-                        </div>
-                        <div class="create-form-con fl">
-
-                            <div style="width: 200px;float:left">
-                                <input type="radio" name="d_type" checked style="margin-bottom: 10px"/>我的营业执照<br>
-                                <img id="tranpic"
-                                     src="${pageContext.request.contextPath }/dist/communityCreate/images/add.jpg"
-                                     style="height: 117px; width: 177px;"/>
-                                <input type="file" onchange="preImg(this.id,'tranpic');" name="checkpic" id="checkpic"
-                                       style="display:none;">
+                    <form id="instcommit" action="instcomplete" method="post" enctype="multipart/form-data"
+                          class="next-form next-form-left ver next-form-large">
+                        <div class="create-form-item clearfix">
+                            <div class="name fl">
+                                *公司/教师名称：
                             </div>
-                            <div><input type="radio" name="d_type" style="margin-bottom: 10px"/>教师资格证书<br>
-                                <p>公司请上传有年检的营业执照副本扫描件</p>
-                                <p>教师请上传教师资格证书</p>
-                                <p style="padding-top: 20px;">文件小于2M</p>
-                                <p>支持JPG/PNG/BMP等格式图片</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="create-form-item clearfix">
-                        <div class="name fl">
-                            *身份证号：
-                        </div>
-                        <div class="create-form-con fl">
-                            <input placeholder="请输入身份证号码" type="text" id="idnumber" class="width3" name="idnumber"
-                                   value="">
-                            <span id="checkidnumber" style="color:red;"></span>
-                        </div>
-                    </div>
-                    <div class="create-form-item clearfix">
-                        <div class="name fl">
-
-                        </div>
-                        <div class="create-form-con fl">
-                            <div style="width: 200px;float:left">*身份证正反两面扫描件<br> <img
-                                    src="${pageContext.request.contextPath }/dist/communityCreate/images/add.jpg"/>
-                            </div>
-                            <div><br>
-
-                                <p style="padding-top: 20px;">文件小于2M</p>
-                                <p>支持JPG/PNG/BMP等格式图片</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                                         <div class="create-form-item clearfix">
-                                            <div class="name fl">
-                                                学社名称：
-                                            </div>
-                                            <div class="create-form-con fl">
-                                                <input placeholder="名称最多15个汉字，创建后名称不可修改" type="text" id="leagueName" class="width3" name="leagueName" value="">
-                                                <input id="hid_IsRepeatName" type="hidden" value="0">
-                                            </div>
-                                        </div>
-                    -->
-                    <div class="create-form-item clearfix">
-                        <div class="create-form-con fl">
-                            <div class="check">
-                                <input type="checkbox" id="cbAgree" checked="checked"/>已阅读并同意
-                                <a href="" target="_blank" style="color: #47c8fb">AWE社团规范</a>
+                            <div class="create-form-con fl">
+                                <input placeholder="请填写公司或者教师名称，最多15个汉字，创建后名称不可修改" type="text" id="instName"
+                                       class="width3" name="instName" value=""/>
+                                <span id="checkname" style="color:red;"></span>
+                                <input id="ccname" name="ccname" type="hidden" value="${ccname}">
 
                             </div>
                         </div>
-                    </div>
 
-                    <div class="create-form-item clearfix">
-                        <div class="create-form-con fl">
-                            <a href="complete.jsp" id="formSubmit" class="btn btn-m btn-blue">下一步</a>
+                        <div class="create-form-item clearfix" style="margin-top:0px">
+                            <div class="name fl">
+
+                            </div>
+                            <div class="create-form-con fl">
+
+                                <div style="width: 200px;float:left">
+                                    <input type="radio" name="dtype" checked value="yyzz" style="margin-bottom: 10px"/>我的营业执照<br>
+                                    <img id="tranpic"
+                                         src="${pageContext.request.contextPath }/dist/communityCreate/images/add.jpg"
+                                         style="height: 117px; width: 177px;"/>
+                                    <input type="file" onchange="preImg(this.id,'tranpic');" name="filepic"
+                                           id="checkpic"
+                                           style="display:none;">
+                                    <span id="checktranpic" style="color:red;"></span>
+                                </div>
+                                <div><input type="radio" name="dtype" value="zgzs"
+                                            style="margin-bottom: 10px"/>教师资格证书<br>
+                                    <p>公司请上传有年检的营业执照副本扫描件</p>
+                                    <p>教师请上传教师资格证书</p>
+                                    <p style="padding-top: 20px;">文件小于2M</p>
+                                    <p>支持JPG/PNG/BMP等格式图片</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="create-form-item clearfix">
+                            <div class="name fl">
+                                *身份证号：
+                            </div>
+                            <div class="create-form-con fl">
+                                <input placeholder="请输入身份证号码" type="text" id="idnumber" class="width3" name="idnumber"
+                                       value=""/>
+                                <span id="checkidnumber" style="color:red;"></span>
+                            </div>
+                        </div>
+                        <div class="create-form-item clearfix">
+                            <div class="name fl">
 
+                            </div>
+                            <div class="create-form-con fl">
+                                <div style="width: 200px;margin-right:10px;float:left">*身份证正面扫描件<br>
+                                    <img id="idzm"
+                                         src="${pageContext.request.contextPath }/dist/communityCreate/images/add.jpg"/>
+                                    <input type="file" onchange="preImg(this.id,'idzm');" name="filepic" id="idzmpic"
+                                           style="display:none;">
+                                    <span id="checkidzm" style="color:red;"></span>
+                                </div>
+                                <div style="width: 200px;margin-right:10px;float:left">*身份证反面扫描件<br>
+                                    <img id="idfm"
+                                         src="${pageContext.request.contextPath }/dist/communityCreate/images/add.jpg"/>
+                                    <input type="file" onchange="preImg(this.id,'idfm');" name="filepic" id="idfmpic"
+                                           style="display:none;">
+                                    <span id="checkidfm" style="color:red;"></span>
+                                </div>
+                                <div><br>
+
+                                    <p style="padding-top: 20px;">文件小于2M</p>
+                                    <p>支持JPG/PNG/BMP等格式图片</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="create-form-item clearfix">
+                            <div class="create-form-con fl">
+                                <div class="check">
+                                    <input type="checkbox" id="cbAgree" checked="checked"/>已阅读并同意
+                                    <a href="" target="_blank" style="color: #47c8fb">AWE社团规范</a>
+                                    <span id="checkagree" style="color:red;"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="create-form-item clearfix">
+                            <div class="create-form-con fl">
+                                <button id="formSubmit" type="submit" class="btn btn-m btn-blue"
+                                        style="border:none;width:120px;">下一步
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -256,7 +268,43 @@
         });
         $("#tranpic").click(function () {
             $("#checkpic").click();
+        });
+        $("#idzm").click(function () {
+            $("#idzmpic").click();
+        });
+        $("#idfm").click(function () {
+            $("#idfmpic").click();
         })
+        $("#formSubmit").click(function () {
+            if ($("#checkname").text() != '') {
+                return false
+            } else if ($("#instName").val() == '') {
+                $("#checkname").text("请填写名称");
+                return false
+            } else if ($("#idnumber").val() == '') {
+                $("#checkidnumber").text("请填写身份证号码");
+                return false
+            } else if (!checkCard()) {
+                $("#checkidnumber").text("请填写正确身份证号码");
+                return false
+            } else if ($("#checkpic").val() == '') {
+                $("#checktranpic").text("请上传营业执照或教师资格证书");
+                return false
+            } else if ($("#idzmpic").val() == '') {
+                $("#checkidzm").text("请上传身份证正面图片");
+                return false
+            } else if ($("#idfmpic").val() == '') {
+                $("#checkidfm").text("请上传身份证反面图片");
+                return false
+            } else if ($("#cbAgree").is(':checked') == false) {
+                $("#checkagree").text("请阅读并同意社团规范");
+                return false
+            } else if ($("#ccuid").val() == 0) {
+                alert("请登录！")
+                return false
+            }
+            return true;
+        });
     })
 </script>
 <script>
@@ -349,7 +397,7 @@
     checkBirthday = function (card) {
         var len = card.length;
         //身份证15位时，次序为省（3位）市（3位）年（2位）月（2位）日（2位）校验位（3位），皆为数字
-        if (len == '15') {
+        if (len == 15) {
             var re_fifteen = /^(\d{6})(\d{2})(\d{2})(\d{2})(\d{3})$/;
             var arr_data = card.match(re_fifteen);
             var year = arr_data[2];
@@ -409,7 +457,7 @@
     };
     //15位转18位身份证号
     changeFivteenToEighteen = function (card) {
-        if (card.length == '15') {
+        if (card.length == 15) {
             var arrInt = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);
             var arrCh = new Array('1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2');
             var cardTemp = 0, i;

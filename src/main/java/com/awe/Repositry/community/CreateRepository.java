@@ -21,4 +21,6 @@ public interface CreateRepository extends JpaRepository<CCinfo, Integer> {
     @Modifying(clearAutomatically = true)
     @Query(value = "update c_cinfo u set u.cct =?1 where u.ccid = ?2", nativeQuery = true)
     int updatCcinfoByCcid(String cct, Integer ccid);
+
+
 }

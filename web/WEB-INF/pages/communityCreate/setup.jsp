@@ -168,7 +168,7 @@
                                 <div class="check">
                                     <input type="checkbox" id="cbAgree" name="cbAgree" checked="checked">已阅读并同意
                                     <a href="" target="_blank" style="color: #47c8fb">AWE社团规范</a>
-
+                                    <span id="checkagree" style="color:red;"></span>
                                 </div>
                             </div>
                         </div>
@@ -275,6 +275,9 @@
                 return false
             } else if ($("#drag1").val() == 0) {
                 $("#checkdrag").text("请拖动滑块验证");
+                return false
+            } else if ($("#cbAgree").is(':checked') == false) {
+                $("#checkagree").text("请阅读并同意社团规范");
                 return false
             } else if ($("#ccuid").val() == 0) {
                 alert("请登录！")
