@@ -1,5 +1,7 @@
 package com.awe.Handler.institutionManagement;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.awe.Data.CommunityMembers;
 import com.awe.Data.InstitutionMembers;
 import com.awe.Entity.CCinfo;
@@ -32,15 +34,31 @@ public class institutionManagementHandler {
         return "/institutionManagement/dataManagement";
     }
 
+    //权限设置页面下方列表显示
+    @ResponseBody
+    @RequestMapping(value = "/ajaxShowAuthorityMember", method = RequestMethod.POST)
+    public String AuthorityNumAndMember(@RequestParam(value = "ccid", required = true) Long ccid,
+                                        @RequestParam(value = "roleid", required = true) Integer roleid,
+                                        Map<String, Object> map){
+        BigInteger AuthorityNum = communityService.authoritymembernum(ccid,Long.valueOf(roleid));
+        List<Object> AuthorityMember = communityService.authorityMemberList(ccid,Long.valueOf(roleid));
+        String text = JSON.toJSONString(AuthorityMember);
+        map.put("num",AuthorityNum);
+        map.put("members", text);
+        String jsonStr = JSON.toJSONString( map );
+        return jsonStr;
+    }
+
+
     //权限设置页面
     @RequestMapping(value = "/authoritySetting/{ccid}", method = RequestMethod.GET)
     public String AuthoritySetting(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map) {
         CCinfo cCinfo = communityService.get(ccid);
         map.put("community", cCinfo);
-        List<InstitutionMembers> InstitutionMembers = communityService.findInstitutionMembers(ccid);
+        /*List<InstitutionMembers> InstitutionMembers = communityService.findInstitutionMembers(ccid);
         map.put("members", InstitutionMembers);
         BigInteger membernum = communityService.membernum(Long.valueOf(ccid));
-        map.put("membercount", membernum);
+        map.put("membercount", membernum);*/
         map.put("pageno", 3);
         return "/institutionManagement/authoritySetting";
     }

@@ -24,6 +24,13 @@ public class FileUploadHandler {
             String path = request.getServletContext().getRealPath("/images/");
             //上传文件名
             String filename = file.getOriginalFilename();
+            //文件类型
+            String filetype = file.getContentType();
+            //文件大小
+            Long filesize = file.getSize();
+            //文件名
+            String filenames = file.getName();
+
             File filepath = new File(path, filename);
             //判断路径是否存在，如果不存在就创建一个
             if (!filepath.getParentFile().exists()) {
@@ -31,6 +38,7 @@ public class FileUploadHandler {
             }
             //将上传文件保存到一个目标文件当中
             file.transferTo(new File(path + File.separator + filename));
+            System.out.println(filename+"+"+path+"+"+filetype+"+"+filesize+"+"+filenames);
             return "/institutionManagement/dataManagement";
         } else {
             return "error";

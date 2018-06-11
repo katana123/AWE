@@ -39,38 +39,43 @@
 </style>
 <script>
     $(function () {
-        var html = "";
-        var ajson =${members};
-        for (var i = 0; i < ajson.length; i++) {
-            if (i % 2 == 0) {
-                html += "<li class=\"odd\">";
-            } else {
-                html += "<li class=\"\">";
-            }
-            html += "<span class=\"no\">";
-            if (i < 10) {
-                html += "0" + (i + 1);
-            } else {
-                html += i;
-            }
-            html += "</span>";
-            html += "<span class=\"owner\"></span>";
-            html += "<a rel=\"nofollow\" href=\"#\" target=\"_blank\">";
-            html += "<span class=\"header_icon\">";
-            html += "<img src=\"${pageContext.request.contextPath }/dist/institutionManagement/images/user_list.jpg\" alt=\"\">";
-            html += "</span>";
-            html += "<span class=\"ellipsis_text\">" + ajson[i][1] + "</span>";
-            html += "</a>";
-            html += "<span class=\"member_nickName\"></span>";
-            html += "<span class=\"month_reply\">" + ajson[i][2] + "</span>";
-            html += "<span class=\"month_check\">" + ajson[i][3] + "</span>";
-            html += "<span class=\"level_no\">2</span>";
-            html += "<span class=\"rank_num\">0</span>";
-            html += "<span class=\"join_date\">2017/06/02</span>";
-            html += "<span class=\"last_post\"><a href=\"javascript:;\">编辑</a> <a href=\"javascript:;\" onclick=\"deleteMember(" + ajson[i][0] + ",${ccid},'" + ajson[i][1] + "')\">删除</a></span>";
-            html += "</li>";
-        }
-        $("#linkedmembers").append(html);
+
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath }/ajaxShowAuthorityMember",
+                data: {roleid: 10, ccid: ${ccid}},
+                success: function (result) {
+                    var jsonResult =JSON.parse(result);
+                    $("#authorityNum").text(jsonResult.num);
+                    var html = "";
+                    var ajson =eval(jsonResult.members);
+                    //alert(jsonResult.members);
+                    for (var i = 0; i < ajson.length; i++) {
+                        if (i % 2 == 0) {
+                            html += "<li class=\"odd\">";
+                        } else {
+                            html += "<li class=\"\">";
+                        }
+                        html += "<span class=\"no\">";
+                        if (i < 10) {
+                            html += "0" + (i + 1);
+                        } else {
+                            html += i;
+                        }
+                        html += "</span>";
+                        html += "<span class=\"ellipsis_text\">" + ajson[i][0] + "</span>";
+                        html += "<span class=\"month_reply\">" + ajson[i][1] + "</span>";
+                        html += "<span class=\"last_post\">";
+                        html += "<a href=\"\">编辑</a>";
+                        html += "<a href=\"\">删除</a>";
+                        html += "</span>";
+                        html += "</li>";
+                    }
+                    $("#linkedmembers").append(html);
+                }
+            });
+
+
     });
 </script>
 <div class="wrapper">
@@ -113,7 +118,7 @@
             <input type="text" placeholder="输入用户名，搜索机构成员" maxlength="20" value="" id="txt_key">
             <input id="hid_LeagueID" type="hidden" value="10118">
             <a href="javascript:" class="btn-search"><i></i>搜索</a></div>
-        <div class="fr grey"> 已添加成员${membercount}</div>
+        <div class="fr grey"> 已添加成员<span id="authorityNum"></span></div>
     </div>
     <div class="del_more_users hide">
         <div class="container"><a href="javascript:" class="fr btn btn-default deleteMoreUser">删除成员</a></div>
@@ -124,30 +129,6 @@
                 <span class="last_post" data-value="7">操作</span></li>
             <div id="linkedmembers">
             </div>
-            <%--<c:forEach items="${members}" var="member" varStatus="i">
-                <c:choose>
-                    <c:when test="${i.count % 2 == 0}">
-                        <li class="odd">
-                    </c:when>
-                    <c:otherwise>
-                        <li class="">
-                    </c:otherwise>
-                </c:choose>
-                    <span class="no">
-                        <c:choose>
-                            <c:when test="${i.count < 10}">
-                                0${String.valueOf(i.count)}
-                            </c:when>
-                            <c:otherwise>
-                                ${String.valueOf(i.count)}
-                            </c:otherwise>
-                        </c:choose>
-                    </span>
-                    <span class="ellipsis_text"><c:out value="${member.cusername}"/></span>
-                    <span class="month_reply"><c:if test="${member.cqqid != 0}"><c:out value="${member.cqqid}"/></c:if></span>
-                    <span class="last_post"><a href="">编辑</a> <a href="">删除</a></span>
-                </li>
-            </c:forEach>--%>
         </ul>
     </div>
 </div>

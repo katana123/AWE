@@ -4,8 +4,10 @@ import com.awe.Data.InstitutionMembers;
 import com.awe.Entity.CCinfo;
 import com.awe.Entity.CUlink;
 import com.awe.Data.CommunityMembers;
+import com.awe.Entity.IResources;
 import com.awe.Repositry.community.communityRepositry;
 import com.awe.Repositry.community.culinkRepositry;
+import com.awe.Repositry.community.iResourcesRepositry;
 import com.awe.Repositry.register.ccusersRepositry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,24 @@ public class CommunityService {
     private culinkRepositry culinkRepositry;
     @Autowired
     private ccusersRepositry ccusersRepositry;
+    @Autowired
+    private iResourcesRepositry iResourcesRepositry;
+
+    //课教管理资料上传
+    public void uploadResource(IResources iResources){
+        iResourcesRepositry.saveAndFlush(iResources);
+    }
+
+    //获取机构权限相关人员信息
+    public List<Object> authorityMemberList(Long ccid,Long roleid){
+        return ccusersRepositry.authorityMemberList(ccid,roleid);
+    };
+
+    //获取机构权限关联数量
+    @Transactional
+    public BigInteger authoritymembernum(Long ccid,Long roleid){
+        return ccusersRepositry.authorityMemberNum(ccid,roleid);
+    }
 
     //获取学社关联的用户数量
     @Transactional

@@ -43,4 +43,10 @@ public interface ccusersRepositry extends JpaRepository<CCusers, Integer>, JpaSp
 
     @Query(value = "select u.cuid,u.cusername,u.cqqid,u.cupn,cu.jointime from c_cusers u right join c_ulink cu on u.cuid = cu.cuid where cu.ccid =?2 and u.cusername=?1", nativeQuery = true)
     List<CommunityMembers> findOneCommunityMemberByCusernameAndCcid(String cuserName,Integer ccid);
+
+    @Query(value = "select count(*) membernum from c_cusers u right join c_ulink cu on u.cuid = cu.cuid where cu.roleid = ?2 and cu.ccid = ?1", nativeQuery = true)
+    BigInteger authorityMemberNum(Long ccid,Long roleid);
+
+    @Query(value = "select u.cusername,u.cqqid,u.cuid from c_cusers u right join C_ulink cu on u.cuid = cu.cuid where cu.roleid = ?2 and cu.ccid = ?1", nativeQuery = true)
+    List<Object> authorityMemberList(Long ccid,Long roleid);
 }
