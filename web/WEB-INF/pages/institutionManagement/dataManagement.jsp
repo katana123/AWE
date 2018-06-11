@@ -1,5 +1,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="institutionJHeader.jsp" flush="true"/>
+<script>
+    $(".file").on("change", "input[type='file']", function () {
+        alert(222);
+        var filePath = $(this).val();
+        if (filePath.indexOf("jpg") != -1 || filePath.indexOf("png") != -1) {
+            $(".fileerrorTip").html("").hide();
+            var arr = filePath.split('\\');
+            var fileName = arr[arr.length - 1];
+            $(".showFileName").html(fileName);
+            alert(222);
+        } else {
+            $(".showFileName").html("");
+            $(".fileerrorTip").html("您未上传文件，或者您上传文件类型有误！").show();
+            return false
+        }
+    })
+</script>
 <div class="width:100%;">
     <div>
         <ul class="func_list2">
@@ -14,10 +32,9 @@
     <div class="course_input f-fl" style="width: 100%;">
         <input class="f-fl" type="text" name="course_name" placeholder="搜索资料">
         <a class="f-fl scsp" href="javascript:;">搜索资料</a>
-        <form action="${pageContext.request.contextPath }/upload" enctype="multipart/form-data" method="post">
-            <a class="f-fl scsp" href="javascript:;">选择文件</a>
-            <input class="f-fl" type="text" name="course_type" placeholder="全部">
-            <button class="f-fl scsp" type="submit" style="padding-bottom: 2px;">上传</button>
+        <form action="${pageContext.request.contextPath }/upload/${ccid}" enctype="multipart/form-data" method="post">
+            <input class="f-fl" type="file" name="file" style="border: none;">
+            <button class="f-fl" type="submit" style="padding-bottom: 2px;">上传</button>
         </form>
         <div style="clear: both;"></div>
     </div>
@@ -32,177 +49,42 @@
         <th>操作</th>
         </thead>
         <tbody>
-        <tr bgcolor="#fff">
-            <td>
-                <img class="f-fl coursepic"
-                     src="${pageContext.request.contextPath }/dist/institutionJManagement/images/file1.png">
-                <p class="f-fl coursetitle">我的文件名称</p>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <p><span class="totalclassnum">共138k</span></p>
-                <div class="f-cb"></div>
-            </td>
-            <td>2017-01-25</td>
-            <td class="kcxq"><p class="uploadwz">修改</p></td>
-        </tr>
-        <tr bgcolor="#EDEFEF">
-            <td>
-                <img class="f-fl coursepic"
-                     src="${pageContext.request.contextPath }/dist/institutionJManagement/images/file2.png">
-                <p class="f-fl coursetitle">我的文件名称</p>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <p><span class="totalclassnum">共138k</span></p>
-                <div class="f-cb"></div>
-            </td>
-
-            <td>2017-01-25</td>
-            <td class="kcxq"><p class="uploadwz">修改</p></td>
-        </tr>
-        <tr bgcolor="#fff">
-            <td>
-                <img class="f-fl coursepic"
-                     src="${pageContext.request.contextPath }/dist/institutionJManagement/images/file3.png">
-                <p class="f-fl coursetitle">我的文件名称</p>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <p><span class="totalclassnum">共138k</span></p>
-                <div class="f-cb"></div>
-            </td>
-            <td>2017-01-25</td>
-            <td class="kcxq"><p class="uploadwz">修改</p></td>
-        </tr>
-        <tr bgcolor="#EDEFEF">
-            <td>
-                <img class="f-fl coursepic"
-                     src="${pageContext.request.contextPath }/dist/institutionJManagement/images/file4.png">
-                <p class="f-fl coursetitle">我的文件名称</p>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <p><span class="totalclassnum">共138k</span></p>
-                <div class="f-cb"></div>
-            </td>
-
-            <td>2017-01-25</td>
-            <td class="kcxq"><p class="uploadwz">修改</p></td>
-        </tr>
-        <tr bgcolor="#fff">
-            <td>
-                <img class="f-fl coursepic"
-                     src="${pageContext.request.contextPath }/dist/institutionJManagement/images/file5.png">
-                <p class="f-fl coursetitle">我的文件名称</p>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <p><span class="totalclassnum">共138k</span></p>
-                <div class="f-cb"></div>
-            </td>
-
-            <td>2017-01-25</td>
-            <td class="kcxq"><p class="uploadwz">修改</p></td>
-        </tr>
-        <tr bgcolor="#EDEFEF">
-            <td>
-                <img class="f-fl coursepic"
-                     src="${pageContext.request.contextPath }/dist/institutionJManagement/images/file2.png">
-                <p class="f-fl coursetitle">我的文件名称</p>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <p><span class="totalclassnum">共138k</span></p>
-                <div class="f-cb"></div>
-            </td>
-
-            <td>2017-01-25</td>
-            <td class="kcxq"><p class="uploadwz">修改</p></td>
-        </tr>
-
-
-        <tr bgcolor="#fff">
-            <td>
-                <img class="f-fl coursepic"
-                     src="${pageContext.request.contextPath }/dist/institutionJManagement/images/file5.png">
-                <p class="f-fl coursetitle">我的文件名称</p>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <p><span class="totalclassnum">共138k</span></p>
-                <div class="f-cb"></div>
-            </td>
-
-            <td>2017-01-25</td>
-            <td class="kcxq"><p class="uploadwz">修改</p></td>
-        </tr>
-        <tr bgcolor="#EDEFEF">
-            <td>
-                <img class="f-fl coursepic"
-                     src="${pageContext.request.contextPath }/dist/institutionJManagement/images/file2.png">
-                <p class="f-fl coursetitle">我的文件名称</p>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <p><span class="totalclassnum">共138k</span></p>
-                <div class="f-cb"></div>
-            </td>
-
-            <td>2017-01-25</td>
-            <td class="kcxq"><p class="uploadwz">修改</p></td>
-        </tr>
-        <tr bgcolor="#fff">
-            <td>
-                <img class="f-fl coursepic"
-                     src="${pageContext.request.contextPath }/dist/institutionJManagement/images/file4.png">
-                <p class="f-fl coursetitle">我的文件名称</p>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <p><span class="totalclassnum">共138k</span></p>
-                <div class="f-cb"></div>
-            </td>
-
-            <td>2017-01-25</td>
-            <td class="kcxq"><p class="uploadwz">修改</p></td>
-        </tr>
+        <c:forEach items="${iResources}" var="res">
+            <tr bgcolor="#fff">
+                <td>
+                    <img class="f-fl coursepic"
+                         src="${pageContext.request.contextPath }/dist/institutionJManagement/images/file1.png">
+                    <p class="f-fl coursetitle">${res.title}</p>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <p><span class="totalclassnum">共${res.size}k</span></p>
+                    <div class="f-cb"></div>
+                </td>
+                <td>${res.uploadtime}</td>
+                <td class="kcxq"><p class="uploadwz">修改</p></td>
+            </tr>
+        </c:forEach>
         </tbody>
     </table>
     <div id="page" style="margin-top: 100px;"></div>
     <script src="${pageContext.request.contextPath }/dist/institutionJManagement/js/jquery.min.js"></script>
     <script type="text/javascript"
             src="${pageContext.request.contextPath }/dist/institutionJManagement/js/jquery.page.js"></script>
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         $(function () {
             $("#page").Page({
-                totalPages: 9,//分页总数
-                liNums: 7,//分页的数字按钮数(建议取奇数)
+                totalPages: ${page.totalPages},//分页总数
+                liNums: ${page.totalPages},//分页的数字按钮数(建议取奇数)
                 activeClass: 'activP', //active 类样式定义
                 callBack: function (page) {
                     //console.log(page)
                 }
             });
         })
-    </script>
+    </script>--%>
 </div>
 </div>
 

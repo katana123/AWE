@@ -6,6 +6,7 @@ import com.awe.Data.CommunityMembers;
 import com.awe.Data.InstitutionMembers;
 import com.awe.Entity.CCinfo;
 import com.awe.Entity.CUlink;
+import com.awe.Entity.IResources;
 import com.awe.Service.community.CommunityService;
 import com.awe.Service.register.CcusersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,20 @@ public class institutionManagementHandler {
     /*-----------机构管理start----------*/
     //资料管理页面
     @RequestMapping(value = "/dataManagement/{ccid}", method = RequestMethod.GET)
-    public String DataManagement(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map) {
+    public String DataManagement(@RequestParam(value = "pageNo", required = false, defaultValue = "1") String pageNoStr,
+                                 @PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map) {
+        int pageNo = 1;
+
+        try {
+            pageNo = Integer.parseInt(pageNoStr);
+            if (pageNo < 1) {
+                pageNo = 1;
+            }
+        } catch (Exception e) {
+        }
+        List<IResources> page = communityService.findAllResourcesByCcid(Long.valueOf(ccid));
         CCinfo cCinfo = communityService.get(ccid);
+        map.put("iResources", page);
         map.put("community", cCinfo);
         map.put("pageno", 4);
         return "/institutionManagement/dataManagement";

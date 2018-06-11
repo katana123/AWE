@@ -28,6 +28,11 @@ public class CommunityService {
     @Autowired
     private iResourcesRepositry iResourcesRepositry;
 
+    //获取所有已上传的资料列表
+    public List<IResources> findAllResourcesByCcid(Long Ccid) {
+        return iResourcesRepositry.findAllByCcid(Ccid);
+    }
+
     //课教管理资料上传
     public void uploadResource(IResources iResources){
         iResourcesRepositry.saveAndFlush(iResources);
