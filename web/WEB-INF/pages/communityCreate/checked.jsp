@@ -35,7 +35,9 @@
                         class="ui-step-text">创建完成</span></div>
             </li>
         </ol>
-        <div class="cont-l" style="margin-top:50px;">
+
+
+        <div class="cont-l" style="margin-left:70px;margin-top:50px;">
             <div class=" create_league">
                 <!-- <div class="panel st-info"> -->
                 <div class="create-form">
@@ -46,138 +48,259 @@
                                  src="${pageContext.request.contextPath }/dist/communityCreate/images/checked.jpg"
                                  style="margin-top: -8px;"/>
                         </div>
-                        <div class="create-form-con fl"> &nbsp;普通学社</div>
-                    </div>
-                    <div class="create-form-item clearfix">
-                        <div class="name fl"></div>
-                        <div class="create-form-con fl">
-                            <div style="width: 100%;height:150px;background: #fff;color: #000;padding: 40px">
-                                <p style="font-size: 20px;">恭喜您已创建普通用户学社，AWE欢迎您！</p>
-                                <p style="line-height: 20px;;padding-top: 30px;">
-                                    为了营造绿色的网络环境，让我们一起携手合作，打造出一个优秀的学习平台，相互学习；共同进步！所谓梦想，是永不停息的疯狂，可怕的是，比你优秀的人比你还要努力。</p>
-                                <div style="float: left;padding-top: 30px;">
-                                    <form action="personcomplete" method="post" modelAttribute="ccinfo">
-                                        <span style="float: left">&gt;&gt;仅差一步之遥</span>
-
-                                        <input type="hidden" name="ccname" value="${ccname}"/>
-                                        <button type="submit" id="fSubmit" class="btn btn-m btn-blue"
-                                                style="float: left;   margin:10px; margin-top: -10px;border:none;width:120px;">
-                                            进入下一步
-                                        </button>
-
-
-                                        <span style="color: green" style="float: left">绿色网络，从我做起，亲们加油！！！</span>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="create-form-item clearfix por10">
+                        <div class="create-form-con fl" style="width: 30%;"> &nbsp;普通学社</div>
                         <div class="name fl">
                             <!--                                    <input type="checkbox">-->
                             <img id="inst"
                                  src="${pageContext.request.contextPath }/dist/communityCreate/images/checked_grey.jpg"
                                  style="margin-top: -8px;"/>
                         </div>
-                        <div class="create-form-con fl form-li">
-                            <div class="form-c"> &nbsp;机构/老师学社</div>
-                        </div>
+                        <div class="create-form-con fl" style="width: 30%;"> &nbsp;机构/老师学社</div>
                     </div>
-                    <form id="instcommit" action="instcomplete" method="post" enctype="multipart/form-data"
-                          class="next-form next-form-left ver next-form-large">
+
+
+                    <div id="common" class="clearfix"
+                         style="width: 100%;height:600px;background: #fff;color: #000;padding: 40px">
                         <div class="create-form-item clearfix">
-                            <div class="name fl">
-                                *公司/教师名称：
-                            </div>
+                            <div class="name fl"></div>
                             <div class="create-form-con fl">
-                                <input placeholder="请填写公司或者教师名称，最多15个汉字，创建后名称不可修改" type="text" id="instName"
-                                       class="width3" name="instName" value=""/>
-                                <span id="checkname" style="color:red;"></span>
-                                <input id="ccname" name="ccname" type="hidden" value="${ccname}">
 
-                            </div>
-                        </div>
-
-                        <div class="create-form-item clearfix" style="margin-top:0px">
-                            <div class="name fl">
+                                <p style="font-size: 20px;">恭喜您已创建普通用户学社，AWE欢迎您！</p>
+                                <p style="line-height: 20px;padding-top: 30px;">
+                                    为了营造绿色的网络环境，让我们一起携手合作，打造出一个优秀的学习平台，相互学习；共同进步！所谓梦想，是永不停息的疯狂，可怕的是，比你优秀的人比你还要努力。</p>
 
                             </div>
                             <div class="create-form-con fl">
-
-                                <div style="width: 200px;float:left">
-                                    <input type="radio" name="dtype" checked value="yyzz" style="margin-bottom: 10px"/>我的营业执照<br>
-                                    <img id="tranpic"
-                                         src="${pageContext.request.contextPath }/dist/communityCreate/images/add.jpg"
-                                         style="height: 117px; width: 177px;"/>
-                                    <input type="file" onchange="preImg(this.id,'tranpic');" name="filepic"
-                                           id="checkpic"
-                                           style="display:none;">
-                                    <span id="checktranpic" style="color:red;"></span>
-                                </div>
-                                <div><input type="radio" name="dtype" value="zgzs"
-                                            style="margin-bottom: 10px"/>教师资格证书<br>
-                                    <p>公司请上传有年检的营业执照副本扫描件</p>
-                                    <p>教师请上传教师资格证书</p>
-                                    <p style="padding-top: 20px;">文件小于2M</p>
-                                    <p>支持JPG/PNG/BMP等格式图片</p>
-                                </div>
+                                <span style="float: left;padding-bottom: 20px;">&gt;&gt;仅差一步之遥</span>
                             </div>
                         </div>
-                        <div class="create-form-item clearfix">
-                            <div class="name fl">
-                                *身份证号：
-                            </div>
-                            <div class="create-form-con fl">
-                                <input placeholder="请输入身份证号码" type="text" id="idnumber" class="width3" name="idnumber"
-                                       value=""/>
-                                <span id="checkidnumber" style="color:red;"></span>
-                            </div>
-                        </div>
-                        <div class="create-form-item clearfix">
-                            <div class="name fl">
+                        <form:form class="create-form-item clearfix" action="personcomplete" method="post"
+                                   modelAttribute="ccinfo">
 
-                            </div>
-                            <div class="create-form-con fl">
-                                <div style="width: 200px;margin-right:10px;float:left">*身份证正面扫描件<br>
-                                    <img id="idzm"
-                                         src="${pageContext.request.contextPath }/dist/communityCreate/images/add.jpg"/>
-                                    <input type="file" onchange="preImg(this.id,'idzm');" name="filepic" id="idzmpic"
-                                           style="display:none;">
-                                    <span id="checkidzm" style="color:red;"></span>
-                                </div>
-                                <div style="width: 200px;margin-right:10px;float:left">*身份证反面扫描件<br>
-                                    <img id="idfm"
-                                         src="${pageContext.request.contextPath }/dist/communityCreate/images/add.jpg"/>
-                                    <input type="file" onchange="preImg(this.id,'idfm');" name="filepic" id="idfmpic"
-                                           style="display:none;">
-                                    <span id="checkidfm" style="color:red;"></span>
-                                </div>
-                                <div><br>
 
-                                    <p style="padding-top: 20px;">文件小于2M</p>
-                                    <p>支持JPG/PNG/BMP等格式图片</p>
+                            <div class="create-form-item clearfix">
+                                <div class="name fl">
+                                    电子邮箱：
+                                </div>
+                                <div class="create-form-con fl">
+                                    <form:input placeholder="选填" path="cemail" type="text" id="cemail" name="cemail"
+                                                class="width3" value=""/>
+                                    <span id="checkcemail" style="color:red;"></span>
+
                                 </div>
                             </div>
-                        </div>
+                            <div class="create-form-item clearfix">
+                                <div class="name fl">
+                                    联系电话：
+                                </div>
+                                <div class="create-form-con fl">
+                                    <form:input placeholder="选填" type="text" path="cphone"
+                                                id="cphone" name="cphone" class="width3" value=""/>
+                                    <span id="checkcphone" style="color:red;"></span>
 
-                        <div class="create-form-item clearfix">
-                            <div class="create-form-con fl">
-                                <div class="check">
-                                    <input type="checkbox" id="cbAgree" checked="checked"/>已阅读并同意
-                                    <a href="" target="_blank" style="color: #47c8fb">AWE社团规范</a>
-                                    <span id="checkagree" style="color:red;"></span>
                                 </div>
                             </div>
-                        </div>
+                            <div class="create-form-item clearfix">
+                                <div class="name fl">
+                                    QQ号码：
+                                </div>
+                                <div class="create-form-con fl">
+                                    <form:input placeholder="选填" type="text" path="cqq"
+                                                id="cqq" name="cqq" class="width3" value=""/>
+                                    <span id="checkccqq" style="color:red;"></span>
 
-                        <div class="create-form-item clearfix">
-                            <div class="create-form-con fl">
-                                <button id="formSubmit" type="submit" class="btn btn-m btn-blue"
-                                        style="border:none;width:120px;">下一步
-                                </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                            <div class="create-form-item clearfix">
+                                <div class="name fl">
+                                    社团标签：
+                                </div>
+                                <div class="create-form-con fl">
+                                    <form:input placeholder="选填" type="text" path="ccb"
+                                                id="ccb" name="ccb" class="width3" value=""/>
+                                    <span id="checkccb" style="color:red;"></span>
+
+                                </div>
+                            </div>
+                            <div class="create-form-item clearfix hint hide">
+                                <div class="name fl">
+                                    社团描述：
+                                </div>
+                                <div class="create-form-con fl">
+                                    <form:textarea class="width3" path="ccinfo" name="ccinfo" id="ccinfo" rows="3"
+                                                   style="overflow-Y:scroll;"
+                                                   placeholder="描述最多140个汉字，非必填"></form:textarea>
+                                </div>
+                            </div>
+                            <form:input path="ccname" type="hidden" name="ccname" value="${ccinfo.ccname}"/>
+                            <button type="submit" id="fSubmit" class="btn btn-m btn-blue"
+                                    style="float: left;   margin:20px; border:none;width:120px;">
+                                进入下一步
+                            </button>
+
+
+                            <span style="color: green;float: left;margin-top: 30px;">绿色网络，从我做起，亲们加油！！！</span>
+                        </form:form>
+
+
+                    </div>
+
+
+                    <div id="instcom" class="clearfix"
+                         style="display:none; width: 100%;height:970px;background: #fff;color: #000;padding: 40px">
+                        <form id="instcommit" action="instcomplete" method="post" enctype="multipart/form-data"
+                              class="create-form-item clearfix">
+                            <div class="create-form-item clearfix">
+                                <div class="name fl">
+                                    *公司/教师名称：
+                                </div>
+                                <div class="create-form-con fl">
+                                    <input placeholder="请填写公司或者教师名称，最多15个汉字，创建后名称不可修改" type="text" id="instName"
+                                           class="width3" name="instName" value=""/>
+                                    <span id="checkname" style="color:red;"></span>
+                                    <input id="ccname" name="ccname" type="hidden" value="${ccinfo.ccname}">
+
+                                </div>
+                            </div>
+
+                            <div class="create-form-item clearfix" style="margin-top:0px">
+                                <div class="name fl">
+
+                                </div>
+                                <div class="create-form-con fl">
+
+                                    <div style="width: 200px;float:left">
+                                        <input type="radio" name="dtype" checked value="yyzz"
+                                               style="margin-bottom: 10px"/>我的营业执照<br>
+                                        <img id="tranpic"
+                                             src="${pageContext.request.contextPath }/dist/communityCreate/images/add.jpg"
+                                             style="height: 117px; width: 177px;"/>
+                                        <input type="file" onchange="preImg(this.id,'tranpic');" name="filepic"
+                                               id="checkpic"
+                                               style="display:none;">
+                                        <span id="checktranpic" style="color:red;"></span>
+                                    </div>
+                                    <div><input type="radio" name="dtype" value="zgzs" style="margin-bottom: 10px"/>教师资格证书<br>
+                                        <p>公司请上传有年检的营业执照副本扫描件</p>
+                                        <p>教师请上传教师资格证书</p>
+                                        <p style="padding-top: 20px;">文件小于2M</p>
+                                        <p>支持JPG/PNG/BMP等格式图片</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="create-form-item clearfix">
+                                <div class="name fl">
+                                    *身份证号：
+                                </div>
+                                <div class="create-form-con fl">
+                                    <input placeholder="请输入身份证号码" type="text" id="idnumber" class="width3"
+                                           name="idnumber"
+                                           value=""/>
+                                    <span id="checkidnumber" style="color:red;"></span>
+                                </div>
+                            </div>
+                            <div class="create-form-item clearfix">
+                                <div class="name fl">
+
+                                </div>
+                                <div class="create-form-con fl">
+                                    <div style="width: 200px;margin-right:10px;float:left">*身份证正面扫描件<br>
+                                        <img id="idzm" style="height: 117px; width: 177px;"
+                                             src="${pageContext.request.contextPath }/dist/communityCreate/images/add.jpg"/>
+                                        <input type="file" onchange="preImg(this.id,'idzm');" name="filepic"
+                                               id="idzmpic"
+                                               style="display:none;">
+                                        <span id="checkidzm" style="color:red;"></span>
+                                    </div>
+                                    <div style="width: 200px;margin-right:10px;float:left">*身份证反面扫描件<br>
+                                        <img id="idfm" style="height: 117px; width: 177px;"
+                                             src="${pageContext.request.contextPath }/dist/communityCreate/images/add.jpg"/>
+                                        <input type="file" onchange="preImg(this.id,'idfm');" name="filepic"
+                                               id="idfmpic"
+                                               style="display:none;">
+                                        <span id="checkidfm" style="color:red;"></span>
+                                    </div>
+                                    <div><br>
+
+                                        <p style="padding-top: 20px;">文件小于2M</p>
+                                        <p>支持JPG/PNG/BMP等格式图片</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="create-form-item clearfix">
+                                <div class="name fl">
+                                    电子邮箱：
+                                </div>
+                                <div class="create-form-con fl">
+                                    <input placeholder="选填" type="text"
+                                           id="cemail2" name="cemail" class="width3" value=""/>
+                                    <span id="checkcemail2" style="color:red;"></span>
+
+                                </div>
+                            </div>
+                            <div class="create-form-item clearfix">
+                                <div class="name fl">
+                                    联系电话：
+                                </div>
+                                <div class="create-form-con fl">
+                                    <input placeholder="选填" type="text"
+                                           id="cphone2" name="cphone" class="width3" value=""/>
+                                    <span id="checkcphone2" style="color:red;"></span>
+
+                                </div>
+                            </div>
+                            <div class="create-form-item clearfix">
+                                <div class="name fl">
+                                    QQ号码：
+                                </div>
+                                <div class="create-form-con fl">
+                                    <input placeholder="选填" type="text"
+                                           id="cqq2" name="cqq" class="width3" value=""/>
+                                    <span id="checkccqq2" style="color:red;"></span>
+
+                                </div>
+                            </div>
+                            <div class="create-form-item clearfix">
+                                <div class="name fl">
+                                    社团标签：
+                                </div>
+                                <div class="create-form-con fl">
+                                    <input placeholder="选填" type="text"
+                                           id="ccb2" name="ccb" class="width3" value=""/>
+                                    <span id="checkccb2" style="color:red;"></span>
+
+                                </div>
+                            </div>
+                            <div class="create-form-item clearfix hint hide">
+                                <div class="name fl">
+                                    社团描述：
+                                </div>
+                                <div class="create-form-con fl">
+                                    <textarea class="width3" name="ddinfo " id="ddinfo" rows="3"
+                                              style="overflow-Y:scroll;" placeholder="描述最多140个汉字，非必填"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="create-form-item clearfix">
+                                <div class="create-form-con fl">
+                                    <div class="check">
+                                        <input type="checkbox" id="cbAgree" checked="checked"/>已阅读并同意
+                                        <a href="" target="_blank" style="color: #47c8fb">AWE社团规范</a>
+                                        <span id="checkagree" style="color:red;"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="create-form-item clearfix">
+                                <div class="create-form-con fl">
+                                    <button id="formSubmit" type="submit" class="btn btn-m btn-blue"
+                                            style="border:none;width:120px;">下一步
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -218,7 +341,8 @@
             //or $('#id').attr('src','a.png');
             document.getElementById('inst').src = '${pageContext.request.contextPath }/dist/communityCreate/images/checked_grey.jpg';
             //or $('#id').attr('src','b.png');
-
+            document.getElementById('common').style.display = "block";
+            document.getElementById('instcom').style.display = "none";
         });
 
         $("#inst").click(function () {
@@ -226,7 +350,8 @@
             //or $('#id').attr('src','a.png');
             document.getElementById('inst').src = '${pageContext.request.contextPath }/dist/communityCreate/images/checked.jpg';
             //or $('#id').attr('src','b.png');
-
+            document.getElementById('common').style.display = "none";
+            document.getElementById('instcom').style.display = "block";
         })
     })
 </script>
@@ -274,7 +399,7 @@
         });
         $("#idfm").click(function () {
             $("#idfmpic").click();
-        })
+        });
         $("#formSubmit").click(function () {
             if ($("#checkname").text() != '') {
                 return false
@@ -300,7 +425,7 @@
                 $("#checkagree").text("请阅读并同意社团规范");
                 return false
             } else if ($("#ccuid").val() == 0) {
-                alert("请登录！")
+                alert("请登录！");
                 return false
             }
             return true;
@@ -335,7 +460,7 @@
             $("#checkidnumber").text('');
             checkCard();
         })
-    })
+    });
     checkCard = function () {
 
         var card = document.getElementById('idnumber').value;
@@ -370,7 +495,7 @@
             return false;
         }
         return true;
-    }
+    };
 
 
     //检查号码是否符合规范，包括长度，类型
@@ -441,8 +566,8 @@
         card = changeFivteenToEighteen(card);
         var len = card.length;
         if (len == '18') {
-            var arrInt = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);
-            var arrCh = new Array('1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2');
+            var arrInt = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+            var arrCh = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'];
             var cardTemp = 0, i, valnum;
             for (i = 0; i < 17; i++) {
                 cardTemp += card.substr(i, 1) * arrInt[i];
@@ -458,8 +583,8 @@
     //15位转18位身份证号
     changeFivteenToEighteen = function (card) {
         if (card.length == 15) {
-            var arrInt = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);
-            var arrCh = new Array('1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2');
+            var arrInt = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+            var arrCh = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'];
             var cardTemp = 0, i;
             card = card.substr(0, 6) + '19' + card.substr(6, card.length - 6);
             for (i = 0; i < 17; i++) {

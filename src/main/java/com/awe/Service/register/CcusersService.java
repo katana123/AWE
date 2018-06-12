@@ -15,14 +15,19 @@ public class CcusersService {
     @Autowired
     private ccusersRepositry ccusersRepositry;
 
-    @Transactional(readOnly = true)
+    /*@Transactional(readOnly = true)
     public int getCuidbyCusername(String cusername){
         return ccusersRepositry.getCuidbyCusername(cusername);
-    }
+    }*/
 
     @Transactional(readOnly = true)
     public CCusers getByCupn(String cupn) {
         return ccusersRepositry.getByCupn(cupn);
+    }
+
+    @Transactional(readOnly = true)
+    public int getCuidbyCusername(String cuserName) {
+        return ccusersRepositry.getCuidbyCusername(cuserName);
     }
 
     @Transactional(readOnly = true)

@@ -105,17 +105,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!--
-                                            <div class="create-form-item clearfix hint hide">
-                                                <div class="name fl">
-                                                    申请提示：
-                                                </div>
-                                                <div class="create-form-con fl">
-                                                    <input type="text" maxlength="140" class="width2" placeholder="描述最多140个汉字，非必填" id="applyHint" name="leagueTag" value="">
-                                                </div>
-                                            </div>
 
-                        -->
+
                         <div class="create-form-item clearfix">
                             <div class="name fl">
                                 图标：
@@ -280,7 +271,7 @@
                 $("#checkagree").text("请阅读并同意社团规范");
                 return false
             } else if ($("#ccuid").val() == 0) {
-                alert("请登录！")
+                alert("请登录！");
                 return false
             }
 

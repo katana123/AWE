@@ -37,11 +37,7 @@ public class CreateHandler {
     @RequestMapping(value = "/ajaxValidateCcname", method = RequestMethod.POST)
     public boolean validateCcname(@RequestParam(value = "nick", required = true) String ccname) {
         CCinfo cCinfo = createService.getByCcname(ccname);
-        if (null == cCinfo) {
-            return true;
-        } else {
-            return false;
-        }
+        return null == cCinfo;
     }
 
 
@@ -49,8 +45,7 @@ public class CreateHandler {
     @RequestMapping(value = "/createSetup", method = RequestMethod.POST)
     private String fildUpload(CCinfo ccinfo, Map<String, Object> map, @RequestParam(value = "CClpa", required = false) MultipartFile file,
                               HttpServletRequest request) throws Exception {
-        //基本表单
-        System.out.println(ccinfo.toString());
+
 
         //获得物理路径webapp所在路径
         String pathRoot = request.getSession().getServletContext().getRealPath("");
@@ -82,7 +77,9 @@ public class CreateHandler {
                 System.out.println("新增数据异常exception");
             }
         }
-        map.put("ccname", ccinfo.getCcname());
+        // map.put("ccinfo",createService.getByCcname(ccinfo.getCcname()));
+        map.put("ccinfo", ccinfo);
+
         return "/communityCreate/checked";
     }
 
@@ -94,10 +91,13 @@ public class CreateHandler {
                                @RequestParam("ccname") String ccname,
                                @RequestParam("dtype") String dtype,
                                @RequestParam("idnumber") String cidnum,
+                               @RequestParam("cemail") String cemail,
+                               @RequestParam("cphone") String cphone,
+                               @RequestParam("cqq") String cqq,
+                               @RequestParam("ccb") String ccb,
+                               @RequestParam("ddinfo") String ddinfo,
                                HttpServletRequest request) throws Exception {
-        //基本表单
-        // System.out.println(ccinfo.toString());
-        //获得物理路径webapp所在路径
+
         String pathRoot = request.getSession().getServletContext().getRealPath("");
         String path = "";
         List<String> listImagePath = new ArrayList<String>();
@@ -117,7 +117,8 @@ public class CreateHandler {
 
         }
         ccinfo = createService.getByCcname(ccname);
-        if (dtype == "yyzz") {   //机构
+        if (dtype.equals("yyzz")) {   //机构
+
             ccinfo.setCbca(listImagePath.get(0));
             ccinfo.setCccname(cccname);
             ccinfo.setCct("3");
@@ -125,12 +126,16 @@ public class CreateHandler {
             ccinfo.setClla(listImagePath.get(0));
             ccinfo.setClname(cccname);
             ccinfo.setCct("2");
+
         }
         ccinfo.setCidfa(listImagePath.get(1));
         ccinfo.setCidba(listImagePath.get(2));
         ccinfo.setCidnum(cidnum);
-
-
+        ccinfo.setCemail(cemail);
+        ccinfo.setCphone(cphone);
+        ccinfo.setCqq(cqq);
+        ccinfo.setCcb(ccb);
+        ccinfo.setCcinfo(ddinfo);
         try {
             createService.update(ccinfo);
         } catch (Exception exception) {
@@ -143,9 +148,16 @@ public class CreateHandler {
 
     //创建社区审核geren
     @RequestMapping(value = "/personcomplete", method = RequestMethod.POST)
-    public String Createcheck(@RequestParam(value = "ccname", required = true) String ccname) {
-        CCinfo ccinfo = createService.getByCcname(ccname);
-        createService.updatecct("1", ccinfo.getCcid());
+    public String Createcheck(CCinfo ccinfo) {
+        CCinfo ccinfo1 = createService.getByCcname(ccinfo.getCcname());
+
+        ccinfo1.setCct("1");
+        ccinfo1.setCemail(ccinfo.getCemail());
+        ccinfo1.setCphone(ccinfo.getCphone());
+        ccinfo1.setCqq(ccinfo.getCqq());
+        ccinfo1.setCcb(ccinfo.getCcb());
+        ccinfo1.setCcinfo(ccinfo.getCcinfo());
+        createService.update(ccinfo1);
         return "/communityCreate/complete";
     }
 
@@ -154,10 +166,6 @@ public class CreateHandler {
     @RequestMapping(value = "/ajaxInstCccname", method = RequestMethod.POST)
     public boolean validateInstCccname(@RequestParam(value = "nick", required = true) String cccname) {
         CCinfo cCinfo = createService.getByCccname(cccname);
-        if (null == cCinfo) {
-            return true;
-        } else {
-            return false;
-        }
+        return null == cCinfo;
     }
 }

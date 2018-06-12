@@ -340,7 +340,13 @@
         他，小雨，非常完美
     </div>
     <div class="m-btn f-cb" style="margin: 10px;">
-        <a href="${pageContext.request.contextPath }/institutionData/${community.ccid}" class="m-btn-new">学社管理</a>
+        <div style="width:100%;height:50px;">
+            <a href="${pageContext.request.contextPath }/informationManagement/${community.ccid}"
+               class="m-btn-new">学社管理</a>
+        </div>
+        <div>
+            <a href="${pageContext.request.contextPath }/institutionData/${community.ccid}" class="m-btn-new">机构管理</a>
+        </div>
         <span style="font-size: 11px;
     vertical-align: bottom;
     display: flex;

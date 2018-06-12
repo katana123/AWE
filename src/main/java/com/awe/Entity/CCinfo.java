@@ -64,6 +64,7 @@ public class CCinfo {
         this.ccl = ccl;
     }
 
+
     public String getCct() {
         return cct;
     }
@@ -71,6 +72,7 @@ public class CCinfo {
     public void setCct(String cct) {
         this.cct = cct;
     }
+
 
     public String getCcp() {
         return ccp;
