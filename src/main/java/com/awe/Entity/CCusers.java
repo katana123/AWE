@@ -2,6 +2,7 @@ package com.awe.Entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -26,6 +27,16 @@ public class CCusers {
   private String cemail;
   private long ccid;
   private long cqqid;
+    private Collection<CUlink> cUlink = new ArrayList<>();
+
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER, mappedBy = "cCusers")
+    public Collection<CUlink> getcUlink() {
+        return cUlink;
+    }
+
+    public void setcUlink(Collection<CUlink> cUlink) {
+        this.cUlink = cUlink;
+    }
 
   @GeneratedValue
   @Id
@@ -181,28 +192,26 @@ public class CCusers {
     this.cqqid = cqqid;
   }
 
-  @Override
-  public String toString() {
-    return "CCusers{" +
-            "cuid=" + cuid +
-            ", cusername='" + cusername + '\'' +
-            ", cpwd='" + cpwd + '\'' +
-            ", cimei='" + cimei + '\'' +
-            ", cimsi='" + cimsi + '\'' +
-            ", cxlh='" + cxlh + '\'' +
-            ", cright='" + cright + '\'' +
-            ", cud='" + cud + '\'' +
-            ", cuname='" + cuname + '\'' +
-            ", cupn='" + cupn + '\'' +
-            ", cidc='" + cidc + '\'' +
-            ", cunit='" + cunit + '\'' +
-            ", cmos=" + cmos +
-            ", cssid=" + cssid +
-            ", cemail='" + cemail + '\'' +
-            ", ccid=" + ccid +
-            ", cqqid=" + cqqid +
-            '}';
-  }
-
-
+    @Override
+    public String toString() {
+        return "CCusers{" +
+                "cuid=" + cuid +
+                ", cusername='" + cusername + '\'' +
+                ", cpwd='" + cpwd + '\'' +
+                ", cimei='" + cimei + '\'' +
+                ", cimsi='" + cimsi + '\'' +
+                ", cxlh='" + cxlh + '\'' +
+                ", cright='" + cright + '\'' +
+                ", cud='" + cud + '\'' +
+                ", cuname='" + cuname + '\'' +
+                ", cupn='" + cupn + '\'' +
+                ", cidc='" + cidc + '\'' +
+                ", cunit='" + cunit + '\'' +
+                ", cmos=" + cmos +
+                ", cssid=" + cssid +
+                ", cemail='" + cemail + '\'' +
+                ", ccid=" + ccid +
+                ", cqqid=" + cqqid +
+                '}';
+    }
 }

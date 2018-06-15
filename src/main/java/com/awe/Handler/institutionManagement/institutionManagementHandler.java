@@ -5,11 +5,13 @@ import com.alibaba.fastjson.JSONArray;
 import com.awe.Data.CommunityMembers;
 import com.awe.Data.InstitutionMembers;
 import com.awe.Entity.CCinfo;
+import com.awe.Entity.CCusers;
 import com.awe.Entity.CUlink;
 import com.awe.Entity.IResources;
 import com.awe.Service.community.CommunityService;
 import com.awe.Service.register.CcusersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,7 +41,7 @@ public class institutionManagementHandler {
             }
         } catch (Exception e) {
         }
-        List<IResources> page = communityService.findAllResourcesByCcid(Long.valueOf(ccid));
+        Page<IResources> page = communityService.findAllResourcesByCcid(pageNo - 1, 5, Long.valueOf(ccid));
         CCinfo cCinfo = communityService.get(ccid);
         map.put("iResources", page);
         map.put("community", cCinfo);
@@ -47,7 +49,7 @@ public class institutionManagementHandler {
         return "/institutionManagement/dataManagement";
     }
 
-    //权限设置页面下方列表显示
+    /*//权限设置页面下方列表显示
     @ResponseBody
     @RequestMapping(value = "/ajaxShowAuthorityMember", method = RequestMethod.POST)
     public String AuthorityNumAndMember(@RequestParam(value = "ccid", required = true) Long ccid,
@@ -68,10 +70,10 @@ public class institutionManagementHandler {
     public String AuthoritySetting(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map) {
         CCinfo cCinfo = communityService.get(ccid);
         map.put("community", cCinfo);
-        /*List<InstitutionMembers> InstitutionMembers = communityService.findInstitutionMembers(ccid);
+        *//*List<InstitutionMembers> InstitutionMembers = communityService.findInstitutionMembers(ccid);
         map.put("members", InstitutionMembers);
         BigInteger membernum = communityService.membernum(Long.valueOf(ccid));
-        map.put("membercount", membernum);*/
+        map.put("membercount", membernum);*//*
         map.put("pageno", 3);
         return "/institutionManagement/authoritySetting";
     }
@@ -107,15 +109,15 @@ public class institutionManagementHandler {
                 return "2";
             }
         }
-    }
+    }*/
 
     //机构成员页面
     @RequestMapping(value = "/institutionMembers/{ccid}", method = RequestMethod.GET)
     public String InstitutionMembers(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map) {
         CCinfo cCinfo = communityService.get(ccid);
         map.put("community", cCinfo);
-        List<InstitutionMembers> InstitutionMembers = communityService.findInstitutionMembers(ccid);
-        map.put("InstitutionMembers", InstitutionMembers);
+        Page<CCusers> InstitutionMembers = communityService.findInstitutionMembers(1, 1, ccid);
+        map.put("page", InstitutionMembers);
         BigInteger membernum = communityService.membernum(Long.valueOf(ccid));
         map.put("membercount", membernum);
         map.put("pageno", 2);

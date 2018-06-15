@@ -11,7 +11,7 @@ public class CUlink {
 
     private long id;
     private long ccid;
-    private long cuid;
+    private CCusers cCusers;
     private long roleid;
     private Date jointime;
 
@@ -33,12 +33,14 @@ public class CUlink {
         this.ccid = ccid;
     }
 
-    public long getCuid() {
-        return cuid;
+    @JoinColumn(name = "cuid")//加入一列作为外键
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    public CCusers getcCusers() {
+        return cCusers;
     }
 
-    public void setCuid(long cuid) {
-        this.cuid = cuid;
+    public void setcCusers(CCusers cCusers) {
+        this.cCusers = cCusers;
     }
 
     public long getRoleid() {
@@ -63,7 +65,7 @@ public class CUlink {
         return "CUlink{" +
                 "id=" + id +
                 ", ccid=" + ccid +
-                ", cuid=" + cuid +
+                ", cCusers=" + cCusers +
                 ", roleid=" + roleid +
                 ", jointime=" + jointime +
                 '}';

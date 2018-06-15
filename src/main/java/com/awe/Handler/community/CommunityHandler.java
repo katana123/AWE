@@ -40,10 +40,10 @@ public class CommunityHandler {
         return "/communityMainpage/mainpage";
     }
 
-    @RequestMapping("/testLink")
+    /*@RequestMapping("/testLink")
     public String TestLink(Map<String, Object> map) {
         List<InstitutionMembers> InstitutionMembers = communityService.findInstitutionMembers(2);
         map.put("InstitutionMembers", InstitutionMembers);
         return "/test/testLink";
-    }
+    }*/
 }

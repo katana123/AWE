@@ -75,8 +75,9 @@
                 <span class="level_no" data-value="11">等级</span> <span class="rank_num" data-value="13">经验值</span> <span
                         class="join_date" data-value="5">入社时间</span> <span class="last_post" data-value="7">操作</span>
             </li>
-            <div id="linkedmembers">
-                <c:forEach items="${InstitutionMembers}" var="InstitutionMembers" varStatus="i">
+            aaa<c:out value="${page.content}"/>aaa
+            <%--<div id="linkedmembers">
+                <c:forEach items="${page.content}" var="InstitutionMembers" varStatus="i">
                     <c:choose>
                         <c:when test="${i.index % 2 == 0}">
                             <li class="odd">
@@ -100,19 +101,19 @@
                         <span class="header_icon">
                             <img src="${pageContext.request.contextPath }/dist/institutionManagement/images/user_list.jpg" alt="">
                         </span>
-                        <span class="ellipsis_text">${InstitutionMembers[1]}</span>
+                        <span class="ellipsis_text">${InstitutionMembers.cusername}</span>
                     </a>
                     <span class="member_nickName"></span>
-                    <span class="month_reply">${InstitutionMembers[2]}</span>
-                    <span class="month_check">${InstitutionMembers[3]}</span>
+                    <span class="month_reply">${InstitutionMembers.cqqid}</span>
+                    <span class="month_check">${InstitutionMembers.cupn}</span>
                     <span class="level_no">2</span>
                     <span class="rank_num">0</span>
-                    <span class="join_date">${InstitutionMembers[4]}</span>
-                    <span class="last_post"><a href="javascript:;">编辑</a> <a href="javascript:;" onclick="deleteMember(${InstitutionMembers[0]}, ${ccid}, '${InstitutionMembers[1]}'
+                    <span class="join_date">${InstitutionMembers.jointime}</span>
+                    <span class="last_post"><a href="javascript:;">编辑</a> <a href="javascript:;" onclick="deleteMember(${InstitutionMembers.cuid}, ${ccid}, '${InstitutionMembers.cusername}'
                             )">删除</a></span>
                     </li>
                 </c:forEach>
-            </div>
+            </div>--%>
         </ul>
     </div>
 </div>

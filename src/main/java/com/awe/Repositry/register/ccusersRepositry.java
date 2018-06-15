@@ -3,6 +3,10 @@ package com.awe.Repositry.register;
 import com.awe.Data.InstitutionMembers;
 import com.awe.Entity.CCusers;
 import com.awe.Data.CommunityMembers;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
@@ -28,6 +32,11 @@ public interface ccusersRepositry extends JpaRepository<CCusers, Integer>, JpaSp
     List<CCusers> getByCusernameAndCpwd(String cuserName, String cPwd);
 
     CCusers getByCupn(String cupn);
+
+    /*@Query(value = "select u.cuid,u.cusername,u.cqqid,u.cupn,cu.jointime "
+            +"from c_cusers u right join c_ulink cu on u.cuid = cu.cuid where cu.roleid>1 and cu.ccid =?1 order by u.cuid group by u", nativeQuery = true)*/
+    @Override
+    Page<CCusers> findAll(Specification<CCusers> cCusersSpecification, Pageable pageable);
 
     @Query(value = "select u.cuid,u.cusername,u.cqqid,u.cupn,cu.jointime from c_cusers u right join c_ulink cu on u.cuid = cu.cuid where cu.roleid>1 and cu.ccid =?1", nativeQuery = true)
     List<InstitutionMembers> findInstitutionMembers(Integer ccid);

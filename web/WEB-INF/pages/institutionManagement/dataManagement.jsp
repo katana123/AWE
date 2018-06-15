@@ -29,19 +29,20 @@
     <br/>
     <br/>
     <br/>
-    <div class="course_input f-fl" style="width: 100%;">
-        <input class="f-fl" type="text" name="course_name" placeholder="搜索资料">
-        <a class="f-fl scsp" href="javascript:;">搜索资料</a>
+    <div class="course_input f-fl" style="width: 100%;margin-bottom: 10px;">
+        <input class="f-fl form-control" style="height: 32px;margin-top: 1px;" type="text" name="course_name"
+               placeholder="搜索资料">
+        <a class="f-fl btn btn-default" style="margin-left: 10px;" href="javascript:;">搜索资料</a>
         <form action="${pageContext.request.contextPath }/upload/${ccid}" enctype="multipart/form-data" method="post">
-            <input class="f-fl" type="file" name="file" style="border: none;">
-            <button class="f-fl" type="submit" style="padding-bottom: 2px;">上传</button>
+            <input class="f-fl btn" type="file" name="file" style="border: none;">
+            <button class="f-fl btn btn-default" type="submit">上传</button>
         </form>
         <div style="clear: both;"></div>
     </div>
 
 </div>
 
-<div class="mainpage">
+<div class="mainpage" style="padding: 0 12px;">
     <table class="course_table2">
         <thead>
         <th width="50%">文件名</th>
@@ -49,7 +50,7 @@
         <th>操作</th>
         </thead>
         <tbody>
-        <c:forEach items="${iResources}" var="res">
+        <c:forEach items="${iResources.content}" var="res">
             <tr bgcolor="#fff">
                 <td>
                     <img class="f-fl coursepic"
@@ -69,22 +70,57 @@
         </c:forEach>
         </tbody>
     </table>
-    <div id="page" style="margin-top: 100px;"></div>
-    <script src="${pageContext.request.contextPath }/dist/institutionJManagement/js/jquery.min.js"></script>
-    <script type="text/javascript"
-            src="${pageContext.request.contextPath }/dist/institutionJManagement/js/jquery.page.js"></script>
-    <%--<script type="text/javascript">
-        $(function () {
-            $("#page").Page({
-                totalPages: ${page.totalPages},//分页总数
-                liNums: ${page.totalPages},//分页的数字按钮数(建议取奇数)
-                activeClass: 'activP', //active 类样式定义
-                callBack: function (page) {
-                    //console.log(page)
-                }
-            });
-        })
-    </script>--%>
+
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <c:choose>
+                <c:when test="${iResources.isFirstPage() == true}">
+                    <li class="disabled">
+                        <a href="javascript:void(0);" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li>
+                        <a href="?pageNo=${iResources.number- 1}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+            <c:forEach var="li" begin="1" end="${iResources.totalPages }">
+                <c:choose>
+                    <c:when test="${iResources.number+1 == li}">
+                        <li class="active"><a href="?pageNo=${li}">${li}</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><a href="?pageNo=${li}">${li}</a></li>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+
+            <c:choose>
+                <c:when test="${iResources.isLastPage() == true}">
+                    <li class="disabled">
+                        <a href="javascript:void(0);" aria-label="Previous">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li>
+                        <a href="?pageNo=${iResources.number + 1 + 1}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+        </ul>
+    </nav>
+
+
 </div>
 </div>
 
