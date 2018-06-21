@@ -37,14 +37,19 @@
                 <a class="g-logo" href=""><img
                         src="${pageContext.request.contextPath }/dist/institutionJManagement/images_common/logo2.jpg"></a>
 
-                <ul class="g-login" style="float:right">
-                    <li><a href="">登录</a></li>
-                    <li><span>|</span></li>
-                    <li><a href="">注册</a></li>
-                    <li><span>|</span></li>
-                    <li><a href="">学社</a></li>
-                    <div class="f-cb"></div>
-                    <li><a class="login-sucess" href="">登陆成功用户</a></li>
+                <ul class="g-login" style="float: right;">
+                    <c:choose>
+                        <c:when test="${cookie.userlogin.value == null || cookie.userlogin.value == '' }">
+                            <li><a href="${pageContext.request.contextPath }/login"> 登录</a>|</li>
+                            <li><a href="${pageContext.request.contextPath }/register"> 注册</a>|</li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><span>${cookie.userlogin.value }&nbsp;</span>|</li>
+                            <li><a href="logout">退出登录</a>&nbsp;|</li>
+                        </c:otherwise>
+                    </c:choose>
+
+                    <li><a href=""> 社区</a></li>
                 </ul>
             </div>
         </div>
@@ -105,7 +110,7 @@
         <li class="active"><a href="${pageContext.request.contextPath }/dataManagement/${ccid}">课教管理</a></li>
         <li><a href="发布管理_主页设置.html">发布管理</a></li>
         <li>销财管理</li>
-        <li><a href="个人中心.html">个人中心</a></li>
+        <li><a href="${pageContext.request.contextPath }/personalCenter/${ccid}">个人中心</a></li>
     </ul>
     <div class="f-cb"></div>
     <hr style="border:none;border-bottom:2px solid #e4e4e3;height: 0;margin: 0 25px 5px 25px;"/>

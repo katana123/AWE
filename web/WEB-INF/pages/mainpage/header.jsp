@@ -108,7 +108,7 @@
             </c:choose>
 
             <li><a href=""> 社区</a></li>
-            <ul>
+        </ul>
     </div>
     <div class="g-hd">
         <ul class="m-nav f-cb g-w1200">

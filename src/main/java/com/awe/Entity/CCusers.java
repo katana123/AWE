@@ -28,6 +28,50 @@ public class CCusers {
   private long ccid;
   private long cqqid;
     private Collection<CUlink> cUlink = new ArrayList<>();
+    private String district;
+    private String breifIntro;
+
+    @Override
+    public String toString() {
+        return "CCusers{" +
+                "cuid=" + cuid +
+                ", cusername='" + cusername + '\'' +
+                ", cpwd='" + cpwd + '\'' +
+                ", cimei='" + cimei + '\'' +
+                ", cimsi='" + cimsi + '\'' +
+                ", cxlh='" + cxlh + '\'' +
+                ", cright='" + cright + '\'' +
+                ", cud='" + cud + '\'' +
+                ", cuname='" + cuname + '\'' +
+                ", cupn='" + cupn + '\'' +
+                ", cidc='" + cidc + '\'' +
+                ", cunit='" + cunit + '\'' +
+                ", cmos=" + cmos +
+                ", cssid=" + cssid +
+                ", cemail='" + cemail + '\'' +
+                ", ccid=" + ccid +
+                ", cqqid=" + cqqid +
+                ", cUlink=" + cUlink +
+                ", district='" + district + '\'' +
+                ", breifIntro='" + breifIntro + '\'' +
+                '}';
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getBreifIntro() {
+        return breifIntro;
+    }
+
+    public void setBreifIntro(String breifIntro) {
+        this.breifIntro = breifIntro;
+    }
 
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER, mappedBy = "cCusers")
     public Collection<CUlink> getcUlink() {
@@ -192,26 +236,4 @@ public class CCusers {
     this.cqqid = cqqid;
   }
 
-    @Override
-    public String toString() {
-        return "CCusers{" +
-                "cuid=" + cuid +
-                ", cusername='" + cusername + '\'' +
-                ", cpwd='" + cpwd + '\'' +
-                ", cimei='" + cimei + '\'' +
-                ", cimsi='" + cimsi + '\'' +
-                ", cxlh='" + cxlh + '\'' +
-                ", cright='" + cright + '\'' +
-                ", cud='" + cud + '\'' +
-                ", cuname='" + cuname + '\'' +
-                ", cupn='" + cupn + '\'' +
-                ", cidc='" + cidc + '\'' +
-                ", cunit='" + cunit + '\'' +
-                ", cmos=" + cmos +
-                ", cssid=" + cssid +
-                ", cemail='" + cemail + '\'' +
-                ", ccid=" + ccid +
-                ", cqqid=" + cqqid +
-                '}';
-    }
 }

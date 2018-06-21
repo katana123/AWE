@@ -687,7 +687,8 @@
                         <em>发布管理</em></a></li>
                     <li class="article_mall"><a href="#" title="销财管理">
                         <em>销财管理</em></a></li>
-                    <li class="article_mall"><a href="../机构管理2/个人中心.html" title="个人中心">
+                    <li class="article_mall"><a href="${pageContext.request.contextPath }/personalCenter/${ccid}"
+                                                title="个人中心">
                         <em>个人中心</em></a></li>
                 </ul>
             </div>

@@ -19,6 +19,12 @@ public class CcusersService {
     public int getCuidbyCusername(String cusername){
         return ccusersRepositry.getCuidbyCusername(cusername);
     }*/
+    @Transactional
+    public void save(CCusers cCusers) {
+        cCusers.setCidc("0");
+        cCusers.setCright("0");
+        ccusersRepositry.saveAndFlush(cCusers);
+    }
 
     @Transactional(readOnly = true)
     public CCusers getByCupn(String cupn) {

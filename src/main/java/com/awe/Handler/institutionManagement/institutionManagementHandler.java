@@ -15,6 +15,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +29,35 @@ public class institutionManagementHandler {
     private CommunityService communityService;
     @Autowired
     private CcusersService ccusersService;
+
+    /*-----------个人中心start----------*/
+    //个人中心修改
+    @RequestMapping(value = "/personalCenterModify/{ccid}/{cuid}", method = RequestMethod.POST)
+    public String PersonalCenterModify(@PathVariable(value = "ccid", required = true) Integer ccid, CCusers cCusers, Map<String, Object> map) {
+        CCinfo cCinfos = communityService.get(ccid);
+        map.put("community", cCinfos);
+        ccusersService.save(cCusers);
+        return "redirect:/personalCenter/{ccid}";
+    }
+
+    @RequestMapping(value = "/personalCenter/{ccid}", method = RequestMethod.GET)
+    public String PersonalCenter(@PathVariable(value = "ccid", required = true) Integer ccid, Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
+        Cookie[] cookies = request.getCookies();
+        CCusers cCusers = null;
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("userlogin")) {
+                String cookiename = cookie.getValue();
+                cCusers = ccusersService.getByCusername(cookiename);
+            }
+        }
+        CCinfo cCinfos = communityService.get(ccid);
+        map.put("community", cCinfos);
+        map.put("cCusers", cCusers);
+        map.put("pageno", 7);
+        return "/institutionManagement/personalCenter";
+    }
+    /*-----------个人中心end----------*/
+
 
     /*-----------机构管理start----------*/
     //资料管理页面
